@@ -1,0 +1,63 @@
+<?php
+
+namespace TRC\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Etat
+ *
+ * @ORM\Table(name="etat")
+ * @ORM\Entity(repositoryClass="TRC\CoreBundle\Repository\EtatRepository")
+ */
+class Etat Extends Phase
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Phase",cascade={"remove", "persist"})
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $phase;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set phase
+     *
+     * @param \TRC\CoreBundle\Entity\Phase $phase
+     *
+     * @return Etat
+     */
+    public function setPhase(\TRC\CoreBundle\Entity\Phase $phase)
+    {
+        $this->phase = $phase;
+
+        return $this;
+    }
+
+    /**
+     * Get phase
+     *
+     * @return \TRC\CoreBundle\Entity\Phase
+     */
+    public function getPhase()
+    {
+        return $this->phase;
+    }
+}

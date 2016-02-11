@@ -1,0 +1,7 @@
+trc_admin_homepage:
+    path:     /admin
+    defaults: { _controller: TRCAdminBundle:Default:index }
+
+trc_admin_utilisateurs:
+    path:     /admin/utilisateurs
+    defaults: { _controller: TRCAdminBundle:Utilisateurs:utilisateurs }

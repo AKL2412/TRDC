@@ -1,0 +1,3 @@
+trc_core_homepage:
+    path:     /
+    defaults: { _controller: TRCCoreBundle:Default:index }
