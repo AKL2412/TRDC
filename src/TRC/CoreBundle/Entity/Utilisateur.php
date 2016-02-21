@@ -3,7 +3,7 @@
 namespace TRC\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\File;
 /**
  * Utilisateur
  *
@@ -38,6 +38,13 @@ class Utilisateur
     /**
      * @var string
      *
+     * @ORM\Column(name="matricule", type="string", length=100,unique=true)
+     */
+    private $matricule;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="prenom", type="string", length=255)
      */
     private $prenom;
@@ -56,12 +63,6 @@ class Utilisateur
      */
     private $image;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mp", type="string", length=255,nullable = true)
-     */
-    private $mp;
 
     /**
      * @var string
@@ -93,11 +94,15 @@ class Utilisateur
     public function __construct(){
 
         $this->active = true;
+        $this->dateajout = new \DateTime();
+        $this->image = new File('img/default.png');
     }
+    
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -150,6 +155,30 @@ class Utilisateur
     public function getCin()
     {
         return $this->cin;
+    }
+
+    /**
+     * Set matricule
+     *
+     * @param string $matricule
+     *
+     * @return Utilisateur
+     */
+    public function setMatricule($matricule)
+    {
+        $this->matricule = $matricule;
+
+        return $this;
+    }
+
+    /**
+     * Get matricule
+     *
+     * @return string
+     */
+    public function getMatricule()
+    {
+        return $this->matricule;
     }
 
     /**
@@ -222,30 +251,6 @@ class Utilisateur
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * Set mp
-     *
-     * @param string $mp
-     *
-     * @return Utilisateur
-     */
-    public function setMp($mp)
-    {
-        $this->mp = $mp;
-
-        return $this;
-    }
-
-    /**
-     * Get mp
-     *
-     * @return string
-     */
-    public function getMp()
-    {
-        return $this->mp;
     }
 
     /**

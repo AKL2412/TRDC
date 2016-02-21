@@ -32,12 +32,12 @@ class User extends BaseUser
      */
     private $logged;
 
-    /**
+    /*
     * @ORM\OneToOne(targetEntity="TRC\CoreBundle\Entity\Log",cascade={"remove", "persist"})
     * @ORM\JoinColumn(nullable=true)
-    */
+    
     private $logIn;
-
+    //*/
     public function __construct()
     {
         parent::__construct();

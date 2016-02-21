@@ -243,7 +243,10 @@ class appDevDebugProjectContainer extends Container
             'translator_listener' => 'getTranslatorListenerService',
             'trc_core.authenticationfail' => 'getTrcCore_AuthenticationfailService',
             'trc_core.connexion' => 'getTrcCore_ConnexionService',
+            'trc_core.journal' => 'getTrcCore_JournalService',
+            'trc_core.matricule' => 'getTrcCore_MatriculeService',
             'trc_core.sp' => 'getTrcCore_SpService',
+            'trc_core.twig.extension' => 'getTrcCore_Twig_ExtensionService',
             'twig' => 'getTwigService',
             'twig.controller.exception' => 'getTwig_Controller_ExceptionService',
             'twig.controller.preview_error' => 'getTwig_Controller_PreviewErrorService',
@@ -2237,16 +2240,16 @@ class appDevDebugProjectContainer extends Container
 
         $i = new \Symfony\Component\HttpFoundation\RequestMatcher('^/resetting');
 
-        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/');
+        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin');
 
-        $k = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin');
+        $k = new \Symfony\Component\HttpFoundation\RequestMatcher('^/');
 
         $l = new \Symfony\Component\Security\Http\AccessMap();
         $l->add($g, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
         $l->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
         $l->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $l->add($j, array(0 => 'ROLE_USER'), NULL);
-        $l->add($k, array(0 => 'ROLE_ADMIN'), NULL);
+        $l->add($j, array(0 => 'ROLE_ADMIN'), NULL);
+        $l->add($k, array(0 => 'ROLE_USER'), NULL);
 
         $m = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
 
@@ -2260,7 +2263,7 @@ class appDevDebugProjectContainer extends Container
         $p = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $m, array(), $a);
         $p->setOptions(array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'));
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($l, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username_email')), 'main', $a, $c), 2 => $n, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $m, 'main', $o, $p, array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '56bce32a5bdf83.54067051', $a, $f), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $l, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $m, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $m, 'fos_user_security_login', false), NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($l, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username_email')), 'main', $a, $c), 2 => $n, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $m, 'main', $o, $p, array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '56bf2d42984e61.95857775', $a, $f), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $l, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $m, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $m, 'fos_user_security_login', false), NULL, NULL, $a, false));
     }
 
     /**
@@ -3205,6 +3208,40 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'trc_core.journal' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \TRC\CoreBundle\Systemes\Journal\Journal A TRC\CoreBundle\Systemes\Journal\Journal instance.
+     */
+    protected function getTrcCore_JournalService()
+    {
+        $this->services['trc_core.journal'] = $instance = new \TRC\CoreBundle\Systemes\Journal\Journal();
+
+        $instance->setEntityManager($this->get('doctrine.orm.default_entity_manager'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'trc_core.matricule' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \TRC\CoreBundle\Systemes\Matricule\Matricule A TRC\CoreBundle\Systemes\Matricule\Matricule instance.
+     */
+    protected function getTrcCore_MatriculeService()
+    {
+        $this->services['trc_core.matricule'] = $instance = new \TRC\CoreBundle\Systemes\Matricule\Matricule();
+
+        $instance->setEntityManager($this->get('doctrine.orm.default_entity_manager'));
+
+        return $instance;
+    }
+
+    /**
      * Gets the 'trc_core.sp' service.
      *
      * This service is shared.
@@ -3219,6 +3256,19 @@ class appDevDebugProjectContainer extends Container
         $instance->setEntityManager($this->get('doctrine.orm.default_entity_manager'));
 
         return $instance;
+    }
+
+    /**
+     * Gets the 'trc_core.twig.extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \TRC\CoreBundle\Systemes\Twig\TwigExtension A TRC\CoreBundle\Systemes\Twig\TwigExtension instance.
+     */
+    protected function getTrcCore_Twig_ExtensionService()
+    {
+        return $this->services['trc_core.twig.extension'] = new \TRC\CoreBundle\Systemes\Twig\TwigExtension($this->get('doctrine.orm.default_entity_manager'));
     }
 
     /**
@@ -3261,6 +3311,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig')), $this->get('security.csrf.token_manager', ContainerInterface::NULL_ON_INVALID_REFERENCE))));
         $instance->addExtension(new \Twig_Extension_Debug());
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
+        $instance->addExtension($this->get('trc_core.twig.extension'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\DumpExtension($this->get('var_dumper.cloner')));
         $instance->addExtension(new \Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension());
         $instance->addGlobal('app', $c);
@@ -3629,7 +3680,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $this->get('security.user_checker.main'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('56bce32a5bdf83.54067051')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $this->get('security.user_checker.main'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('56bf2d42984e61.95857775')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 

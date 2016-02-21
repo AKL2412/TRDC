@@ -1926,7 +1926,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56bce32a5bdf83.54067051</argument>
+            <argument>56bf2d42984e61.95857775</argument>
           </service>
         </argument>
       </argument>
@@ -2091,22 +2091,22 @@
                 <call method="add">
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/</argument>
+                      <argument>^/admin</argument>
                     </service>
                   </argument>
                   <argument type="collection">
-                    <argument>ROLE_USER</argument>
+                    <argument>ROLE_ADMIN</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
                 <call method="add">
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/admin</argument>
+                      <argument>^/</argument>
                     </service>
                   </argument>
                   <argument type="collection">
-                    <argument>ROLE_ADMIN</argument>
+                    <argument>ROLE_USER</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -2239,7 +2239,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>56bce32a5bdf83.54067051</argument>
+            <argument>56bf2d42984e61.95857775</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2287,22 +2287,22 @@
                 <call method="add">
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/</argument>
+                      <argument>^/admin</argument>
                     </service>
                   </argument>
                   <argument type="collection">
-                    <argument>ROLE_USER</argument>
+                    <argument>ROLE_ADMIN</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
                 <call method="add">
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/admin</argument>
+                      <argument>^/</argument>
                     </service>
                   </argument>
                   <argument type="collection">
-                    <argument>ROLE_ADMIN</argument>
+                    <argument>ROLE_USER</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -2502,6 +2502,9 @@
             <tag name="twig.extension"/>
           </service>
         </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="trc_core.twig.extension"/>
       </call>
       <call method="addExtension">
         <argument type="service">
@@ -2954,6 +2957,20 @@
       <call method="setEntityManager">
         <argument type="service" id="doctrine.orm.default_entity_manager"/>
       </call>
+    </service>
+    <service id="trc_core.matricule" class="TRC\CoreBundle\Systemes\Matricule\Matricule">
+      <call method="setEntityManager">
+        <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      </call>
+    </service>
+    <service id="trc_core.journal" class="TRC\CoreBundle\Systemes\Journal\Journal">
+      <call method="setEntityManager">
+        <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      </call>
+    </service>
+    <service id="trc_core.twig.extension" class="TRC\CoreBundle\Systemes\Twig\TwigExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>

@@ -21,6 +21,7 @@ class Authentificationfail{
 		$token = $event->getAuthenticationException();
 		$app = array();
 		if($app = $token->getTrace()[2]['args'][0]){
+			/*
 			$request = $app->request->all();
 			$server = $app->server->all();
 
@@ -40,6 +41,7 @@ class Authentificationfail{
 			$log->setEtat(false);
 			$this->em->persist($log);
 			$this->em->flush();
+			//*/
 		}
 	}
 }

@@ -24,8 +24,8 @@ class DefaultController extends Controller
     	echo "</pre>";
     	//die('Bienvenue');
         //*/
-    	//if(isGranted('ROLE_ADMIN'))
-    	return $this->redirect($this->generateUrl('trc_admin_homepage'));
+    	//if($security->isGranted('ROLE_ADMIN'))
+    	return $this->redirect($this->generateUrl('trc_admin_homepage',array('class'=>'accueil')));
         return $this->render('TRCCoreBundle:Default:index.html.twig');
     }
 }

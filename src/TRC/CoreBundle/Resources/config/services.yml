@@ -33,3 +33,26 @@ services:
         arguments: []
         calls:
             - [setEntityManager, ["@doctrine.orm.entity_manager"]]
+    
+    trc_core.matricule:
+        class: TRC\CoreBundle\Systemes\Matricule\Matricule
+        arguments: []
+        calls:
+            - [setEntityManager, ["@doctrine.orm.entity_manager"]]
+
+    trc_core.journal:
+        class: TRC\CoreBundle\Systemes\Journal\Journal
+        arguments: []
+        calls:
+            - [setEntityManager, ["@doctrine.orm.entity_manager"]]
+    trc_core.twig.extension:
+        class: TRC\CoreBundle\Systemes\Twig\TwigExtension
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: twig.extension }
+
+    trc_core.gu:
+        class: TRC\CoreBundle\Systemes\General\GU
+        arguments: []
+        calls:
+            - [setEntityManager, ["@doctrine.orm.entity_manager"]]

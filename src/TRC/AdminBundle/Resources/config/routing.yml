@@ -5,3 +5,36 @@ trc_admin_homepage:
 trc_admin_utilisateurs:
     path:     /admin/utilisateurs
     defaults: { _controller: TRCAdminBundle:Utilisateurs:utilisateurs }
+
+trc_admin_utilisateurs_ajouter:
+    path:     /admin/utilisateurs/ajouter
+    defaults: { _controller: TRCAdminBundle:Utilisateurs:utilisateursAjouter }
+
+
+trc_admin_entites:
+    path:     /admin/entites
+    defaults: { _controller: TRCAdminBundle:Entites:entites }
+
+trc_admin_entites_ajouter:
+    path:     /admin/entites/ajouter/{entite}
+    defaults: { _controller: TRCAdminBundle:Entites:entitesAjout }
+    requirements:
+          entite: Agence|CIC|BOC
+
+trc_admin_entites_modifier:
+    path:     /admin/entites/modifier/{entite}/{matricule}
+    defaults: { _controller: TRCAdminBundle:Entites:entitesAjout }
+    requirements:
+          entite: Agence|CIC|BOC
+
+trc_admin_entites_voir_une:
+    path:     /admin/entites/{entite}/{code}
+    defaults: { _controller: TRCAdminBundle:Entites:entitesVoirUne }
+    requirements:
+          entite: Agence|CIC|BOC
+
+trc_admin_entites_par_categorie:
+    path:     /admin/entites/{entite}
+    defaults: { _controller: TRCAdminBundle:Entites:entitesParCategorie }
+    requirements:
+          entite: Agence|CIC|BOC
