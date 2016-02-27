@@ -1,0 +1,32 @@
+{%extends 'TRCAdminBundle::Entites/entitesParCategorie.html.twig'%}
+	{%block title%}
+	   {{parent()}} |
+       {{objet.nom}}
+	{%endblock title%}
+	{%block titre%}
+        <i class="fa fa-eye"></i>
+        {{entite}} :: {{objet.nom}} 
+        <small>
+            <a href="{{url('trc_admin_entites_modifier',{entite:entite,matricule:objet.matricule})}} ">
+            <i class="fa-edit fa"></i>
+            modifier
+        </a>
+        </small>
+    {%endblock titre%}
+
+    {%block position %}
+        {{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-eye"></i>
+            <a href="{{url('trc_admin_entites_ajouter',{entite:entite,matricule:objet.matricule})}}">
+            	{{objet.code}}
+            </a>
+        </li>
+        
+    {%endblock position%}
+    {%block content%}
+    	{{dump(objet)}}
+        <hr>
+        {{dump(profils)}}
+    {%endblock content%}

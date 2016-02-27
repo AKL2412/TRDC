@@ -21,7 +21,55 @@
    	<div class="col-lg-9 col-md-9">
 	   	<div class="panel">
 	   		{%block main %}
-	   		main
+	   	     <div class="panel- panel-green">
+            <div class="panel-heading"></div>
+                {%if utilisateurs|length > 0 %}
+                    <div class="panel-body">
+
+                        <table class="table table-bordered table-condensed">
+                            <thead>
+                                <tr>
+                                  <th></th>
+                                    <th>matricule</th>
+                                    <th>Nom</th>
+                                    <th>Prenom</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%for utilisateur in utilisateurs %}
+                                    <tr>
+                                      <td>
+                                      <a href="{{url('trc_admin_utilisateurs_voir',{matricule:utilisateur.matricule})}}">
+                                        <img src="{{asset(utilisateur.image)}} " height="30" class="img-circle">
+                                        </a>
+                                      </td>
+                                        <td>
+                                          <a href="{{url('trc_admin_utilisateurs_voir',{matricule:utilisateur.matricule})}}">
+                                              {{utilisateur.matricule}}
+                                          </a>
+                                        </td>
+                                        <td>
+                                            {{utilisateur.nom}}
+                                        </td>
+                                        <td>
+                                           {{utilisateur.prenom}}
+                                        </td>
+                                    </tr>
+
+                                {%endfor%}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+            {{ render(controller('TRCCoreBundle:Affichage:pagination',{pagination:pagination})) }}
+                    </div>
+                {%else%}
+                    <div class="panel-body">
+                    <h3> Pas de données</h3>
+                    </div>
+                {%endif%}
+            </div>
 	   		{%endblock main %}
 	   	</div>
    	</div>        
@@ -35,12 +83,7 @@
    							Ajouter
    						</a>
    					</li>
-   					<li class="list-group-item">
-   						<a href="# ">
-   							<i class="fa fa-plus-circle"></i>
-   							un lien
-   						</a>
-   					</li>
+   					
    				</ul>
    			</div>
    		{%endblock menuUtilisateurs %}

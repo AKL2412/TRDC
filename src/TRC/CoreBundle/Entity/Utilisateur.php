@@ -91,6 +91,12 @@ class Utilisateur
      */
     private $active;
 
+    /**
+    * @ORM\OneToOne(targetEntity="TRC\CoreBundle\Entity\Acteur",cascade={"remove", "persist"})
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $acteur;
+
     public function __construct(){
 
         $this->active = true;
@@ -347,5 +353,29 @@ class Utilisateur
     public function getCompte()
     {
         return $this->compte;
+    }
+
+    /**
+     * Set acteur
+     *
+     * @param \TRC\CoreBundle\Entity\Acteur $acteur
+     *
+     * @return Utilisateur
+     */
+    public function setActeur(\TRC\CoreBundle\Entity\Acteur $acteur = null)
+    {
+        $this->acteur = $acteur;
+
+        return $this;
+    }
+
+    /**
+     * Get acteur
+     *
+     * @return \TRC\CoreBundle\Entity\Acteur
+     */
+    public function getActeur()
+    {
+        return $this->acteur;
     }
 }

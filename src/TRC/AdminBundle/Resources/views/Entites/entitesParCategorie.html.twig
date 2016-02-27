@@ -1,0 +1,73 @@
+{%extends 'TRCAdminBundle::Entites/entites.html.twig'%}
+	{%block title%}
+	   {{parent()}} |
+       {{entite}}s
+	{%endblock title%}
+	{%block titre%}
+        {%set titre = entite~"s" %}
+        {{titre|upper}}
+    {%endblock titre%}
+
+    {%block position %}
+        {{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-bookmark"></i>
+            <a href="{{url('trc_admin_entites_par_categorie',{entite:entite})}}">
+            	{{entite}}s
+            </a>
+        </li>
+        
+    {%endblock position%}
+    
+    {%block content%}
+    {{dump(objets)}}
+        <div class="panel panel-green">
+            <div class="panel-heading"></div>
+                {%if objets|length > 0 %}
+                    <div class="panel-body">
+
+                        <table class="table table-hover table-bordered table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Code</th>
+                                    <th>Nom</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%for agence in objets %}
+                                    <tr>
+                                        <td>
+            <a href="{{url('trc_admin_entites_voir_une',{entite:getClass(agence),code:agence.code})}} ">
+                                                {{agence.matricule}}
+                                            </a>
+                                            
+                                        </td>
+                                        <td>
+                                            {{agence.code}}
+                                        </td>
+                                        <td>
+                                            {{agence.nom}}
+                                        </td>
+                                        <td>
+                                            {{agence|raw}}
+                                        </td>
+                                    </tr>
+
+                                {%endfor%}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+            {{ render(controller('TRCCoreBundle:Affichage:pagination',{pagination:pagination})) }}
+                    </div>
+                {%else%}
+                    <div class="panel-body">
+                    <h3> Pas de données</h3>
+                    </div>
+                {%endif%}
+            </div>
+    {%endblock content%}

@@ -1,0 +1,71 @@
+<?php
+
+namespace TRC\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Profil
+ *
+ * @ORM\Table(name="profil")
+ * @ORM\Entity(repositoryClass="TRC\CoreBundle\Repository\ProfilRepository")
+ */
+class Profil
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateajout", type="datetime")
+     */
+    private $dateajout;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=50)
+     */
+    private $code;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matricule", type="string", length=255)
+     */
+    private $matricule;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="entite", type="string", length=255)
+     */
+    private $entite;
+
+    public function __construct(){
+
+        $this->dateajout = new \DateTime();
+    }
+    
+}

@@ -56,6 +56,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 }
 
+                // _profiler_purge
+                if ($pathinfo === '/_profiler/purge') {
+                    return array (  '_controller' => 'web_profiler.controller.profiler:purgeAction',  '_route' => '_profiler_purge',);
+                }
+
                 // _profiler_info
                 if (0 === strpos($pathinfo, '/_profiler/info') && preg_match('#^/_profiler/info/(?P<about>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => '_profiler_info')), array (  '_controller' => 'web_profiler.controller.profiler:infoAction',));
@@ -106,15 +111,23 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'TRC\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => 'trc_admin_homepage',);
             }
 
-            if (0 === strpos($pathinfo, '/admin/utilisateurs')) {
-                // trc_admin_utilisateurs
-                if ($pathinfo === '/admin/utilisateurs') {
-                    return array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::utilisateursAction',  '_route' => 'trc_admin_utilisateurs',);
+            if (0 === strpos($pathinfo, '/admin/utilisateur')) {
+                if (0 === strpos($pathinfo, '/admin/utilisateurs')) {
+                    // trc_admin_utilisateurs
+                    if ($pathinfo === '/admin/utilisateurs') {
+                        return array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::utilisateursAction',  '_route' => 'trc_admin_utilisateurs',);
+                    }
+
+                    // trc_admin_utilisateurs_ajouter
+                    if ($pathinfo === '/admin/utilisateurs/ajouter') {
+                        return array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::utilisateursAjouterAction',  '_route' => 'trc_admin_utilisateurs_ajouter',);
+                    }
+
                 }
 
-                // trc_admin_utilisateurs_ajouter
-                if ($pathinfo === '/admin/utilisateurs/ajouter') {
-                    return array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::utilisateursAjouterAction',  '_route' => 'trc_admin_utilisateurs_ajouter',);
+                // trc_admin_utilisateurs_voir
+                if (preg_match('#^/admin/utilisateur/(?P<matricule>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_utilisateurs_voir')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::utilisateursVoirAction',));
                 }
 
             }
@@ -143,6 +156,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 // trc_admin_entites_par_categorie
                 if (preg_match('#^/admin/entites/(?P<entite>Agence|CIC|BOC)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_entites_par_categorie')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\EntitesController::entitesParCategorieAction',));
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/profils')) {
+                // trc_admin_profils
+                if ($pathinfo === '/admin/profils') {
+                    return array (  '_controller' => 'TRC\\AdminBundle\\Controller\\ProfilsController::ajouterAction',  '_route' => 'trc_admin_profils',);
+                }
+
+                // trc_admin_profils_voir
+                if (preg_match('#^/admin/profils/(?P<matricule>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_profils_voir')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\ProfilsController::voirAction',));
                 }
 
             }

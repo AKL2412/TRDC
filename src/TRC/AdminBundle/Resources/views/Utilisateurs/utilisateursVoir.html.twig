@@ -1,0 +1,31 @@
+{%extends 'TRCAdminBundle::Utilisateurs/utilisateurs.html.twig'%}
+	{%block title%}
+	  
+	   {{utilisateur.prenom}}
+	   {{utilisateur.nom|upper}}
+	    | {{parent()}}
+	{%endblock title%}
+	{%block titre%}
+		<img src="{{asset(utilisateur.image)}} " class="img-circle-" height="40">
+			{{utilisateur.prenom}}
+	   		{{utilisateur.nom|upper}}
+        
+    {%endblock titre%}
+
+    {%block position %}
+        {{parent()}}
+
+		        <li class="active">
+		    		<i class="fa fa-angle-right"></i>
+		    		<i class="fa fa-eye"></i>
+		            <a href="#">
+		            	{{utilisateur.prenom}}
+	   					{{utilisateur.nom|upper}}
+		            </a>
+		        </li>
+	       		
+        
+    {%endblock position%}
+    {%block content%}
+
+    {%endblock content%}

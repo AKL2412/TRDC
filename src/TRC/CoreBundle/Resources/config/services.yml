@@ -56,3 +56,8 @@ services:
         arguments: []
         calls:
             - [setEntityManager, ["@doctrine.orm.entity_manager"]]
+    trc_core.pagination:
+        class: TRC\CoreBundle\Systemes\Pagination\Pagination
+        arguments: []
+        calls:
+            - [setEntityManager, ["@doctrine.orm.entity_manager"]]

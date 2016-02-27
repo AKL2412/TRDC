@@ -9,7 +9,9 @@ trc_admin_utilisateurs:
 trc_admin_utilisateurs_ajouter:
     path:     /admin/utilisateurs/ajouter
     defaults: { _controller: TRCAdminBundle:Utilisateurs:utilisateursAjouter }
-
+trc_admin_utilisateurs_voir:
+    path:     /admin/utilisateur/{matricule}
+    defaults: { _controller: TRCAdminBundle:Utilisateurs:utilisateursVoir }
 
 trc_admin_entites:
     path:     /admin/entites
@@ -38,3 +40,13 @@ trc_admin_entites_par_categorie:
     defaults: { _controller: TRCAdminBundle:Entites:entitesParCategorie }
     requirements:
           entite: Agence|CIC|BOC
+
+
+
+trc_admin_profils:
+    path:     /admin/profils
+    defaults: { _controller: TRCAdminBundle:Profils:ajouter }
+
+trc_admin_profils_voir:
+    path:     /admin/profils/{matricule}
+    defaults: { _controller: TRCAdminBundle:Profils:voir }

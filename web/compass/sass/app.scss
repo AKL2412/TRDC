@@ -1,0 +1,17 @@
+body{
+	.position{
+		li{
+			display: inline;
+		}
+	}
+	#notification{
+		li.dropdown{
+			ul.dropdown-menu{
+				li{
+					a{
+					}
+				}
+			}
+		}
+	}
+}

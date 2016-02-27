@@ -82,7 +82,6 @@ $catalogue = new MessageCatalogue('en', array (
     'An empty file is not allowed.' => 'An empty file is not allowed.',
     'The host could not be resolved.' => 'The host could not be resolved.',
     'This value does not match the expected {{ charset }} charset.' => 'This value does not match the expected {{ charset }} charset.',
-    'This is not a valid Business Identifier Code (BIC).' => 'This is not a valid Business Identifier Code (BIC).',
     'This form should not contain extra fields.' => 'This form should not contain extra fields.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'The uploaded file was too large. Please try to upload a smaller file.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'The CSRF token is invalid. Please try to resubmit the form.',

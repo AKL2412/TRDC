@@ -1,0 +1,24 @@
+{%extends 'TRCAdminBundle::Profils/ajouter.html.twig'%}
+	{%block title%}
+         {{profil.code}}
+         |
+	   {{parent()}}       
+	{%endblock title%}
+	{%block titre%}
+        {{profil.nom}}
+    {%endblock titre%}
+
+    {%block position %}
+        {{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-star"></i>
+            <a href="{{url('trc_admin_profils_voir',{matricule:profil.matricule})}}">
+            	{{profil.code}}
+            </a>
+        </li>
+        
+    {%endblock position%}
+    {%block content%}
+
+    {%endblock content%}
