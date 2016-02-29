@@ -130,6 +130,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_utilisateurs_voir')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::utilisateursVoirAction',));
                 }
 
+                // trc_admin_utilisateurs_affectation_a_une_entite
+                if (preg_match('#^/admin/utilisateur/(?P<matricule>[^/]++)/(?P<entite>Agence|CIC|BOC|Zone)/affectation$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_utilisateurs_affectation_a_une_entite')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::affectationAction',));
+                }
+
+                // trc_admin_affectation_de_profil_a_une_fonction
+                if (preg_match('#^/admin/utilisateur/(?P<matricule>[^/]++)/(?P<entite>Agence|CIC|BOC|Zone)/affectation/(?P<idfonction>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_affectation_de_profil_a_une_fonction')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::affectationAction',));
+                }
+
             }
 
             if (0 === strpos($pathinfo, '/admin/entites')) {
@@ -139,22 +149,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
 
                 // trc_admin_entites_ajouter
-                if (0 === strpos($pathinfo, '/admin/entites/ajouter') && preg_match('#^/admin/entites/ajouter/(?P<entite>Agence|CIC|BOC)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/admin/entites/ajouter') && preg_match('#^/admin/entites/ajouter/(?P<entite>Agence|CIC|BOC|Zone)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_entites_ajouter')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\EntitesController::entitesAjoutAction',));
                 }
 
                 // trc_admin_entites_modifier
-                if (0 === strpos($pathinfo, '/admin/entites/modifier') && preg_match('#^/admin/entites/modifier/(?P<entite>Agence|CIC|BOC)/(?P<matricule>[^/]++)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/admin/entites/modifier') && preg_match('#^/admin/entites/modifier/(?P<entite>Agence|CIC|BOC|Zone)/(?P<matricule>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_entites_modifier')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\EntitesController::entitesAjoutAction',));
                 }
 
                 // trc_admin_entites_voir_une
-                if (preg_match('#^/admin/entites/(?P<entite>Agence|CIC|BOC)/(?P<code>[^/]++)$#s', $pathinfo, $matches)) {
+                if (preg_match('#^/admin/entites/(?P<entite>Agence|CIC|BOC|Zone)/(?P<code>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_entites_voir_une')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\EntitesController::entitesVoirUneAction',));
                 }
 
                 // trc_admin_entites_par_categorie
-                if (preg_match('#^/admin/entites/(?P<entite>Agence|CIC|BOC)$#s', $pathinfo, $matches)) {
+                if (preg_match('#^/admin/entites/(?P<entite>Agence|CIC|BOC|Zone)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_entites_par_categorie')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\EntitesController::entitesParCategorieAction',));
                 }
 
@@ -171,6 +181,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_profils_voir')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\ProfilsController::voirAction',));
                 }
 
+            }
+
+            // trc_admin_systemes
+            if ($pathinfo === '/admin/systemes') {
+                return array (  '_controller' => 'TRC\\AdminBundle\\Controller\\SystemesController::systemesAction',  '_route' => 'trc_admin_systemes',);
             }
 
         }

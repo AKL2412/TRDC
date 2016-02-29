@@ -62,6 +62,12 @@ class Agence
     */
     private $entite;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Zone",cascade={"remove", "persist"})
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $zone;
+
     public function __construct(){
         $this->dateajout = new \DateTime();
     }
@@ -236,5 +242,29 @@ class Agence
     public function getEntite()
     {
         return $this->entite;
+    }
+
+    /**
+     * Set zone
+     *
+     * @param \TRC\CoreBundle\Entity\Zone $zone
+     *
+     * @return Agence
+     */
+    public function setZone(\TRC\CoreBundle\Entity\Zone $zone = null)
+    {
+        $this->zone = $zone;
+
+        return $this;
+    }
+
+    /**
+     * Get zone
+     *
+     * @return \TRC\CoreBundle\Entity\Zone
+     */
+    public function getZone()
+    {
+        return $this->zone;
     }
 }

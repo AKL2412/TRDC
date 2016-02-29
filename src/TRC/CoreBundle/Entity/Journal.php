@@ -36,7 +36,7 @@ class Journal
     private $contenu;
 
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\TypeJournal",cascade={"remove", "persist"})
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\TypeJournal")
     * @ORM\JoinColumn(nullable=true)
     */
     private $type;
@@ -125,7 +125,7 @@ class Journal
      *
      * @return Journal
      */
-    public function setType(\TRC\CoreBundle\Entity\TypeJournal $type)
+    public function setType(\TRC\CoreBundle\Entity\TypeJournal $type = null)
     {
         $this->type = $type;
 

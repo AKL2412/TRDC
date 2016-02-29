@@ -52,6 +52,13 @@ class Profil
     /**
      * @var string
      *
+     * @ORM\Column(name="role", type="string", length=50)
+     */
+    private $role;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="matricule", type="string", length=255)
      */
     private $matricule;
@@ -161,7 +168,7 @@ class Profil
     public function setCode($code)
     {
         $this->code = $code;
-
+        $this->setRole('ROLE_'.$this->getCode());
         return $this;
     }
 
@@ -221,5 +228,29 @@ class Profil
     public function getEntite()
     {
         return $this->entite;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return Profil
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
     }
 }

@@ -97,6 +97,12 @@ class Utilisateur
     */
     private $acteur;
 
+    /**
+    * @ORM\OneToMany(targetEntity="TRC\CoreBundle\Entity\Acteur",mappedBy = "acteur")
+    * 
+    */
+    private $fonctions;
+
     public function __construct(){
 
         $this->active = true;
@@ -377,5 +383,39 @@ class Utilisateur
     public function getActeur()
     {
         return $this->acteur;
+    }
+
+    /**
+     * Add fonction
+     *
+     * @param \TRC\CoreBundle\Entity\Acteur $fonction
+     *
+     * @return Utilisateur
+     */
+    public function addFonction(\TRC\CoreBundle\Entity\Acteur $fonction)
+    {
+        $this->fonctions[] = $fonction;
+
+        return $this;
+    }
+
+    /**
+     * Remove fonction
+     *
+     * @param \TRC\CoreBundle\Entity\Acteur $fonction
+     */
+    public function removeFonction(\TRC\CoreBundle\Entity\Acteur $fonction)
+    {
+        $this->fonctions->removeElement($fonction);
+    }
+
+    /**
+     * Get fonctions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFonctions()
+    {
+        return $this->fonctions;
     }
 }

@@ -18,10 +18,12 @@ use TRC\CoreBundle\Entity\Profil;
 use TRC\CoreBundle\Entity\Agence;
 use TRC\CoreBundle\Entity\BOC;
 use TRC\CoreBundle\Entity\CIC;
+use TRC\CoreBundle\Entity\Zone;
 use TRC\CoreBundle\Entity\Entite;
 use TRC\CoreBundle\Form\AgenceType;
 use TRC\CoreBundle\Form\BOCType;
 use TRC\CoreBundle\Form\CICType;
+use TRC\CoreBundle\Form\ZoneType;
 
 
 class EntitesController extends Controller

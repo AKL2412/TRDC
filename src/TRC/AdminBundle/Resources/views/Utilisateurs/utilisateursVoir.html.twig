@@ -18,7 +18,7 @@
 		        <li class="active">
 		    		<i class="fa fa-angle-right"></i>
 		    		<i class="fa fa-eye"></i>
-		            <a href="#">
+		            <a href="{{url('trc_admin_utilisateurs_voir',{matricule:utilisateur.matricule})}} ">
 		            	{{utilisateur.prenom}}
 	   					{{utilisateur.nom|upper}}
 		            </a>
@@ -27,5 +27,5 @@
         
     {%endblock position%}
     {%block content%}
-
+    {{render(controller('TRCCoreBundle:Affichage:utilisateur',{utilisateur:utilisateur}))}}
     {%endblock content%}

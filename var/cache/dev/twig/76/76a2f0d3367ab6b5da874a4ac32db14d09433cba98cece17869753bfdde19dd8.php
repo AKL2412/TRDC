@@ -15,8 +15,8 @@ class __TwigTemplate_4170395df4fa252e9cc8d393add71e38b9df36f439ed6518e4ea7586d42
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_79c5b7aa85cd06afb55c97ce8551afc9c371bb098b0425e286109403fd98a6ff = $this->env->getExtension("native_profiler");
-        $__internal_79c5b7aa85cd06afb55c97ce8551afc9c371bb098b0425e286109403fd98a6ff->enter($__internal_79c5b7aa85cd06afb55c97ce8551afc9c371bb098b0425e286109403fd98a6ff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:menu.html.twig"));
+        $__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706 = $this->env->getExtension("native_profiler");
+        $__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706->enter($__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:menu.html.twig"));
 
         // line 1
         echo "<nav id=\"sidebar\" role=\"navigation\" data-step=\"2\" data-intro=\"Template has &lt;b&gt;many navigation styles&lt;/b&gt;\"
@@ -73,7 +73,7 @@ class __TwigTemplate_4170395df4fa252e9cc8d393add71e38b9df36f439ed6518e4ea7586d42
             </div>
         </nav>";
         
-        $__internal_79c5b7aa85cd06afb55c97ce8551afc9c371bb098b0425e286109403fd98a6ff->leave($__internal_79c5b7aa85cd06afb55c97ce8551afc9c371bb098b0425e286109403fd98a6ff_prof);
+        $__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706->leave($__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706_prof);
 
     }
 

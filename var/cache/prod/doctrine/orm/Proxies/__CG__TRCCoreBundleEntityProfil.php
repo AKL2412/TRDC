@@ -64,10 +64,10 @@ class Profil extends \TRC\CoreBundle\Entity\Profil implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'entite'];
+            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'role', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'entite'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'entite'];
+        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'role', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'entite'];
     }
 
     /**
@@ -279,83 +279,6 @@ class Profil extends \TRC\CoreBundle\Entity\Profil implements \Doctrine\ORM\Prox
     /**
      * {@inheritDoc}
      */
-    public function setEntite(\TRC\CoreBundle\Entity\Entite $entite)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntite', [$entite]);
-
-        return parent::setEntite($entite);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setAgence(\TRC\CoreBundle\Entity\Agence $agence = NULL)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgence', [$agence]);
-
-        return parent::setAgence($agence);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getAgence()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgence', []);
-
-        return parent::getAgence();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCic(\TRC\CoreBundle\Entity\CIC $cic = NULL)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCic', [$cic]);
-
-        return parent::setCic($cic);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCic()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCic', []);
-
-        return parent::getCic();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setBoc(\TRC\CoreBundle\Entity\BOC $boc = NULL)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBoc', [$boc]);
-
-        return parent::setBoc($boc);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getBoc()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBoc', []);
-
-        return parent::getBoc();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setMatricule($matricule)
     {
 
@@ -378,12 +301,45 @@ class Profil extends \TRC\CoreBundle\Entity\Profil implements \Doctrine\ORM\Prox
     /**
      * {@inheritDoc}
      */
+    public function setEntite($entite)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntite', [$entite]);
+
+        return parent::setEntite($entite);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getEntite()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntite', []);
 
         return parent::getEntite();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRole($role)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRole', [$role]);
+
+        return parent::setRole($role);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRole()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRole', []);
+
+        return parent::getRole();
     }
 
 }

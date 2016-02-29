@@ -13,6 +13,18 @@ trc_admin_utilisateurs_voir:
     path:     /admin/utilisateur/{matricule}
     defaults: { _controller: TRCAdminBundle:Utilisateurs:utilisateursVoir }
 
+trc_admin_utilisateurs_affectation_a_une_entite:
+    path:     /admin/utilisateur/{matricule}/{entite}/affectation
+    defaults: { _controller: TRCAdminBundle:Utilisateurs:affectation }
+    requirements:
+          entite: Agence|CIC|BOC|Zone
+
+trc_admin_affectation_de_profil_a_une_fonction:
+    path:     /admin/utilisateur/{matricule}/{entite}/affectation/{idfonction}
+    defaults: { _controller: TRCAdminBundle:Utilisateurs:affectation }
+    requirements:
+          entite: Agence|CIC|BOC|Zone
+
 trc_admin_entites:
     path:     /admin/entites
     defaults: { _controller: TRCAdminBundle:Entites:entites }
@@ -21,25 +33,25 @@ trc_admin_entites_ajouter:
     path:     /admin/entites/ajouter/{entite}
     defaults: { _controller: TRCAdminBundle:Entites:entitesAjout }
     requirements:
-          entite: Agence|CIC|BOC
+          entite: Agence|CIC|BOC|Zone
 
 trc_admin_entites_modifier:
     path:     /admin/entites/modifier/{entite}/{matricule}
     defaults: { _controller: TRCAdminBundle:Entites:entitesAjout }
     requirements:
-          entite: Agence|CIC|BOC
+          entite: Agence|CIC|BOC|Zone
 
 trc_admin_entites_voir_une:
     path:     /admin/entites/{entite}/{code}
     defaults: { _controller: TRCAdminBundle:Entites:entitesVoirUne }
     requirements:
-          entite: Agence|CIC|BOC
+          entite: Agence|CIC|BOC|Zone
 
 trc_admin_entites_par_categorie:
     path:     /admin/entites/{entite}
     defaults: { _controller: TRCAdminBundle:Entites:entitesParCategorie }
     requirements:
-          entite: Agence|CIC|BOC
+          entite: Agence|CIC|BOC|Zone
 
 
 
@@ -50,3 +62,7 @@ trc_admin_profils:
 trc_admin_profils_voir:
     path:     /admin/profils/{matricule}
     defaults: { _controller: TRCAdminBundle:Profils:voir }
+
+trc_admin_systemes:
+    path:     /admin/systemes
+    defaults: { _controller: TRCAdminBundle:Systemes:systemes }

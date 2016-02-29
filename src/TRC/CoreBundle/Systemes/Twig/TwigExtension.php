@@ -19,9 +19,14 @@ class TwigExtension extends \Twig_Extension{
 		return array(
 			'checkIfSpam' => new \Twig_Function_Method($this, 'isSpam'),
 			'getClass' => new \Twig_Function_Method($this, 'getClass'),
+			'getEntite' => new \Twig_Function_Method($this, 'getEntite'),
 		);
 	}
 
+	public function getEntite(\TRC\CoreBundle\ENtity\Entite $entite){
+		return  $this->em->getRepository('TRCCoreBundle:'.$entite->getClasse())
+				->findOneByEntite($entite);
+	}
 	public function getClass($object){
 		$temp = explode("\\", get_class($object));
 		$classe = $temp[count($temp) - 1];

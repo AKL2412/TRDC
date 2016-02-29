@@ -64,10 +64,10 @@ class Utilisateur extends \TRC\CoreBundle\Entity\Utilisateur implements \Doctrin
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'image', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'adresse', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'compte', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'active', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'acteur'];
+            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'image', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'adresse', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'compte', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'active', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'acteur', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'fonctions'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'image', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'adresse', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'compte', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'active', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'acteur'];
+        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'image', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'adresse', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'compte', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'active', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'acteur', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Utilisateur' . "\0" . 'fonctions'];
     }
 
     /**
@@ -428,6 +428,39 @@ class Utilisateur extends \TRC\CoreBundle\Entity\Utilisateur implements \Doctrin
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActeur', []);
 
         return parent::getActeur();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addFonction(\TRC\CoreBundle\Entity\Acteur $fonction)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addFonction', [$fonction]);
+
+        return parent::addFonction($fonction);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeFonction(\TRC\CoreBundle\Entity\Acteur $fonction)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeFonction', [$fonction]);
+
+        return parent::removeFonction($fonction);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFonctions()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFonctions', []);
+
+        return parent::getFonctions();
     }
 
 }

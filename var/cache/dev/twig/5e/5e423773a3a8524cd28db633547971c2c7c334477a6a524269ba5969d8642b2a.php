@@ -15,8 +15,8 @@ class __TwigTemplate_bcd1a06ba9d86d0106e1de5d322b80f6a129d17f5f13b33c6c79cf2660a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_3e24d21201f2219b0ae463848efb12a4fc3c4df74eba63a2628d9b0cc602013f = $this->env->getExtension("native_profiler");
-        $__internal_3e24d21201f2219b0ae463848efb12a4fc3c4df74eba63a2628d9b0cc602013f->enter($__internal_3e24d21201f2219b0ae463848efb12a4fc3c4df74eba63a2628d9b0cc602013f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Chat:affichage.html.twig"));
+        $__internal_e36b900c1bdc27280b276db4dc6f1c8c2dc2489992cdbecb99d2759839c0d662 = $this->env->getExtension("native_profiler");
+        $__internal_e36b900c1bdc27280b276db4dc6f1c8c2dc2489992cdbecb99d2759839c0d662->enter($__internal_e36b900c1bdc27280b276db4dc6f1c8c2dc2489992cdbecb99d2759839c0d662_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Chat:affichage.html.twig"));
 
         // line 1
         echo "<div id=\"chat-form\" class=\"fixed\">
@@ -77,7 +77,7 @@ class __TwigTemplate_bcd1a06ba9d86d0106e1de5d322b80f6a129d17f5f13b33c6c79cf2660a
                 </div>
             </div>";
         
-        $__internal_3e24d21201f2219b0ae463848efb12a4fc3c4df74eba63a2628d9b0cc602013f->leave($__internal_3e24d21201f2219b0ae463848efb12a4fc3c4df74eba63a2628d9b0cc602013f_prof);
+        $__internal_e36b900c1bdc27280b276db4dc6f1c8c2dc2489992cdbecb99d2759839c0d662->leave($__internal_e36b900c1bdc27280b276db4dc6f1c8c2dc2489992cdbecb99d2759839c0d662_prof);
 
     }
 

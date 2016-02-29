@@ -18,6 +18,13 @@ class AgenceType extends AbstractType
             ->add('nom','text')
             ->add('description','textarea')
             ->add('code','text')
+            ->add('zone','entity',array(
+                'class'    => 'TRCCoreBundle:Zone',
+                'property' => 'nom',
+                'multiple' => false,
+                'required'    => true,
+                'empty_value' => 'Choisissez la zone',
+                'empty_data'  => null))
             ->add('save','submit', array('label' => 'Créer entité',
             'attr'=>array('class'=>'btn btn-primary')))
         ;

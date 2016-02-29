@@ -95,6 +95,19 @@
 								{{ form_errors(form.code) }}
                             </div>
                         </div>
+                        {%if form.zone is defined %}
+                        <div class="form-group">
+                            <label for="inputEmail" class="control-label">
+                                Zone
+                            </label>
+                            <div class="input-icon right">
+                                <i class="fa fa-home"></i>
+                                {{ form_widget(form.zone, {'attr': {'class': 'form-control','placeholder':"zone de l'entité"}}) }}
+                                {{ form_errors(form.zone) }}
+                            </div>
+                        </div>
+
+                        {%endif%}
                         <div class="form-group">
                             <label for="inputEmail" class="control-label">
                                	Description

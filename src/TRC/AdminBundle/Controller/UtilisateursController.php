@@ -19,6 +19,7 @@ use Symfony\Component\Form\Forms;
 use TRC\CoreBundle\Entity\Profil;
 use TRC\CoreBundle\Entity\Agence;
 use TRC\CoreBundle\Entity\BOC;
+use TRC\CoreBundle\Entity\Fonction;
 use TRC\CoreBundle\Entity\Utilisateur;
 use TRC\CoreBundle\Form\UtilisateurType;
 
@@ -79,12 +80,6 @@ class UtilisateursController extends Controller
         $em = $this->getDoctrine()->getManager();
         $gu = $this->get('trc_core.gu');
         $utilisateur = new Utilisateur();
-        /*
-        echo "<pre>";
-        print_r($gu->images('Utilisateurs/118152/images/'));
-        echo "</pre>";
-        die('');
-        //*/
         $imageFile = $utilisateur->getImage();
         $formFactory = Forms::createFormFactory();
         $form = $this->get('form.factory')->create(new UtilisateurType(),$utilisateur);
@@ -107,5 +102,83 @@ class UtilisateursController extends Controller
                 'form'=>$form->createView(),
                 'objet'=>$utilisateur
                 ));
+    }
+
+    public function affectationAction(Request $request,$matricule,$entite,$idfonction = null){
+
+        $em = $this->getDoctrine()->getManager();
+        $utilisateur = $em->getRepository('TRCCoreBundle:Utilisateur')
+                        ->findOneByMatricule($matricule);
+        $fonction = null;
+        $profils = array();
+        if($utilisateur === null)
+            throw $this->createNotFoundException("Error [$matricule] INCONNU | Utilisateur");
+
+        $etape = "choix-entite";
+        $title = "Choix de l'entité";
+        $entites = $em->getRepository('TRCCoreBundle:'.$entite)
+                    ->findAll();
+        
+        if($idfonction !== null){
+            $fonction = $em->getRepository('TRCCoreBundle:Fonction')
+                        ->findOneByMatricule($idfonction);
+       
+            if(
+                $fonction === null
+                ||
+                $fonction->getActeur()->getId() != $utilisateur->getActeur()->getId()
+                )
+                throw $this->createNotFoundException("Error [$matricule] INCONNU");
+            $title = "Choix de profil";
+            $etape = "Choix-profil";
+            $profils =  $em->getRepository('TRCCoreBundle:Profil')
+                        ->findByEntite($entite);
+
+        }
+        if($request->isMethod('POST')){
+            $sysmatricule = $this->get('trc_core.matricule');
+            $sysjournal = $this->get('trc_core.journal');
+            $action = $request->request->get('action');
+
+            if($action == 'entite'){
+                $params = $request->request->all();
+                
+
+                $matricule = $request->request->get('input-entite');
+                $entity = $em->getRepository('TRCCoreBundle:'.$entite)
+                    ->findOneByMatricule($matricule);
+
+                $fonction = new Fonction();
+                $fonction->setActeur($utilisateur->getActeur());
+                $fonction->setEntite($entity->getEntite());
+                $fonction->setMatricule($sysmatricule->matriculeStandard($fonction));
+                $em->persist($fonction);
+
+                $sysjournal->enregistrer(array(
+                    'user'=>$this->getUser(),
+                    'type'=>null,
+                    'contenu'=>"affectation de ".$utilisateur->getMatricule()." à ".$entity->getNom()
+                    ));
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('trc_admin_affectation_de_profil_a_une_fonction',array('matricule'=>$utilisateur->getMatricule(),
+                    'entite'=>$entite,
+                    'idfonction'=>$fonction->getMatricule())));
+            }elseif ($action == 'profil') {
+                $matricule = $request->request->get('input-profil');
+                $profil = $em->getRepository('TRCCoreBundle:Profil')
+                    ->findOneByMatricule($matricule);
+                $fonction->setProfil($profil);
+                $em->flush();
+                return $this->redirect($this->generateUrl('trc_admin_utilisateurs_voir',array('matricule'=>$utilisateur->getMatricule())));
+            }
+        }
+        return $this->render('TRCAdminBundle:Utilisateurs:affectation.html.twig',array(
+            'utilisateur'=>$utilisateur,
+            'etape'=>$etape,
+            'entites'=>$entites,
+            'title'=>$title,
+            'fonction'=>$fonction,
+            'profils'=>$profils));
     }
 }

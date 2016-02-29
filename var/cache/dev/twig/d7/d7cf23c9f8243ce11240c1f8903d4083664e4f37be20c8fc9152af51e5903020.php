@@ -15,8 +15,8 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_ed54489677421764b28b9fd5b147d040a6a6ef36258d544fb65ceae579f7808d = $this->env->getExtension("native_profiler");
-        $__internal_ed54489677421764b28b9fd5b147d040a6a6ef36258d544fb65ceae579f7808d->enter($__internal_ed54489677421764b28b9fd5b147d040a6a6ef36258d544fb65ceae579f7808d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:connecte.html.twig"));
+        $__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b = $this->env->getExtension("native_profiler");
+        $__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b->enter($__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:connecte.html.twig"));
 
         // line 1
         echo "<li class=\"dropdown\">
@@ -71,27 +71,56 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
                             </li>
                             <li><a href=\"#\"><i class=\"fa fa-calendar\"></i>Mon calendrier</a></li>
                             <li><a href=\"#\"><i class=\"fa fa-envelope\"></i>Ma messagerié</a></li>
-                       
-                            <li class=\"divider\"></li>
+                       ";
+        // line 47
+        if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
+            // line 48
+            echo "                            <li class=\"divider\"></li>
                             <li>
                                 <label class=\"label label-danger\">
                                     Paramètres
                                 </label>
                             </li>
                            
+                            <li>
+                                <a href=\"";
+            // line 56
+            echo $this->env->getExtension('routing')->getUrl("trc_admin_profils");
+            echo " \">
+                                    <i class=\"fa fa-users\"></i>
+                                        Les profils
+                                </a>
+                            </li>
+                            <li>
+                                <a href=\"";
+            // line 62
+            echo $this->env->getExtension('routing')->getUrl("trc_admin_systemes");
+            echo " \">
+                                    <i class=\"fa fa-tags\"></i>
+                                        Les phases
+                                </a>
+                            </li>
+                            <li>
+                                <a href=\"";
+            // line 68
+            echo $this->env->getExtension('routing')->getUrl("trc_admin_systemes");
+            echo " \">
+                                    <i class=\"fa fa-tasks\"></i>
+                                        Les systèmes
+                                </a>
+                            </li>
+                        ";
+        }
+        // line 74
+        echo "                            <li><a href=\"#\"><i class=\"fa fa-lock\"></i>Lock Screen</a></li>
                             <li><a href=\"";
-        // line 55
-        echo $this->env->getExtension('routing')->getUrl("trc_admin_profils");
-        echo " \"><i class=\"fa fa-users\"></i>Les profils</a></li>
-                            <li><a href=\"#\"><i class=\"fa fa-lock\"></i>Lock Screen</a></li>
-                            <li><a href=\"";
-        // line 57
+        // line 75
         echo $this->env->getExtension('routing')->getUrl("fos_user_security_logout");
         echo "\"><i class=\"fa fa-key\"></i>Log Out</a></li>
                         </ul>
                     </li>";
         
-        $__internal_ed54489677421764b28b9fd5b147d040a6a6ef36258d544fb65ceae579f7808d->leave($__internal_ed54489677421764b28b9fd5b147d040a6a6ef36258d544fb65ceae579f7808d_prof);
+        $__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b->leave($__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b_prof);
 
     }
 
@@ -107,7 +136,7 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 
     public function getDebugInfo()
     {
-        return array (  89 => 57,  84 => 55,  61 => 35,  56 => 33,  22 => 1,);
+        return array (  118 => 75,  115 => 74,  106 => 68,  97 => 62,  88 => 56,  78 => 48,  76 => 47,  61 => 35,  56 => 33,  22 => 1,);
     }
 }
 /* <li class="dropdown">*/
@@ -156,7 +185,7 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 /*                             </li>*/
 /*                             <li><a href="#"><i class="fa fa-calendar"></i>Mon calendrier</a></li>*/
 /*                             <li><a href="#"><i class="fa fa-envelope"></i>Ma messagerié</a></li>*/
-/*                        */
+/*                        {% if is_granted("ROLE_ADMIN") %}*/
 /*                             <li class="divider"></li>*/
 /*                             <li>*/
 /*                                 <label class="label label-danger">*/
@@ -164,7 +193,25 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 /*                                 </label>*/
 /*                             </li>*/
 /*                            */
-/*                             <li><a href="{{url('trc_admin_profils')}} "><i class="fa fa-users"></i>Les profils</a></li>*/
+/*                             <li>*/
+/*                                 <a href="{{url('trc_admin_profils')}} ">*/
+/*                                     <i class="fa fa-users"></i>*/
+/*                                         Les profils*/
+/*                                 </a>*/
+/*                             </li>*/
+/*                             <li>*/
+/*                                 <a href="{{url('trc_admin_systemes')}} ">*/
+/*                                     <i class="fa fa-tags"></i>*/
+/*                                         Les phases*/
+/*                                 </a>*/
+/*                             </li>*/
+/*                             <li>*/
+/*                                 <a href="{{url('trc_admin_systemes')}} ">*/
+/*                                     <i class="fa fa-tasks"></i>*/
+/*                                         Les systèmes*/
+/*                                 </a>*/
+/*                             </li>*/
+/*                         {%endif%}*/
 /*                             <li><a href="#"><i class="fa fa-lock"></i>Lock Screen</a></li>*/
 /*                             <li><a href="{{url('fos_user_security_logout')}}"><i class="fa fa-key"></i>Log Out</a></li>*/
 /*                         </ul>*/
