@@ -27,6 +27,9 @@
     <link type="text/css" rel="stylesheet" href="{{asset('styles/pace.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('styles/jquery.news-ticker.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('css/app.css')}}">
+    <script type="text/javascript">
+        var rechercheClientLien = "{{url('trc_client_recherche')}}"
+    </script>
 </head>
 <body>
     <div>
@@ -151,10 +154,19 @@
                 <!--END CONTENT-->
                 <!--BEGIN FOOTER-->
                 <div id="footer">
-                    <div class="copyright">
-                        <a href="#">
-                            02/2016 © TRDC #Traitement de Dossier de Crédit
-                        </a>
+                    <div class="copyright row">
+                        <div class="col-md-4">
+                            <a href="#">
+                                02/2016 © TRDC #Traitement de Dossier de Crédit
+                            </a>
+                        </div>
+                        <div class="col-md-5">
+                            <form class="recherche-client" action="{{url('trc_client_recherche')}}">
+                                <input name="radical" type="text" class="form-control recherche-client" placeholder="Rechercher un client" />
+                            </form>
+                        </div>
+                        
+                        
                     </div>
                 </div>
                 <!--END FOOTER-->
@@ -164,6 +176,7 @@
     </div>
     <script src="{{asset('script/jquery-1.10.2.min.js')}}"></script>
     <script src="{{asset('js/own/image.js')}}"></script>
+    <script src="{{asset('js/own/client.js')}}"></script>
     <script src="{{asset('script/jquery-migrate-1.2.1.min.js')}}"></script>
     <script src="{{asset('script/jquery-ui.js')}}"></script>
     <script src="{{asset('script/bootstrap.min.js')}}"></script>

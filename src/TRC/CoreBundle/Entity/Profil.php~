@@ -70,8 +70,14 @@ class Profil
      */
     private $entite;
 
-    public function __construct(){
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="ddp", type="boolean")
+     */
+    private $ddp;
 
+    public function __construct(){
         $this->dateajout = new \DateTime();
     }
     
@@ -168,7 +174,7 @@ class Profil
     public function setCode($code)
     {
         $this->code = $code;
-
+        $this->setRole('ROLE_'.$this->getCode());
         return $this;
     }
 
@@ -228,5 +234,53 @@ class Profil
     public function getEntite()
     {
         return $this->entite;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return Profil
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Set ddp
+     *
+     * @param boolean $ddp
+     *
+     * @return Profil
+     */
+    public function setDdp($ddp)
+    {
+        $this->ddp = $ddp;
+
+        return $this;
+    }
+
+    /**
+     * Get ddp
+     *
+     * @return boolean
+     */
+    public function getDdp()
+    {
+        return $this->ddp;
     }
 }

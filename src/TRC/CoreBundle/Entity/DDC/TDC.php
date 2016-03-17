@@ -1,0 +1,127 @@
+<?php
+
+namespace TRC\CoreBundle\Entity\DDC;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TDC
+ *
+ * @ORM\Table(name="t_d_c")
+ * @ORM\Entity(repositoryClass="TRC\CoreBundle\Repository\DDC\TDCRepository")
+ */
+class TDC
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255, unique=true)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=50, unique=true)
+     */
+    private $code;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return TDC
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return TDC
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return TDC
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+}

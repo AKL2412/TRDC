@@ -15,8 +15,8 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_44e03bca2c545536a4f477a6ad4b334663db48082dfcd221bc53bf3061b1f7a0 = $this->env->getExtension("native_profiler");
-        $__internal_44e03bca2c545536a4f477a6ad4b334663db48082dfcd221bc53bf3061b1f7a0->enter($__internal_44e03bca2c545536a4f477a6ad4b334663db48082dfcd221bc53bf3061b1f7a0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:utilisateur.html.twig"));
+        $__internal_a9dfdb44c057e4e64cf3ec6747ac2c68fca1d51f99190cc54878a9a2944764d9 = $this->env->getExtension("native_profiler");
+        $__internal_a9dfdb44c057e4e64cf3ec6747ac2c68fca1d51f99190cc54878a9a2944764d9->enter($__internal_a9dfdb44c057e4e64cf3ec6747ac2c68fca1d51f99190cc54878a9a2944764d9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:utilisateur.html.twig"));
 
         // line 1
         echo "
@@ -34,43 +34,45 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
         <div class=\"row\">
             <div class=\"col-md-12\">
             \t<h2>
-                    Fonction : 
                     ";
-        // line 17
+        // line 16
         if ( !(null === (isset($context["poste"]) ? $context["poste"] : $this->getContext($context, "poste")))) {
-            // line 18
+            // line 17
             echo "                        ";
             $context["ag"] = $this->env->getExtension('TwigExtension')->getEntite($this->getAttribute((isset($context["poste"]) ? $context["poste"] : $this->getContext($context, "poste")), "entite", array()));
-            // line 19
+            // line 18
             echo "            \t\t    ";
             if ( !(null === $this->getAttribute((isset($context["poste"]) ? $context["poste"] : $this->getContext($context, "poste")), "profil", array()))) {
-                // line 20
+                // line 19
                 echo "                            ";
-                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["poste"]) ? $context["poste"] : $this->getContext($context, "poste")), "profil", array()), "nom", array()), "html", null, true);
-                echo " | 
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["poste"]) ? $context["poste"] : $this->getContext($context, "poste")), "profil", array()), "code", array()), "html", null, true);
+                echo " 
                         ";
             } else {
-                // line 22
-                echo "                            Pas Statut |
+                // line 21
+                echo "                            Pas Statut 
                         ";
             }
-            // line 24
-            echo "                        ";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ag"]) ? $context["ag"] : $this->getContext($context, "ag")), "nom", array()), "html", null, true);
-            echo "
+            // line 23
+            echo "                        
                         <small>
                             ";
-            // line 26
+            // line 25
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["poste"]) ? $context["poste"] : $this->getContext($context, "poste")), "entite", array()), "classe", array()), "html", null, true);
             echo "
                         </small>
-                    ";
-        } else {
-            // line 29
-            echo "                        AUCUNE
-                    ";
+
+                        ";
+            // line 28
+            if ($this->getAttribute($this->getAttribute((isset($context["poste"]) ? $context["poste"] : $this->getContext($context, "poste")), "profil", array()), "ddp", array())) {
+                // line 29
+                echo "                            ddp activé
+                        ";
+            }
+            // line 31
+            echo "                    ";
         }
-        // line 31
+        // line 32
         echo "            \t</h2>
 
                 <div class=\"row mtl\">
@@ -78,7 +80,7 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
                         <div class=\"form-group\">
                             <div class=\"text-center mbl\">
                             \t<img src=\"";
-        // line 37
+        // line 38
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl($this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "image", array())), "html", null, true);
         echo " \" height=\"480\" alt=\"\" class=\"img-responsive\"/>
                             </div>
@@ -98,7 +100,7 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
         <div class=\"modal-body\">
             <ul class=\"list-group\">
             <a href=\"";
-        // line 54
+        // line 55
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("trc_admin_utilisateurs_affectation_a_une_entite", array("entite" => "Agence", "matricule" => $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "matricule", array()))), "html", null, true);
         echo " \" class=\"\">
               <li class=\"list-group-item btn\">
@@ -107,7 +109,7 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
               </li>
               </a>
               <a href=\"";
-        // line 60
+        // line 61
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("trc_admin_utilisateurs_affectation_a_une_entite", array("entite" => "Zone", "matricule" => $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "matricule", array()))), "html", null, true);
         echo " \" class=\"\">
               <li class=\"list-group-item btn\">
@@ -116,7 +118,7 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
               </li>
               </a>
               <a href=\"";
-        // line 66
+        // line 67
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("trc_admin_utilisateurs_affectation_a_une_entite", array("entite" => "BOC", "matricule" => $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "matricule", array()))), "html", null, true);
         echo " \" class=\"\">
               <li class=\"list-group-item btn\">
@@ -125,7 +127,7 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
               </li>
               </a>
               <a href=\"";
-        // line 72
+        // line 73
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("trc_admin_utilisateurs_affectation_a_une_entite", array("entite" => "CIC", "matricule" => $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "matricule", array()))), "html", null, true);
         echo " \" class=\"\">
               <li class=\"list-group-item btn\">
@@ -171,17 +173,17 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
                         </ul>
                         <div id=\"generalTabContent\" class=\"tab-content\">
                             <div id=\"tab-info\" class=\"tab-pane fade in active\">
-                                <table class=\"table table-strip table-hover\">
+                                <table class=\"table table-strip table-condensed\">
                             \t\t<tbody>
 \t\t                                <tr>
 \t\t                                    <td>Nom et Prénom </td>
 \t\t                                    <td>
 \t\t                                    \t";
-        // line 121
+        // line 122
         echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "nom", array())), "html", null, true);
         echo "
 \t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 122
+        // line 123
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "prenom", array()), "html", null, true);
         echo "
 \t\t                                    </td>
@@ -189,14 +191,14 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
 \t\t                                <tr>
 \t\t                                    <td>Email</td>
 \t\t                                    <td>";
-        // line 127
+        // line 128
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "email", array()), "html", null, true);
         echo " </td>
 \t\t                                </tr>
 \t\t                                <tr>
 \t\t                                    <td>Adresse</td>
 \t\t                                    <td>";
-        // line 131
+        // line 132
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "adresse", array()), "html", null, true);
         echo "</td>
 \t\t                                </tr>
@@ -222,79 +224,79 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
                                     </thead>
                                     <tbody>
                                         ";
-        // line 154
+        // line 155
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["fonctions"]) ? $context["fonctions"] : $this->getContext($context, "fonctions")));
         foreach ($context['_seq'] as $context["_key"] => $context["fonction"]) {
-            // line 155
+            // line 156
             echo "
                                             <tr>
                                                 <td>
                                                 ";
-            // line 158
+            // line 159
             if ( !(null === $this->getAttribute($context["fonction"], "profil", array()))) {
-                // line 159
+                // line 160
                 echo "                                                    ";
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["fonction"], "profil", array()), "nom", array()), "html", null, true);
                 echo "
                                                 ";
             } else {
-                // line 161
+                // line 162
                 echo "                                                    Non Spécifié
                                                 ";
             }
-            // line 163
+            // line 164
             echo "                                                </td>
                                                 <td>
                                                     ";
-            // line 165
-            $context["ent"] = $this->env->getExtension('TwigExtension')->getEntite($this->getAttribute($context["fonction"], "entite", array()));
             // line 166
+            $context["ent"] = $this->env->getExtension('TwigExtension')->getEntite($this->getAttribute($context["fonction"], "entite", array()));
+            // line 167
             echo "                                                    ";
             if ( !(null === (isset($context["ent"]) ? $context["ent"] : $this->getContext($context, "ent")))) {
-                // line 167
+                // line 168
                 echo "                                                        ";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ent"]) ? $context["ent"] : $this->getContext($context, "ent")), "nom", array()), "html", null, true);
                 echo "
                                                     ";
             } else {
-                // line 169
+                // line 170
                 echo "                                                        ERREUR
                                                     ";
             }
-            // line 171
+            // line 172
             echo "                                                </td>
                                                 <td>
                                                     ";
-            // line 173
+            // line 174
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["fonction"], "dateaffectation", array()), "d-m-Y H:i"), "html", null, true);
             echo "
                                                 </td>
                                                 <td>
                                                     ";
-            // line 176
+            // line 177
             if ($this->getAttribute($context["fonction"], "active", array())) {
-                // line 177
+                // line 178
                 echo "                                                        Activée
                                                     ";
             } else {
-                // line 179
+                // line 180
                 echo "                                                        Desactivée
                                                     ";
             }
-            // line 181
+            // line 182
             echo "                                                </td>
                                                 <td>
                                                     ";
-            // line 183
+            // line 184
             if ( !(null === $this->getAttribute($context["fonction"], "dateretrait", array()))) {
-                // line 184
+                // line 185
                 echo "                                                    ";
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["fonction"], "dateretrait", array()), "d-m-Y H:i"), "html", null, true);
                 echo "
                                                     ";
             }
-            // line 186
+            // line 187
             echo "                                                </td>
                                             </tr>
                                         ";
@@ -302,7 +304,7 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['fonction'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 189
+        // line 190
         echo "                                    </tbody>
                                 </table>
                                 
@@ -337,7 +339,7 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
                             
                         </div>";
         
-        $__internal_44e03bca2c545536a4f477a6ad4b334663db48082dfcd221bc53bf3061b1f7a0->leave($__internal_44e03bca2c545536a4f477a6ad4b334663db48082dfcd221bc53bf3061b1f7a0_prof);
+        $__internal_a9dfdb44c057e4e64cf3ec6747ac2c68fca1d51f99190cc54878a9a2944764d9->leave($__internal_a9dfdb44c057e4e64cf3ec6747ac2c68fca1d51f99190cc54878a9a2944764d9_prof);
 
     }
 
@@ -353,7 +355,7 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
 
     public function getDebugInfo()
     {
-        return array (  306 => 189,  298 => 186,  292 => 184,  290 => 183,  286 => 181,  282 => 179,  278 => 177,  276 => 176,  270 => 173,  266 => 171,  262 => 169,  256 => 167,  253 => 166,  251 => 165,  247 => 163,  243 => 161,  237 => 159,  235 => 158,  230 => 155,  226 => 154,  200 => 131,  193 => 127,  185 => 122,  181 => 121,  129 => 72,  120 => 66,  111 => 60,  102 => 54,  82 => 37,  74 => 31,  70 => 29,  64 => 26,  58 => 24,  54 => 22,  48 => 20,  45 => 19,  42 => 18,  40 => 17,  22 => 1,);
+        return array (  308 => 190,  300 => 187,  294 => 185,  292 => 184,  288 => 182,  284 => 180,  280 => 178,  278 => 177,  272 => 174,  268 => 172,  264 => 170,  258 => 168,  255 => 167,  253 => 166,  249 => 164,  245 => 162,  239 => 160,  237 => 159,  232 => 156,  228 => 155,  202 => 132,  195 => 128,  187 => 123,  183 => 122,  131 => 73,  122 => 67,  113 => 61,  104 => 55,  84 => 38,  76 => 32,  73 => 31,  69 => 29,  67 => 28,  61 => 25,  57 => 23,  53 => 21,  47 => 19,  44 => 18,  41 => 17,  39 => 16,  22 => 1,);
     }
 }
 /* */
@@ -371,20 +373,21 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
 /*         <div class="row">*/
 /*             <div class="col-md-12">*/
 /*             	<h2>*/
-/*                     Fonction : */
 /*                     {%if poste is not null %}*/
 /*                         {%set ag = getEntite(poste.entite) %}*/
 /*             		    {%if poste.profil is not null %}*/
-/*                             {{poste.profil.nom}} | */
+/*                             {{poste.profil.code}} */
 /*                         {%else%}*/
-/*                             Pas Statut |*/
+/*                             Pas Statut */
 /*                         {%endif%}*/
-/*                         {{ag.nom}}*/
+/*                         */
 /*                         <small>*/
 /*                             {{poste.entite.classe}}*/
 /*                         </small>*/
-/*                     {%else%}*/
-/*                         AUCUNE*/
+/* */
+/*                         {%if poste.profil.ddp %}*/
+/*                             ddp activé*/
+/*                         {%endif%}*/
 /*                     {%endif%}*/
 /*             	</h2>*/
 /* */
@@ -471,7 +474,7 @@ class __TwigTemplate_ec5a7c29b74518b69a2ce973b37a71ed06bd474a2b88877e97957b9703e
 /*                         </ul>*/
 /*                         <div id="generalTabContent" class="tab-content">*/
 /*                             <div id="tab-info" class="tab-pane fade in active">*/
-/*                                 <table class="table table-strip table-hover">*/
+/*                                 <table class="table table-strip table-condensed">*/
 /*                             		<tbody>*/
 /* 		                                <tr>*/
 /* 		                                    <td>Nom et Prénom </td>*/

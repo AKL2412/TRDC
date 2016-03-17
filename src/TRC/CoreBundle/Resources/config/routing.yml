@@ -1,3 +1,11 @@
 trc_core_homepage:
     path:     /
     defaults: { _controller: TRCCoreBundle:Default:index }
+
+trc_core_error:
+    path:     /erreur
+    defaults: { _controller: TRCCoreBundle:Default:error }
+
+trc_core_logout:
+    path:     /deconnexion
+    defaults: { _controller: TRCCoreBundle:Default:logout }

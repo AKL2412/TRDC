@@ -1,0 +1,32 @@
+{%extends '::layout.html.twig'%}
+{%block title%}
+	   Clients         
+{%endblock title%}
+{%block titre%}
+       <form class="recherche-client" action="{{url('trc_client_recherche')}}">
+       	<input name="radical" type="search" placeholder="Radical ou CIN" class="form-control recherche-client" />
+       </form>
+{%endblock titre%}
+
+    {%block position %}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-users"></i>
+            <a href="{{url('trc_client_homepage')}}">
+            	Clients
+            </a>
+        </li>
+        
+    {%endblock position%}
+   
+   {%block content %}
+        
+   {%endblock%}
+{%block script%}
+<script type="text/javascript">
+	(function(){
+		$('#side-menu li').removeClass('active');
+		$('#side-menu li.clients').addClass('active');
+	})();
+</script>
+{%endblock script%}

@@ -22,7 +22,8 @@ class ProfilType extends AbstractType
             ->add('entite','choice',array(
                 'choices'=>array("Agence"=>"Agence",
                         "BOC"=>"Back Office Crédit",
-                        "CIC"=>"Comité de Crédits")
+                        "CIC"=>"Comité de Crédits",
+                        "Zone"=>"Zone")
                 ))
             ->add('save','submit', array('label' => 'Enregistrer',
             'attr'=>array('class'=>'btn btn-info')))

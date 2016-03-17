@@ -147,7 +147,12 @@ class UtilisateursController extends Controller
                 $matricule = $request->request->get('input-entite');
                 $entity = $em->getRepository('TRCCoreBundle:'.$entite)
                     ->findOneByMatricule($matricule);
-
+                foreach ($em->getRepository('TRCCoreBundle:Fonction')->findByActeur($utilisateur->getActeur()) as $key => $value) {
+                    $value->setActive(false);
+                    if(is_null($value->getDateretrait()))
+                        $value->setDateretrait(new \DateTime());
+                }
+                $utilisateur->getCompte()->setRoles(array());
                 $fonction = new Fonction();
                 $fonction->setActeur($utilisateur->getActeur());
                 $fonction->setEntite($entity->getEntite());
@@ -169,6 +174,7 @@ class UtilisateursController extends Controller
                 $profil = $em->getRepository('TRCCoreBundle:Profil')
                     ->findOneByMatricule($matricule);
                 $fonction->setProfil($profil);
+                $utilisateur->getCompte()->setRoles(array($profil->getRole()));
                 $em->flush();
                 return $this->redirect($this->generateUrl('trc_admin_utilisateurs_voir',array('matricule'=>$utilisateur->getMatricule())));
             }

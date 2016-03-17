@@ -1,0 +1,141 @@
+{%extends 'TRCAdminBundle::Utilisateurs/utilisateursVoir.html.twig'%}
+	{%block title%}
+	  	Affectation [{{title}}]
+	    | {{parent()}}
+	{%endblock title%}
+	{%block position %}
+        {{parent()}}
+
+		        <li class="active">
+		    		<i class="fa fa-angle-right"></i>
+		    		<i class="fa fa-save"></i>
+		            <a href="#">
+		            	Affectation [{{title}}]
+		            </a>
+		        </li>
+	       		
+        
+{%endblock position%}
+{%block content%}
+<div class="col-md-9">
+                        <ul class="nav nav-tabs">
+                        	{%if etape == 'choix-entite'%}
+                            <li class="active">
+                            	<a  data-toggle="tab">
+                            		Choix de l'entité
+                            	</a>
+                            </li>
+                            <li>
+                            	<a  data-toggle="tab-">
+                            		<i class="fa-lock fa"></i>
+                            		Choix du profil
+                            	</a>
+                            </li>
+                            {%else %}
+                            <li >
+                            	<a href="#choix-entite"  data-toggle="tab">
+                            		<i  class="fa-check fa"></i>
+                            		Choix de l'entité
+                            	</a>
+                            </li>
+                            <li class="active">
+                            	<a href="#choix-profil" data-toggle="tab">
+                            		
+                            		Choix du profil
+                            	</a>
+                            </li>
+                            {%endif%} 
+                            
+                        </ul>
+                        <div id="generalTabContent" class="tab-content">
+                        {%if etape == 'choix-entite'%}
+                            <div id="choix-entite-" class="tab-pane fade in active">
+                            	
+                            		<form method="post">
+                            			<input type="text" hidden="hidden" value="entite" name="action">
+                            			<div class="alert">
+                            				<h2>
+                            					Cocher l'entié
+                            				</h2>
+                            			</div>
+                                        <div class="row">
+                            			{%for entite in entites%}
+                            			<div class="col-md-6">
+                            				<label for="{{entite.matricule}}">
+                            					<input type="radio" required="required"
+                            				name="input-entite" value="{{entite.matricule}}" id="{{entite.matricule}}">
+                            				{{entite.nom}} 
+                                             {%if entite.zone is defined %} 
+                                            <small>[{{entite.zone.nom}}]</small>
+                                            {%endif%}
+                            				</label>
+                            			</div>
+                            			{%endfor%}
+                                        </div>
+                            			<div>
+                            				<button type="submit" class="btn btn-primary">
+                            					Valider
+                            				</button>
+                            			</div>
+                            		</form>
+                            </div>
+                        {%else%}
+                        	<div id="choix-profil" class="tab-pane fade in active">
+                                
+                            	<form method="post">
+                            			<input type="text" hidden="hidden" value="profil" name="action">
+                            			<div class="alert">
+                            				<h2>
+                            					Cocher le profil 
+                            				</h2>
+                            			</div>
+                            			<div class="row">
+                            			{%for profil in profils%}
+                            			<div class="col-md-6">
+                            				<label for="{{profil.matricule}}">
+                            					<input type="radio" required="required"
+                            				name="input-profil" value="{{profil.matricule}}" id="{{profil.matricule}}">
+                            				{{profil.nom}} <small>#{{profil.code}}</small>
+                            				</label>
+                            			</div>
+                            			{%endfor%}
+                            			</div>
+                            			<div>
+                            				<button type="submit" class="btn btn-primary">
+                            					Valider
+                            				</button>
+                            			</div>
+                            		</form>
+                            </div>
+                            <div id="choix-entite" class="tab-pane fade in">
+                            			<div class="alert">
+                            				<h2>
+                            					Entité
+                            				</h2>
+                            			</div>
+                            			<div class="row">
+                            			{%for entite in entites%}
+                            			{%set etat = "" %}
+                            			{%set classe = "" %}
+                            			{%if fonction is not null and entite.entite is not null and entite.entite.id == fonction.entite.id %}
+                            				{%set etat = 'checked="checked"'%}
+                            				{%set classe = "text-success" %}
+                            			{%endif%}
+                            			<div class="col-md-6 {{classe}} ">
+                            				<label for="{{entite.matricule}}">
+                            					<input type="checkbox" required="required" disabled="disabled" 
+                            				name="input-entite" value="{{entite.matricule}}" id="{{entite.matricule}}" {{etat}} >
+                            				{{entite.nom}}
+                                            {%if entite.zone is defined %} 
+                                            <small>[{{entite.zone.nom}}]</small>
+                                            {%endif%}
+                            				</label>
+                            			</div>
+                            			{%endfor%}
+                            			</div>
+                            </div>
+                            
+                        {%endif%}
+                        </div>
+                    </div>
+{%endblock content%}

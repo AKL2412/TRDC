@@ -1,0 +1,3 @@
+trcddc_homepage:
+    path:     /
+    defaults: { _controller: TRCDDCBundle:Default:index }

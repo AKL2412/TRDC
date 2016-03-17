@@ -246,7 +246,7 @@ class Journal extends \TRC\CoreBundle\Entity\Journal implements \Doctrine\ORM\Pr
     /**
      * {@inheritDoc}
      */
-    public function setType(\TRC\CoreBundle\Entity\TypeJournal $type)
+    public function setType(\TRC\CoreBundle\Entity\TypeJournal $type = NULL)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', [$type]);

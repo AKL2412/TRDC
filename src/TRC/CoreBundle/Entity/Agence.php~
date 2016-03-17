@@ -243,4 +243,28 @@ class Agence
     {
         return $this->entite;
     }
+
+    /**
+     * Set zone
+     *
+     * @param \TRC\CoreBundle\Entity\Zone $zone
+     *
+     * @return Agence
+     */
+    public function setZone(\TRC\CoreBundle\Entity\Zone $zone = null)
+    {
+        $this->zone = $zone;
+
+        return $this;
+    }
+
+    /**
+     * Get zone
+     *
+     * @return \TRC\CoreBundle\Entity\Zone
+     */
+    public function getZone()
+    {
+        return $this->zone;
+    }
 }

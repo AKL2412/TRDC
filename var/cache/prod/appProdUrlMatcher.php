@@ -57,6 +57,11 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_utilisateurs_affectation_a_une_entite')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::affectationAction',));
                 }
 
+                // trc_admin_affectation_de_profil_a_une_fonction
+                if (preg_match('#^/admin/utilisateur/(?P<matricule>[^/]++)/(?P<entite>Agence|CIC|BOC|Zone)/affectation/(?P<idfonction>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_affectation_de_profil_a_une_fonction')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\UtilisateursController::affectationAction',));
+                }
+
             }
 
             if (0 === strpos($pathinfo, '/admin/entites')) {
@@ -114,6 +119,11 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             }
 
             return array (  '_controller' => 'TRC\\CoreBundle\\Controller\\DefaultController::indexAction',  '_route' => 'trc_core_homepage',);
+        }
+
+        // trc_core_logout
+        if ($pathinfo === '/deconnexion') {
+            return array (  '_controller' => 'TRC\\CoreBundle\\Controller\\DefaultController::logoutAction',  '_route' => 'trc_core_logout',);
         }
 
         if (0 === strpos($pathinfo, '/log')) {

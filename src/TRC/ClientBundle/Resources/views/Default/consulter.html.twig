@@ -1,0 +1,111 @@
+{%extends 'TRCClientBundle::clients.html.twig'%}
+{%block title%}
+	 {{client.radical}}         
+{%endblock title%}
+{%block titre%}
+    {{client.intitule}}
+{%endblock titre%}
+{%block position %}
+	{{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-user"></i>
+            <a href="{{url('trc_client_consulter',{radical:client.radical})}}">
+            	{{client.radical}}
+            </a>
+        </li>
+        
+{%endblock position%}
+{%block content %}
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-green">
+				<div class="panel-heading">
+					Identité
+				</div>
+				<div class="panel-body">
+				{%if client.identite is null %}
+					<a class="btn btn-xs" href="{{url('trc_client_identite',{radical:client.radical})}} ">
+						Renseigner l'identité du client
+					</a>
+				{%else%}
+					{%set iden = client.identite %}
+					<table class="table table-condensed">
+						<tr>
+							<td>Civilité</td>
+							<td> {{iden.civilite.nom}} </td>
+						</tr>
+						<tr>
+							<td>Nom</td>
+							<td> {{iden.nom}} </td>
+						</tr>
+						<tr>
+							<td>Prenom</td>
+							<td> {{iden.prenom}} </td>
+						</tr>
+						<tr>
+							<td>Pièce</td>
+							<td> {{iden.piece.nom}} </td>
+						</tr>
+						<tr>
+							<td>Numero de pièce</td>
+							<td> {{iden.numeroPiece}} </td>
+						</tr>
+						<tr>
+							<td>Nationalité</td>
+							<td>{{iden.pays.nationalité}} [{{iden.pays.nom}}] </td>
+						</tr>
+					</table>
+				{%endif%}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel panel-red">
+				<div class="panel-heading">
+					Coordonnées
+				</div>
+				<div class="panel-body">
+				{%if client.coordonnee is null %}
+					<a class="btn  btn-danger" href="{{url('trc_client_coordonnee',{radical:client.radical})}} ">
+						Renseigner les coordonnées du client
+					</a>
+				{%else%}
+					{%set coor = client.coordonnee %}
+					
+					<table class="table table-condensed">
+						<tr>
+							<td>Ville</td>
+							<td> {{coor.ville}} </td>
+						</tr>
+						<tr>
+							<td>Boite postale</td>
+							<td> {{coor.boitePostale}} </td>
+						</tr>
+						<tr>
+							<td>Tel. Pro</td>
+							<td> {{coor.telephoneProfessionnel}} </td>
+						</tr>
+						<tr>
+							<td>Tel. Domicile</td>
+							<td> {{coor.telephoneDomicile}} </td>
+						</tr>
+						<tr>
+							<td>Tel. mobile</td>
+							<td> {{coor.gsm}} </td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td> {{coor.email}} </td>
+						</tr>
+						<tr>
+							<td>Adresse</td>
+							<td> {{coor.adresse}} </td>
+						</tr>
+					</table>
+				{%endif%}
+				</div>
+			</div>
+		</div>
+	</div>
+{%endblock content %}

@@ -15,8 +15,8 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b = $this->env->getExtension("native_profiler");
-        $__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b->enter($__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:connecte.html.twig"));
+        $__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18 = $this->env->getExtension("native_profiler");
+        $__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18->enter($__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:connecte.html.twig"));
 
         // line 1
         echo "<li class=\"dropdown\">
@@ -115,12 +115,12 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
         echo "                            <li><a href=\"#\"><i class=\"fa fa-lock\"></i>Lock Screen</a></li>
                             <li><a href=\"";
         // line 75
-        echo $this->env->getExtension('routing')->getUrl("fos_user_security_logout");
+        echo $this->env->getExtension('routing')->getUrl("trc_core_logout");
         echo "\"><i class=\"fa fa-key\"></i>Log Out</a></li>
                         </ul>
                     </li>";
         
-        $__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b->leave($__internal_e67b3d19991529386d131d884ac49702d65f30ce8873b2f21a50d461cd34da7b_prof);
+        $__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18->leave($__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18_prof);
 
     }
 
@@ -213,6 +213,6 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 /*                             </li>*/
 /*                         {%endif%}*/
 /*                             <li><a href="#"><i class="fa fa-lock"></i>Lock Screen</a></li>*/
-/*                             <li><a href="{{url('fos_user_security_logout')}}"><i class="fa fa-key"></i>Log Out</a></li>*/
+/*                             <li><a href="{{url('trc_core_logout')}}"><i class="fa fa-key"></i>Log Out</a></li>*/
 /*                         </ul>*/
 /*                     </li>*/

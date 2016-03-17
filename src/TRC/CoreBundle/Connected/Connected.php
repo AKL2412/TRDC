@@ -20,6 +20,8 @@ class Connected{
 		$useragent = $_SERVER['HTTP_USER_AGENT'];
 		$token = $event->getAuthenticationToken();
 		$user = $token->getUser();
+		
+		$session = new Session();
 		if(gettype($user) != 'string'){
 			
 			
@@ -39,6 +41,9 @@ class Connected{
 
 
 			$this->em->flush();
+
+			$session->set('log',$log->getId());
 		}
+		
 	}
 }

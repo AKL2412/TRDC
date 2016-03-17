@@ -105,6 +105,47 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/clients')) {
+            // trc_client_homepage
+            if (rtrim($pathinfo, '/') === '/clients') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'trc_client_homepage');
+                }
+
+                return array (  '_controller' => 'TRC\\ClientBundle\\Controller\\DefaultController::indexAction',  '_route' => 'trc_client_homepage',);
+            }
+
+            // trc_client_recherche
+            if ($pathinfo === '/clients/recherche') {
+                return array (  '_controller' => 'TRC\\ClientBundle\\Controller\\DefaultController::rechercheAction',  '_route' => 'trc_client_recherche',);
+            }
+
+            // trc_client_consulter
+            if (preg_match('#^/clients/(?P<radical>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_consulter')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\DefaultController::consulterAction',));
+            }
+
+            // trc_client_identite
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/identite$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_identite')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\MAJController::identiteAction',));
+            }
+
+            // trc_client_coordonnee
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/coordonnées$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_coordonnee')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\MAJController::coordonneesAction',));
+            }
+
+        }
+
+        // trcddc_homepage
+        if (rtrim($pathinfo, '/') === '/ddc') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'trcddc_homepage');
+            }
+
+            return array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::indexAction',  '_route' => 'trcddc_homepage',);
+        }
+
         if (0 === strpos($pathinfo, '/admin')) {
             // trc_admin_homepage
             if ($pathinfo === '/admin') {
@@ -197,6 +238,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             return array (  '_controller' => 'TRC\\CoreBundle\\Controller\\DefaultController::indexAction',  '_route' => 'trc_core_homepage',);
+        }
+
+        // trc_core_error
+        if ($pathinfo === '/erreur') {
+            return array (  '_controller' => 'TRC\\CoreBundle\\Controller\\DefaultController::errorAction',  '_route' => 'trc_core_error',);
+        }
+
+        // trc_core_logout
+        if ($pathinfo === '/deconnexion') {
+            return array (  '_controller' => 'TRC\\CoreBundle\\Controller\\DefaultController::logoutAction',  '_route' => 'trc_core_logout',);
         }
 
         if (0 === strpos($pathinfo, '/log')) {

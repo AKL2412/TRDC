@@ -6,9 +6,11 @@
 	    | {{parent()}}
 	{%endblock title%}
 	{%block titre%}
+
 		<img src="{{asset(utilisateur.image)}} " class="img-circle-" height="40">
 			{{utilisateur.prenom}}
 	   		{{utilisateur.nom|upper}}
+	   		#{{utilisateur.matricule}}
         
     {%endblock titre%}
 

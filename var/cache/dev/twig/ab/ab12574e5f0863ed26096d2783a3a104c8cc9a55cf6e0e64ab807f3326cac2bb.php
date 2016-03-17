@@ -24,20 +24,20 @@ class __TwigTemplate_0f9ec1aca2ce2ccb3b47dba09c6164d4bd7a3ab23223f8c229e25fe3a77
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_2689f247a15712c5bd4082eb39b85b0655913f196b8de92c1fd09c13699580ff = $this->env->getExtension("native_profiler");
-        $__internal_2689f247a15712c5bd4082eb39b85b0655913f196b8de92c1fd09c13699580ff->enter($__internal_2689f247a15712c5bd4082eb39b85b0655913f196b8de92c1fd09c13699580ff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCAdminBundle:Utilisateurs:utilisateursVoir.html.twig"));
+        $__internal_45def390bcb66c11b8d2bfc3c9f9ef3782e7997ca2b10d3aeeadc2bad3199656 = $this->env->getExtension("native_profiler");
+        $__internal_45def390bcb66c11b8d2bfc3c9f9ef3782e7997ca2b10d3aeeadc2bad3199656->enter($__internal_45def390bcb66c11b8d2bfc3c9f9ef3782e7997ca2b10d3aeeadc2bad3199656_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCAdminBundle:Utilisateurs:utilisateursVoir.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_2689f247a15712c5bd4082eb39b85b0655913f196b8de92c1fd09c13699580ff->leave($__internal_2689f247a15712c5bd4082eb39b85b0655913f196b8de92c1fd09c13699580ff_prof);
+        $__internal_45def390bcb66c11b8d2bfc3c9f9ef3782e7997ca2b10d3aeeadc2bad3199656->leave($__internal_45def390bcb66c11b8d2bfc3c9f9ef3782e7997ca2b10d3aeeadc2bad3199656_prof);
 
     }
 
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        $__internal_fad1399d13f649fa65d3eb0816e1fa07eef6821f4c80a035309f46ee826e50f6 = $this->env->getExtension("native_profiler");
-        $__internal_fad1399d13f649fa65d3eb0816e1fa07eef6821f4c80a035309f46ee826e50f6->enter($__internal_fad1399d13f649fa65d3eb0816e1fa07eef6821f4c80a035309f46ee826e50f6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_b5aa7b921d811279263e1740790c14bebcf77c428b17460e5c0cdf6a5dc1df61 = $this->env->getExtension("native_profiler");
+        $__internal_b5aa7b921d811279263e1740790c14bebcf77c428b17460e5c0cdf6a5dc1df61->enter($__internal_b5aa7b921d811279263e1740790c14bebcf77c428b17460e5c0cdf6a5dc1df61_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 3
         echo "\t  
@@ -55,42 +55,48 @@ class __TwigTemplate_0f9ec1aca2ce2ccb3b47dba09c6164d4bd7a3ab23223f8c229e25fe3a77
         echo "
 \t";
         
-        $__internal_fad1399d13f649fa65d3eb0816e1fa07eef6821f4c80a035309f46ee826e50f6->leave($__internal_fad1399d13f649fa65d3eb0816e1fa07eef6821f4c80a035309f46ee826e50f6_prof);
+        $__internal_b5aa7b921d811279263e1740790c14bebcf77c428b17460e5c0cdf6a5dc1df61->leave($__internal_b5aa7b921d811279263e1740790c14bebcf77c428b17460e5c0cdf6a5dc1df61_prof);
 
     }
 
     // line 8
     public function block_titre($context, array $blocks = array())
     {
-        $__internal_c9055161e258bc3b3a04dac0c86b6566441ca16464ac10ca04809b847355dea7 = $this->env->getExtension("native_profiler");
-        $__internal_c9055161e258bc3b3a04dac0c86b6566441ca16464ac10ca04809b847355dea7->enter($__internal_c9055161e258bc3b3a04dac0c86b6566441ca16464ac10ca04809b847355dea7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "titre"));
+        $__internal_4a7ee28111e1180aa16047ad8cae2e5d7d095eaf7621d6f8959dbd217af9906b = $this->env->getExtension("native_profiler");
+        $__internal_4a7ee28111e1180aa16047ad8cae2e5d7d095eaf7621d6f8959dbd217af9906b->enter($__internal_4a7ee28111e1180aa16047ad8cae2e5d7d095eaf7621d6f8959dbd217af9906b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "titre"));
 
         // line 9
-        echo "\t\t<img src=\"";
+        echo "
+\t\t<img src=\"";
+        // line 10
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl($this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "image", array())), "html", null, true);
         echo " \" class=\"img-circle-\" height=\"40\">
 \t\t\t";
-        // line 10
+        // line 11
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "prenom", array()), "html", null, true);
         echo "
 \t   \t\t";
-        // line 11
+        // line 12
         echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "nom", array())), "html", null, true);
+        echo "
+\t   \t\t#";
+        // line 13
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "matricule", array()), "html", null, true);
         echo "
         
     ";
         
-        $__internal_c9055161e258bc3b3a04dac0c86b6566441ca16464ac10ca04809b847355dea7->leave($__internal_c9055161e258bc3b3a04dac0c86b6566441ca16464ac10ca04809b847355dea7_prof);
+        $__internal_4a7ee28111e1180aa16047ad8cae2e5d7d095eaf7621d6f8959dbd217af9906b->leave($__internal_4a7ee28111e1180aa16047ad8cae2e5d7d095eaf7621d6f8959dbd217af9906b_prof);
 
     }
 
-    // line 15
+    // line 17
     public function block_position($context, array $blocks = array())
     {
-        $__internal_d825bf99f25360f7b19912fc012756531bde9b409afbc0ad0e93bdf6601f898c = $this->env->getExtension("native_profiler");
-        $__internal_d825bf99f25360f7b19912fc012756531bde9b409afbc0ad0e93bdf6601f898c->enter($__internal_d825bf99f25360f7b19912fc012756531bde9b409afbc0ad0e93bdf6601f898c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "position"));
+        $__internal_7419830c7035a1e100cfb960354820d347ebec954dfd47351bec4c8c10eeca4e = $this->env->getExtension("native_profiler");
+        $__internal_7419830c7035a1e100cfb960354820d347ebec954dfd47351bec4c8c10eeca4e->enter($__internal_7419830c7035a1e100cfb960354820d347ebec954dfd47351bec4c8c10eeca4e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "position"));
 
-        // line 16
+        // line 18
         echo "        ";
         $this->displayParentBlock("position", $context, $blocks);
         echo "
@@ -99,15 +105,15 @@ class __TwigTemplate_0f9ec1aca2ce2ccb3b47dba09c6164d4bd7a3ab23223f8c229e25fe3a77
 \t\t    \t\t<i class=\"fa fa-angle-right\"></i>
 \t\t    \t\t<i class=\"fa fa-eye\"></i>
 \t\t            <a href=\"";
-        // line 21
+        // line 23
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("trc_admin_utilisateurs_voir", array("matricule" => $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "matricule", array()))), "html", null, true);
         echo " \">
 \t\t            \t";
-        // line 22
+        // line 24
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "prenom", array()), "html", null, true);
         echo "
 \t   \t\t\t\t\t";
-        // line 23
+        // line 25
         echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "nom", array())), "html", null, true);
         echo "
 \t\t            </a>
@@ -116,23 +122,23 @@ class __TwigTemplate_0f9ec1aca2ce2ccb3b47dba09c6164d4bd7a3ab23223f8c229e25fe3a77
         
     ";
         
-        $__internal_d825bf99f25360f7b19912fc012756531bde9b409afbc0ad0e93bdf6601f898c->leave($__internal_d825bf99f25360f7b19912fc012756531bde9b409afbc0ad0e93bdf6601f898c_prof);
+        $__internal_7419830c7035a1e100cfb960354820d347ebec954dfd47351bec4c8c10eeca4e->leave($__internal_7419830c7035a1e100cfb960354820d347ebec954dfd47351bec4c8c10eeca4e_prof);
 
     }
 
-    // line 29
+    // line 31
     public function block_content($context, array $blocks = array())
     {
-        $__internal_48e1b1bbacdaffc3f3d473f561b331f6b8c9c7dd37b19363d4ed29c91c67209c = $this->env->getExtension("native_profiler");
-        $__internal_48e1b1bbacdaffc3f3d473f561b331f6b8c9c7dd37b19363d4ed29c91c67209c->enter($__internal_48e1b1bbacdaffc3f3d473f561b331f6b8c9c7dd37b19363d4ed29c91c67209c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_93dc5d3e40fa7bbbc5b4654740f6c3fb8d23c055a969e8a3b28af99fc1fc7a91 = $this->env->getExtension("native_profiler");
+        $__internal_93dc5d3e40fa7bbbc5b4654740f6c3fb8d23c055a969e8a3b28af99fc1fc7a91->enter($__internal_93dc5d3e40fa7bbbc5b4654740f6c3fb8d23c055a969e8a3b28af99fc1fc7a91_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
-        // line 30
+        // line 32
         echo "    ";
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("TRCCoreBundle:Affichage:utilisateur", array("utilisateur" => (isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")))));
         echo "
     ";
         
-        $__internal_48e1b1bbacdaffc3f3d473f561b331f6b8c9c7dd37b19363d4ed29c91c67209c->leave($__internal_48e1b1bbacdaffc3f3d473f561b331f6b8c9c7dd37b19363d4ed29c91c67209c_prof);
+        $__internal_93dc5d3e40fa7bbbc5b4654740f6c3fb8d23c055a969e8a3b28af99fc1fc7a91->leave($__internal_93dc5d3e40fa7bbbc5b4654740f6c3fb8d23c055a969e8a3b28af99fc1fc7a91_prof);
 
     }
 
@@ -148,7 +154,7 @@ class __TwigTemplate_0f9ec1aca2ce2ccb3b47dba09c6164d4bd7a3ab23223f8c229e25fe3a77
 
     public function getDebugInfo()
     {
-        return array (  130 => 30,  124 => 29,  111 => 23,  107 => 22,  103 => 21,  94 => 16,  88 => 15,  78 => 11,  74 => 10,  69 => 9,  63 => 8,  54 => 6,  50 => 5,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  136 => 32,  130 => 31,  117 => 25,  113 => 24,  109 => 23,  100 => 18,  94 => 17,  84 => 13,  80 => 12,  76 => 11,  72 => 10,  69 => 9,  63 => 8,  54 => 6,  50 => 5,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }
 /* {%extends 'TRCAdminBundle::Utilisateurs/utilisateurs.html.twig'%}*/
@@ -159,9 +165,11 @@ class __TwigTemplate_0f9ec1aca2ce2ccb3b47dba09c6164d4bd7a3ab23223f8c229e25fe3a77
 /* 	    | {{parent()}}*/
 /* 	{%endblock title%}*/
 /* 	{%block titre%}*/
+/* */
 /* 		<img src="{{asset(utilisateur.image)}} " class="img-circle-" height="40">*/
 /* 			{{utilisateur.prenom}}*/
 /* 	   		{{utilisateur.nom|upper}}*/
+/* 	   		#{{utilisateur.matricule}}*/
 /*         */
 /*     {%endblock titre%}*/
 /* */

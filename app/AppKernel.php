@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new TRC\UserBundle\TRCUserBundle(),
             new TRC\CoreBundle\TRCCoreBundle(),
             new TRC\AdminBundle\TRCAdminBundle(),
+            new TRC\DDCBundle\TRCDDCBundle(),
+            new TRC\ClientBundle\TRCClientBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

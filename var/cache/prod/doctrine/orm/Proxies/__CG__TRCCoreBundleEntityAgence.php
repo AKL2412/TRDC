@@ -64,10 +64,10 @@ class Agence extends \TRC\CoreBundle\Entity\Agence implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'entite'];
+            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'entite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'zone'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'entite'];
+        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'entite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Agence' . "\0" . 'zone'];
     }
 
     /**
@@ -329,6 +329,28 @@ class Agence extends \TRC\CoreBundle\Entity\Agence implements \Doctrine\ORM\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntite', []);
 
         return parent::getEntite();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setZone(\TRC\CoreBundle\Entity\Zone $zone = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setZone', [$zone]);
+
+        return parent::setZone($zone);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getZone()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getZone', []);
+
+        return parent::getZone();
     }
 
 }

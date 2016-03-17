@@ -1,0 +1,20 @@
+trc_client_homepage:
+    path:     /
+    defaults: { _controller: TRCClientBundle:Default:index }
+trc_client_recherche:
+    path:     /recherche
+    defaults: { _controller: TRCClientBundle:Default:recherche }
+
+trc_client_consulter:
+    path:     /{radical}
+    defaults: { _controller: TRCClientBundle:Default:consulter }
+
+trc_client_identite:
+    path:     /{radical}/identite
+    defaults: { _controller: TRCClientBundle:MAJ:identite }
+
+trc_client_coordonnee:
+    path:     /{radical}/coordonnées
+    defaults: { _controller: TRCClientBundle:MAJ:coordonnees }
+
+

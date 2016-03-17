@@ -13,20 +13,21 @@
         <div class="row">
             <div class="col-md-12">
             	<h2>
-                    Fonction : 
                     {%if poste is not null %}
                         {%set ag = getEntite(poste.entite) %}
             		    {%if poste.profil is not null %}
-                            {{poste.profil.nom}} | 
+                            {{poste.profil.code}} 
                         {%else%}
-                            Pas Statut |
+                            Pas Statut 
                         {%endif%}
-                        {{ag.nom}}
+                        
                         <small>
                             {{poste.entite.classe}}
                         </small>
-                    {%else%}
-                        AUCUNE
+
+                        {%if poste.profil.ddp %}
+                            ddp activé
+                        {%endif%}
                     {%endif%}
             	</h2>
 
@@ -113,7 +114,7 @@
                         </ul>
                         <div id="generalTabContent" class="tab-content">
                             <div id="tab-info" class="tab-pane fade in active">
-                                <table class="table table-strip table-hover">
+                                <table class="table table-strip table-condensed">
                             		<tbody>
 		                                <tr>
 		                                    <td>Nom et Prénom </td>

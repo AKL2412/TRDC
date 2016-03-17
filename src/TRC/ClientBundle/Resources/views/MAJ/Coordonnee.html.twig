@@ -1,0 +1,22 @@
+{%extends 'TRCClientBundle::Default/consulter.html.twig'%}
+{%block title%}
+	Coordonnées || 
+	 {{parent()}}         
+{%endblock title%}
+{%block titre%}
+   Ajout de coordonnées
+{%endblock titre%}
+{%block position %}
+	{{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-user"></i>
+            <a href="#">
+            	Coordonnées
+            </a>
+        </li>
+        
+{%endblock position%}
+{%block content %}
+	{{form(form)}}
+{%endblock content %}

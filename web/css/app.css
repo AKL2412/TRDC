@@ -1,4 +1,12 @@
-/* line 3, ../compass/sass/app.scss */
+/* line 4, ../compass/sass/app.scss */
+body .recherche-client {
+  border: 1px solid #eee;
+  height: 25px;
+  font-size: 12px;
+  border-radius: 5px;
+  outline: none;
+}
+/* line 12, ../compass/sass/app.scss */
 body .position li {
   display: inline;
 }

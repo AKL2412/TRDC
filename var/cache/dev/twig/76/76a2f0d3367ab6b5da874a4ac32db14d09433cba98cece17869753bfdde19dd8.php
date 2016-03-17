@@ -15,8 +15,8 @@ class __TwigTemplate_4170395df4fa252e9cc8d393add71e38b9df36f439ed6518e4ea7586d42
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706 = $this->env->getExtension("native_profiler");
-        $__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706->enter($__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:menu.html.twig"));
+        $__internal_5f894892287f4fb6b29ff67baedec25bae4a01d87bd4166ead538fb4718579b5 = $this->env->getExtension("native_profiler");
+        $__internal_5f894892287f4fb6b29ff67baedec25bae4a01d87bd4166ead538fb4718579b5->enter($__internal_5f894892287f4fb6b29ff67baedec25bae4a01d87bd4166ead538fb4718579b5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:menu.html.twig"));
 
         // line 1
         echo "<nav id=\"sidebar\" role=\"navigation\" data-step=\"2\" data-intro=\"Template has &lt;b&gt;many navigation styles&lt;/b&gt;\"
@@ -69,11 +69,23 @@ class __TwigTemplate_4170395df4fa252e9cc8d393add71e38b9df36f439ed6518e4ea7586d42
                     ";
         }
         // line 37
-        echo "                </ul>
+        echo "                        <li class=\"clients\">
+                            <a href=\"";
+        // line 38
+        echo $this->env->getExtension('routing')->getUrl("trc_client_homepage");
+        echo "\">
+                                <i class=\"fa fa-money fa-fw\">
+                                    <div class=\"icon-bg bg-pink\"></div>
+                                </i>
+                                <span class=\"menu-title\">Clients</span>
+                            </a>
+                           
+                        </li>
+                </ul>
             </div>
         </nav>";
         
-        $__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706->leave($__internal_9f124748779f10a1a9110c3aabb42188ccd9b0411cd220022ca6b5a35b78d706_prof);
+        $__internal_5f894892287f4fb6b29ff67baedec25bae4a01d87bd4166ead538fb4718579b5->leave($__internal_5f894892287f4fb6b29ff67baedec25bae4a01d87bd4166ead538fb4718579b5_prof);
 
     }
 
@@ -89,7 +101,7 @@ class __TwigTemplate_4170395df4fa252e9cc8d393add71e38b9df36f439ed6518e4ea7586d42
 
     public function getDebugInfo()
     {
-        return array (  72 => 37,  59 => 27,  47 => 18,  44 => 17,  42 => 16,  31 => 8,  22 => 1,);
+        return array (  75 => 38,  72 => 37,  59 => 27,  47 => 18,  44 => 17,  42 => 16,  31 => 8,  22 => 1,);
     }
 }
 /* <nav id="sidebar" role="navigation" data-step="2" data-intro="Template has &lt;b&gt;many navigation styles&lt;/b&gt;"*/
@@ -128,6 +140,15 @@ class __TwigTemplate_4170395df4fa252e9cc8d393add71e38b9df36f439ed6518e4ea7586d42
 /*                         </li>*/
 /* */
 /*                     {%endif%}*/
+/*                         <li class="clients">*/
+/*                             <a href="{{url('trc_client_homepage')}}">*/
+/*                                 <i class="fa fa-money fa-fw">*/
+/*                                     <div class="icon-bg bg-pink"></div>*/
+/*                                 </i>*/
+/*                                 <span class="menu-title">Clients</span>*/
+/*                             </a>*/
+/*                            */
+/*                         </li>*/
 /*                 </ul>*/
 /*             </div>*/
 /*         </nav>*/

@@ -1,4 +1,13 @@
+@import "compass";
 body{
+
+	.recherche-client{
+		border: 1px solid #eee;
+		height: 25px;
+		font-size: 12px;
+		border-radius:5px;
+		outline: none;
+	}
 	.position{
 		li{
 			display: inline;

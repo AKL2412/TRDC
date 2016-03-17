@@ -20,6 +20,8 @@
       <parameter key="TRCUserBundle">TRC\UserBundle\TRCUserBundle</parameter>
       <parameter key="TRCCoreBundle">TRC\CoreBundle\TRCCoreBundle</parameter>
       <parameter key="TRCAdminBundle">TRC\AdminBundle\TRCAdminBundle</parameter>
+      <parameter key="TRCDDCBundle">TRC\DDCBundle\TRCDDCBundle</parameter>
+      <parameter key="TRCClientBundle">TRC\ClientBundle\TRCClientBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -2115,7 +2117,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56d347d4075443.98807587</argument>
+            <argument>56ea7ab96a9b70.47288764</argument>
           </service>
         </argument>
       </argument>
@@ -2422,7 +2424,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>56d347d4075443.98807587</argument>
+            <argument>56ea7ab96a9b70.47288764</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3521,6 +3523,14 @@
       <call method="addPath">
         <argument>/home/junior/www/projects/TRDC/src/TRC/AdminBundle/Resources/views</argument>
         <argument>TRCAdmin</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/junior/www/projects/TRDC/src/TRC/DDCBundle/Resources/views</argument>
+        <argument>TRCDDC</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/junior/www/projects/TRDC/src/TRC/ClientBundle/Resources/views</argument>
+        <argument>TRCClient</argument>
       </call>
       <call method="addPath">
         <argument>/home/junior/www/projects/TRDC/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
