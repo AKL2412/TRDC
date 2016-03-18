@@ -135,15 +135,66 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_coordonnee')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\MAJController::coordonneesAction',));
             }
 
-        }
-
-        // trcddc_homepage
-        if (rtrim($pathinfo, '/') === '/ddc') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'trcddc_homepage');
+            // trc_client_employeur
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/employeur$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_employeur')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\MAJController::employeurAction',));
             }
 
-            return array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::indexAction',  '_route' => 'trcddc_homepage',);
+            // trc_client_profession
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/profession$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_profession')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\MAJController::professionAction',));
+            }
+
+            // trc_client_revenu
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/revenu$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_revenu')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\MAJController::revenuAction',));
+            }
+
+            // trc_client_logement
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/logement$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_logement')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\MAJController::logementAction',));
+            }
+
+            // trc_client_pac
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/pac$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_pac')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\MAJController::pacAction',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/ddc')) {
+            // trcddc_homepage
+            if (rtrim($pathinfo, '/') === '/ddc') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'trcddc_homepage');
+                }
+
+                return array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::indexAction',  '_route' => 'trcddc_homepage',);
+            }
+
+            // trcddc_init
+            if (preg_match('#^/ddc/(?P<code>[^/\\-]++)\\-(?P<type>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_init')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::initAction',));
+            }
+
+            // trcddc_def_client
+            if (preg_match('#^/ddc/(?P<rs>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_def_client')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::defclientAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/ddc/c')) {
+                // trcddc_consulter
+                if (0 === strpos($pathinfo, '/ddc/consulter') && preg_match('#^/ddc/consulter/(?P<rc>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_consulter')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::ddcvoirAction',));
+                }
+
+                // trcddc_get_client_ajax
+                if ($pathinfo === '/ddc/client/ajax') {
+                    return array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::getajaxclientAction',  '_route' => 'trcddc_get_client_ajax',);
+                }
+
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/admin')) {
@@ -227,6 +278,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // trc_admin_systemes
             if ($pathinfo === '/admin/systemes') {
                 return array (  '_controller' => 'TRC\\AdminBundle\\Controller\\SystemesController::systemesAction',  '_route' => 'trc_admin_systemes',);
+            }
+
+            if (0 === strpos($pathinfo, '/admin/crédits')) {
+                // trc_admin_tdc
+                if ($pathinfo === '/admin/crédits') {
+                    return array (  '_controller' => 'TRC\\AdminBundle\\Controller\\CreditsController::creditsAction',  '_route' => 'trc_admin_tdc',);
+                }
+
+                // trc_admin_tdc_voir
+                if (preg_match('#^/admin/crédits/(?P<code>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_admin_tdc_voir')), array (  '_controller' => 'TRC\\AdminBundle\\Controller\\CreditsController::creditsvoirAction',));
+                }
+
             }
 
         }

@@ -71,18 +71,30 @@
 
 <hr>
 
-<a href="{{url('trc_admin_entites_par_categorie',{entite:'Agence'})}} ">
+
+<div class="col-md-3">
+  <a class="btn btn-lg btn-success " href="{{url('trc_admin_entites_par_categorie',{entite:'Agence'})}} ">
     Agences
 </a>
-<a href="{{url('trc_admin_entites_par_categorie',{entite:'BOC'})}} ">
-    BOC
+</div>
+<div class="col-md-3">
+  <a class="btn btn-lg btn-danger " href="{{url('trc_admin_entites_par_categorie',{entite:'BOC'})}} ">
+    Back Office Crédits
 </a>
-<a href="{{url('trc_admin_entites_par_categorie',{entite:'CIC'})}} ">
-    CIC
+</div>
+<div class="col-md-3">
+  <a class="btn btn-lg btn-warning" href="{{url('trc_admin_entites_par_categorie',{entite:'CIC'})}} ">
+    Comité de Crédits
 </a>
-<a href="{{url('trc_admin_entites_par_categorie',{entite:'Zone'})}} ">
+</div>
+<div class="col-md-3">
+  <a class="btn btn-lg btn-primary" href="{{url('trc_admin_entites_par_categorie',{entite:'Zone'})}} ">
     Zone
 </a>
+</div>
+
+
+
 
     {%endblock content%}
 {%block script%}

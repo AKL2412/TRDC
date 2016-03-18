@@ -31,7 +31,7 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="intitule", type="string", length=255)
+     * @ORM\Column(name="intitule", type="string", length=255, nullable=true)
      */
     private $intitule;
 
@@ -277,5 +277,29 @@ class Client
     public function getEmployeur()
     {
         return $this->employeur;
+    }
+
+    /**
+     * Set intitule
+     *
+     * @param string $intitule
+     *
+     * @return Client
+     */
+    public function setIntitule($intitule)
+    {
+        $this->intitule = $intitule;
+
+        return $this;
+    }
+
+    /**
+     * Get intitule
+     *
+     * @return string
+     */
+    public function getIntitule()
+    {
+        return $this->intitule;
     }
 }

@@ -19,10 +19,12 @@
    
    {%block content %}
    	<div class="col-lg-9 col-md-9">
-	   	<div class="panel">
+	   	<div class="">
 	   		{%block main %}
-	   	     <div class="panel- panel-green">
-            <div class="panel-heading"></div>
+	   	     <div class="panel panel-default">
+            <div class="panel-heading">
+              Les utilisateurs
+            </div>
                 {%if utilisateurs|length > 0 %}
                     <div class="panel-body">
 

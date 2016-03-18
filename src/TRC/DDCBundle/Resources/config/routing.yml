@@ -1,3 +1,20 @@
 trcddc_homepage:
     path:     /
     defaults: { _controller: TRCDDCBundle:Default:index }
+
+trcddc_init:
+    path:     /{code}-{type}
+    defaults: { _controller: TRCDDCBundle:Default:init }
+trcddc_def_client:
+    path:     /{rs}
+    defaults: { _controller: TRCDDCBundle:Default:defclient }
+
+trcddc_consulter:
+    path:     /consulter/{rc}
+    defaults: { _controller: TRCDDCBundle:Default:ddcvoir }
+
+trcddc_get_client_ajax:
+    path:     /client/ajax
+    defaults: { _controller: TRCDDCBundle:Default:getajaxclient }
+    requirements:
+        method : POST

@@ -35,7 +35,18 @@ class PAC
      */
     private $prenom;
 
+    /**
+    * @ORM\OneToOne(targetEntity="TRC\CoreBundle\Entity\Client\Coordonnee",cascade={"remove", "persist"})
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $coordonnee;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Client\LDP")
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $lpd;
+    
     /**
      * Get id
      *
@@ -92,5 +103,53 @@ class PAC
     public function getPrenom()
     {
         return $this->prenom;
+    }
+
+    /**
+     * Set coordonnee
+     *
+     * @param \TRC\CoreBundle\Entity\Client\Coordonnee $coordonnee
+     *
+     * @return PAC
+     */
+    public function setCoordonnee(\TRC\CoreBundle\Entity\Client\Coordonnee $coordonnee = null)
+    {
+        $this->coordonnee = $coordonnee;
+
+        return $this;
+    }
+
+    /**
+     * Get coordonnee
+     *
+     * @return \TRC\CoreBundle\Entity\Client\Coordonnee
+     */
+    public function getCoordonnee()
+    {
+        return $this->coordonnee;
+    }
+
+    /**
+     * Set lpd
+     *
+     * @param \TRC\CoreBundle\Entity\Client\LDP $lpd
+     *
+     * @return PAC
+     */
+    public function setLpd(\TRC\CoreBundle\Entity\Client\LDP $lpd = null)
+    {
+        $this->lpd = $lpd;
+
+        return $this;
+    }
+
+    /**
+     * Get lpd
+     *
+     * @return \TRC\CoreBundle\Entity\Client\LDP
+     */
+    public function getLpd()
+    {
+        return $this->lpd;
     }
 }

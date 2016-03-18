@@ -25,6 +25,10 @@ class ProfilType extends AbstractType
                         "CIC"=>"Comité de Crédits",
                         "Zone"=>"Zone")
                 ))
+            ->add('ddp','choice',array(
+                'choices'=>array("1"=>"Oui",
+                        "0"=>"Non")
+                ))
             ->add('save','submit', array('label' => 'Enregistrer',
             'attr'=>array('class'=>'btn btn-info')))
         ;

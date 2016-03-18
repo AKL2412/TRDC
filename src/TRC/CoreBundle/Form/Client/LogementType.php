@@ -15,8 +15,17 @@ class LogementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('flm')
-            ->add('statut')
+            ->add('flm','text')
+            ->add('statut','entity',array(
+                'class'    => 'TRCCoreBundle:Client\StatutLogement',
+                'property' => 'nom',
+                'multiple' => false,
+                'required'    => true,
+                'empty_value' => 'Choisir le statut du logement',
+                'empty_data'  => null))
+
+            ->add('save','submit', array('label' => 'Enregistrer',
+            'attr'=>array('class'=>'btn btn-primary')))
         ;
     }
     

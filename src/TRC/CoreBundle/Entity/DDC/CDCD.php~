@@ -42,7 +42,9 @@ class CDCD
      */
     private $quotite;
 
-
+    public function __construct(){
+        $this->duree = $this->montant = $this->quotite = 0;
+    }
     /**
      * Get id
      *

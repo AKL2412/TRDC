@@ -29,6 +29,14 @@
     <link type="text/css" rel="stylesheet" href="{{asset('css/app.css')}}">
     <script type="text/javascript">
         var rechercheClientLien = "{{url('trc_client_recherche')}}"
+        
+        var lesLiens = {
+            'ddc' : "{{url('trcddc_homepage')}}",
+            'cre' : "{{url('trc_admin_tdc')}}",
+            'ent' : "{{url('trc_admin_entites')}}",
+            'uti' : "{{url('trc_admin_utilisateurs')}}",
+            'cli' : "{{url('trc_client_homepage')}} "
+        }
     </script>
 </head>
 <body>
@@ -45,8 +53,8 @@
                 <a id="logo" href="{{url('trc_core_homepage')}} " class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">CTDDC</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
             <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
                 
-                <form id="topbar-search" action="" method="" class="hidden-sm hidden-xs">
-                    <div class="input-icon right text-white"><a href="#"><i class="fa fa-search"></i></a><input type="text" placeholder="Search here..." class="form-control text-white"/></div>
+                <form id="topbar-search" action="" method="" class="form-rac hidden-sm hidden-xs">
+                    <div class="input-icon right text-white"><a href="#"><i class="fa fa-search"></i></a><input type="search" placeholder="Search here..." class="form-control text-white" name="value"/></div>
                 </form>
                 <!-- <div class="news-update-box hidden-xs"><span class="text-uppercase mrm pull-left text-white">News:</span>
                     <ul id="news-update" class="ticker list-unstyled">

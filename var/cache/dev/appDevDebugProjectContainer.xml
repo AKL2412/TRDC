@@ -278,7 +278,7 @@
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection">
       <parameter key="ROLE_CA" type="collection">
-        <parameter>ROLE_AO</parameter>
+        <parameter>ROLE_CC</parameter>
       </parameter>
       <parameter key="ROLE_RZ" type="collection">
         <parameter>ROLE_CA</parameter>
@@ -2117,7 +2117,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56ea7ab96a9b70.47288764</argument>
+            <argument>56ec1fca775b41.27812072</argument>
           </service>
         </argument>
       </argument>
@@ -2169,7 +2169,7 @@
     <service id="security.role_hierarchy" class="Symfony\Component\Security\Core\Role\RoleHierarchy" public="false">
       <argument type="collection">
         <argument key="ROLE_CA" type="collection">
-          <argument>ROLE_AO</argument>
+          <argument>ROLE_CC</argument>
         </argument>
         <argument key="ROLE_RZ" type="collection">
           <argument>ROLE_CA</argument>
@@ -2281,6 +2281,17 @@
                   </argument>
                   <argument type="collection">
                     <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/clients</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_CC</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -2424,7 +2435,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>56ea7ab96a9b70.47288764</argument>
+            <argument>56ec1fca775b41.27812072</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2477,6 +2488,17 @@
                   </argument>
                   <argument type="collection">
                     <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/clients</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_CC</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -3175,11 +3197,21 @@
         <argument type="service" id="doctrine.orm.default_entity_manager"/>
       </call>
     </service>
+    <service id="trc_core.noti" class="TRC\CoreBundle\Systemes\Journal\Noti">
+      <call method="setEntityManager">
+        <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      </call>
+    </service>
     <service id="trc_core.twig.extension" class="TRC\CoreBundle\Systemes\Twig\TwigExtension">
       <tag name="twig.extension"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="trc_core.gu" class="TRC\CoreBundle\Systemes\General\GU">
+      <call method="setEntityManager">
+        <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      </call>
+    </service>
+    <service id="trc_core.ddc" class="TRC\CoreBundle\Systemes\General\DDC">
       <call method="setEntityManager">
         <argument type="service" id="doctrine.orm.default_entity_manager"/>
       </call>

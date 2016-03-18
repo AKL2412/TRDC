@@ -15,8 +15,8 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18 = $this->env->getExtension("native_profiler");
-        $__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18->enter($__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:connecte.html.twig"));
+        $__internal_0676599de20093b0cbe2d2159672a106f5055d52188e44dfec5afa61ba86c76c = $this->env->getExtension("native_profiler");
+        $__internal_0676599de20093b0cbe2d2159672a106f5055d52188e44dfec5afa61ba86c76c->enter($__internal_0676599de20093b0cbe2d2159672a106f5055d52188e44dfec5afa61ba86c76c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCCoreBundle:Affichage:connecte.html.twig"));
 
         // line 1
         echo "<li class=\"dropdown\">
@@ -24,6 +24,9 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
         <i class=\"fa fa-bell fa-fw\"></i>
         <span class=\"badge badge-green\">3</span>
     </a>
+    <ul id=\"notifications\" class=\"dropdown-menu dropdown-user pull-right\">
+
+    </ul>
 </li>
 <li class=\"dropdown\">
     <a data-hover=\"dropdown\" href=\"#\" class=\"dropdown-toggle\">
@@ -52,12 +55,12 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 <li class=\"dropdown topbar-user\">
 <a data-hover=\"dropdown\" href=\"#\" class=\"dropdown-toggle\">
 <img src=\"";
-        // line 33
+        // line 36
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("images/avatar/48.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"img-responsive img-circle\"/>
  &nbsp;
  <span class=\"hidden-xs\">";
-        // line 35
+        // line 38
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array()), "html", null, true);
         echo " </span>&nbsp;<span class=\"caret\"></span></a>
                         <ul class=\"dropdown-menu dropdown-user pull-right\">
@@ -72,9 +75,9 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
                             <li><a href=\"#\"><i class=\"fa fa-calendar\"></i>Mon calendrier</a></li>
                             <li><a href=\"#\"><i class=\"fa fa-envelope\"></i>Ma messagerié</a></li>
                        ";
-        // line 47
+        // line 50
         if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
-            // line 48
+            // line 51
             echo "                            <li class=\"divider\"></li>
                             <li>
                                 <label class=\"label label-danger\">
@@ -84,7 +87,7 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
                            
                             <li>
                                 <a href=\"";
-            // line 56
+            // line 59
             echo $this->env->getExtension('routing')->getUrl("trc_admin_profils");
             echo " \">
                                     <i class=\"fa fa-users\"></i>
@@ -93,7 +96,7 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
                             </li>
                             <li>
                                 <a href=\"";
-            // line 62
+            // line 65
             echo $this->env->getExtension('routing')->getUrl("trc_admin_systemes");
             echo " \">
                                     <i class=\"fa fa-tags\"></i>
@@ -102,25 +105,34 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
                             </li>
                             <li>
                                 <a href=\"";
-            // line 68
+            // line 71
             echo $this->env->getExtension('routing')->getUrl("trc_admin_systemes");
             echo " \">
                                     <i class=\"fa fa-tasks\"></i>
                                         Les systèmes
                                 </a>
                             </li>
+                            <li>
+                                <a href=\"";
+            // line 77
+            echo $this->env->getExtension('routing')->getUrl("trc_admin_tdc");
+            echo " \">
+                                    <i class=\"fa fa-money\"></i>
+                                        Les crédits
+                                </a>
+                            </li>
                         ";
         }
-        // line 74
+        // line 83
         echo "                            <li><a href=\"#\"><i class=\"fa fa-lock\"></i>Lock Screen</a></li>
                             <li><a href=\"";
-        // line 75
+        // line 84
         echo $this->env->getExtension('routing')->getUrl("trc_core_logout");
         echo "\"><i class=\"fa fa-key\"></i>Log Out</a></li>
                         </ul>
                     </li>";
         
-        $__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18->leave($__internal_9da91dba90af77750d1e56d074487e113df3b20e0a4bab0026dc89a52a5eed18_prof);
+        $__internal_0676599de20093b0cbe2d2159672a106f5055d52188e44dfec5afa61ba86c76c->leave($__internal_0676599de20093b0cbe2d2159672a106f5055d52188e44dfec5afa61ba86c76c_prof);
 
     }
 
@@ -136,7 +148,7 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 
     public function getDebugInfo()
     {
-        return array (  118 => 75,  115 => 74,  106 => 68,  97 => 62,  88 => 56,  78 => 48,  76 => 47,  61 => 35,  56 => 33,  22 => 1,);
+        return array (  130 => 84,  127 => 83,  118 => 77,  109 => 71,  100 => 65,  91 => 59,  81 => 51,  79 => 50,  64 => 38,  59 => 36,  22 => 1,);
     }
 }
 /* <li class="dropdown">*/
@@ -144,6 +156,9 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 /*         <i class="fa fa-bell fa-fw"></i>*/
 /*         <span class="badge badge-green">3</span>*/
 /*     </a>*/
+/*     <ul id="notifications" class="dropdown-menu dropdown-user pull-right">*/
+/* */
+/*     </ul>*/
 /* </li>*/
 /* <li class="dropdown">*/
 /*     <a data-hover="dropdown" href="#" class="dropdown-toggle">*/
@@ -209,6 +224,12 @@ class __TwigTemplate_0007c34878e2a8e37fe24015070f0ebcd4778027617a75784e5599cba03
 /*                                 <a href="{{url('trc_admin_systemes')}} ">*/
 /*                                     <i class="fa fa-tasks"></i>*/
 /*                                         Les systèmes*/
+/*                                 </a>*/
+/*                             </li>*/
+/*                             <li>*/
+/*                                 <a href="{{url('trc_admin_tdc')}} ">*/
+/*                                     <i class="fa fa-money"></i>*/
+/*                                         Les crédits*/
 /*                                 </a>*/
 /*                             </li>*/
 /*                         {%endif%}*/

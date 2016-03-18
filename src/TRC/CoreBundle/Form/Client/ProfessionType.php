@@ -15,8 +15,16 @@ class ProfessionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fonction')
-            ->add('typefonction')
+            ->add('fonction','text')
+            ->add('typefonction','entity',array(
+                'class'    => 'TRCCoreBundle:Client\TypeFonction',
+                'property' => 'nom',
+                'multiple' => false,
+                'required'    => true,
+                'empty_value' => 'Choisissez le type de fonction',
+                'empty_data'  => null))
+            ->add('save','submit', array('label' => 'Enregistrer',
+            'attr'=>array('class'=>'btn btn-primary')))
         ;
     }
     

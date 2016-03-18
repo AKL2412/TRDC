@@ -3,6 +3,9 @@
         <i class="fa fa-bell fa-fw"></i>
         <span class="badge badge-green">3</span>
     </a>
+    <ul id="notifications" class="dropdown-menu dropdown-user pull-right">
+
+    </ul>
 </li>
 <li class="dropdown">
     <a data-hover="dropdown" href="#" class="dropdown-toggle">
@@ -68,6 +71,12 @@
                                 <a href="{{url('trc_admin_systemes')}} ">
                                     <i class="fa fa-tasks"></i>
                                         Les systèmes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('trc_admin_tdc')}} ">
+                                    <i class="fa fa-money"></i>
+                                        Les crédits
                                 </a>
                             </li>
                         {%endif%}

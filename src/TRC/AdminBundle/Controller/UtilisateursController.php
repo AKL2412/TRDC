@@ -23,6 +23,9 @@ use TRC\CoreBundle\Entity\Fonction;
 use TRC\CoreBundle\Entity\Utilisateur;
 use TRC\CoreBundle\Form\UtilisateurType;
 
+use TRC\CoreBundle\Entity\DDP;
+use TRC\CoreBundle\Form\DDPType;
+
 class UtilisateursController extends Controller
 {
 
@@ -72,8 +75,27 @@ class UtilisateursController extends Controller
                         ->findOneByMatricule($matricule);
         if($utilisateur === null)
             throw new NotFoundHttpException("Error [$matricule] INCONNU");
-            
-        return $this->render('TRCAdminBundle:Utilisateurs:utilisateursVoir.html.twig',array('utilisateur'=>$utilisateur));
+        
+        $poste = $em->getRepository('TRCCoreBundle:Fonction')
+                    ->findOneBy(
+                        array('acteur'=>$utilisateur->getActeur(),
+                            'active'=>true),
+                        array('dateaffectation'=>'DESC'),
+                        null,
+                        0);
+        $ddp = new DDP();
+       // $formFactory = createFormFactory();
+        $form = $this->get('form.factory')->create(new DDPType(),$ddp);
+
+        if($form->handleRequest($request)->isValid() && !is_null($poste) &&
+            $poste->getProfil()->getDdp()){
+            $ddp->setFonction($poste);
+            $em->persist($ddp);
+            $em->flush();
+            return $this->redirect($this->generateUrl('trc_admin_utilisateurs_voir',array('matricule'=>$matricule)));
+        }
+        
+        return $this->render('TRCAdminBundle:Utilisateurs:utilisateursVoir.html.twig',array('utilisateur'=>$utilisateur,'poste'=>$poste,'form'=>$form->createView()));
     }
     public function utilisateursAjouterAction(Request $request,$matricule = null){
 

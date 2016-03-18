@@ -1,0 +1,68 @@
+{%extends 'TRCClientBundle::Default/consulter.html.twig'%}
+{%block title%}
+	Employeur || 
+	 {{parent()}}         
+{%endblock title%}
+{%block titre%}
+   Ajout de l'employeur
+{%endblock titre%}
+{%block position %}
+	{{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-user"></i>
+            <a href="#">
+            	Employeur
+            </a>
+        </li>
+        
+{%endblock position%}
+{%block content %}
+	{%set value = form.vars.value %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel-default panel">
+                <div class="panel-heading">
+                    {%if value.id is null %}
+                        Ajout de l'employeur
+                    {%else%}
+                        Modification de l'employeur
+                    {%endif%}
+                </div>
+                <div class="panel-body">
+                    {{form_start(form)}}
+                    <div class="form-group">
+                        <label> Dénomination</label>
+                        {{form_widget(form.denomination,{'attr':{'class':'form-control'}})}}
+                    </div>
+                    <div class="form-group">
+                        <label> Téléphone</label>
+                        {{form_widget(form.telephone,{'attr':{'class':'form-control'}})}}
+                    </div>
+                    <div class="form-group">
+                        <label> Fax</label>
+                        {{form_widget(form.fax,{'attr':{'class':'form-control'}})}}
+                    </div>
+                    <div class="form-group">
+                        <label> Ville</label>
+                        {{form_widget(form.ville,{'attr':{'class':'form-control'}})}}
+                    </div>
+                    <div class="form-group">
+                        <label> Adresse</label>
+                        {{form_widget(form.adresseSociale,{'attr':{'class':'form-control'}})}}
+                    </div>
+
+
+                
+                </div>
+                <div class="panel-footer">
+                    <div class="form-group">
+                        {{form_widget(form.save)}}
+                    </div>
+                </div>
+                {{form_end(form)}}
+            </div>
+            
+        </div>
+    </div>
+{%endblock content %}

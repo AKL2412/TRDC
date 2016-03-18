@@ -1,0 +1,62 @@
+{%extends '::layout.html.twig'%}
+	{%block title%}
+	   Les types de crédits         
+	{%endblock title%}
+	{%block titre%}
+        Les types de crédits
+    {%endblock titre%}
+
+    {%block position %}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-money"></i>
+            <a href="{{url('trc_admin_tdc')}}">
+            	Crédits
+            </a>
+        </li>
+        
+    {%endblock position%}
+   
+   {%block content %}
+   	      
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Les types de crédits
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%for tdc in tdcs %}
+                <tr>
+                  <td>
+                    <a href="{{url('trc_admin_tdc_voir',{code:tdc.code})}} ">
+                      {{tdc.code}} 
+                    </a>
+                  </td>
+                  <td>{{tdc.nom}} </td>
+                  <td>{{tdc.description}} </td>
+                </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+        </div>
+        <div class="panel-footer"></div>
+      </div>
+   {%endblock%}
+
+{%block script%}
+<script type="text/javascript">
+	(function(){
+		$('#side-menu li').removeClass('active');
+		$('#side-menu li.credits').addClass('active');
+	})();
+</script>
+{%endblock script%}
+    

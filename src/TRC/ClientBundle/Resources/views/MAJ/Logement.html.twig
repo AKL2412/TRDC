@@ -1,0 +1,56 @@
+{%extends 'TRCClientBundle::Default/consulter.html.twig'%}
+{%block title%}
+	Logement || 
+	 {{parent()}}         
+{%endblock title%}
+{%block titre%}
+   Ajout de logement
+{%endblock titre%}
+{%block position %}
+	{{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-user"></i>
+            <a href="#">
+            	Logement
+            </a>
+        </li>
+        
+{%endblock position%}
+{%block content %}
+	{%set value = form.vars.value %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel-default panel">
+                <div class="panel-heading">
+                    {%if value.id is null %}
+                        Ajout du logement du client
+                    {%else%}
+                        Modification du logement du client
+                    {%endif%}
+                </div>
+                <div class="panel-body">
+                    {{form_start(form)}}
+                    
+                        <div class="form-group ">
+                            <label> Frais de location mensuelle</label>
+                            {{form_widget(form.flm,{'attr':{'class':'form-control'}})}}
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label> Statut</label>
+                            {{form_widget(form.statut,{'attr':{'class':'form-control'}})}}
+                        </div>
+                   
+                </div>
+                <div class="panel-footer">
+                    <div class="form-group">
+                        {{form_widget(form.save)}}
+                    </div>
+                </div>
+                {{form_end(form)}}
+            </div>
+            
+        </div>
+    </div>
+{%endblock content %}

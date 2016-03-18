@@ -25,9 +25,7 @@
                             {{poste.entite.classe}}
                         </small>
 
-                        {%if poste.profil.ddp %}
-                            ddp activé
-                        {%endif%}
+                        
                     {%endif%}
             	</h2>
 
@@ -107,9 +105,14 @@
                             	</a>
                             </li>
                             <li>
-                            	<a href="#tab-messages" data-toggle="tab">
-                            		Messages
+                            	<a href="#ddp" data-toggle="tab">
+                            		Délégation de Pouvoir #DDP
                             	</a>
+                            </li>
+                            <li>
+                                <a href="#tab-messages" data-toggle="tab">
+                                    Message
+                                </a>
                             </li>
                         </ul>
                         <div id="generalTabContent" class="tab-content">
@@ -190,6 +193,17 @@
                                     </tbody>
                                 </table>
                                 
+                            </div>
+                            <div id="ddp" class="tab-pane fade in">
+                                <div class="row">
+                                    {%if poste is not null and poste.profil is not null %}
+                                        {{render(controller('TRCCoreBundle:Affichage:ddp',{poste:poste}))}}
+
+
+                                    {%else%}
+                                        Veuillez renseigner le poste et le profil
+                                    {%endif%}
+                                </div>
                             </div>
                             <div id="tab-messages" class="tab-pane fade in">
                                         <div class="row mbl">

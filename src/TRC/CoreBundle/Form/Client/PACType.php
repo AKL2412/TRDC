@@ -17,6 +17,16 @@ class PACType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
+            ->add('lpd','entity',array(
+                'class'    => 'TRCCoreBundle:Client\LDP',
+                'property' => 'nom',
+                'multiple' => false,
+                'required'    => true,
+                'empty_value' => 'Choisir le lien de parenté',
+                'empty_data'  => null))
+            ->add('coordonnee', new CoordonneeType())
+            ->add('save','submit',array("label"=>"Enregistrer",
+                "attr"=>array("class"=>"btn btn-primary")))
         ;
     }
     

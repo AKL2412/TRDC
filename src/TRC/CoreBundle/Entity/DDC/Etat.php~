@@ -21,12 +21,6 @@ class Etat
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255)
-     */
-    private $nom;
 
     /**
      * @var string
@@ -45,7 +39,7 @@ class Etat
     /**
      * @var string
      *
-     * @ORM\Column(name="executeur", type="string", length=60)
+     * @ORM\Column(name="executeur", type="string", length=60,nullable=true)
      */
     private $executeur;
 
@@ -54,6 +48,12 @@ class Etat
     * @ORM\JoinColumn(nullable=false)
     */
     private $phase;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\Etape")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $etape;
 
     /**
      * Get id
@@ -183,5 +183,29 @@ class Etat
     public function getPhase()
     {
         return $this->phase;
+    }
+
+    /**
+     * Set etape
+     *
+     * @param \TRC\CoreBundle\Entity\DDC\Etape $etape
+     *
+     * @return Etat
+     */
+    public function setEtape(\TRC\CoreBundle\Entity\DDC\Etape $etape)
+    {
+        $this->etape = $etape;
+
+        return $this;
+    }
+
+    /**
+     * Get etape
+     *
+     * @return \TRC\CoreBundle\Entity\DDC\Etape
+     */
+    public function getEtape()
+    {
+        return $this->etape;
     }
 }

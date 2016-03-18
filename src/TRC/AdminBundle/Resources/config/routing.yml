@@ -66,3 +66,11 @@ trc_admin_profils_voir:
 trc_admin_systemes:
     path:     /admin/systemes
     defaults: { _controller: TRCAdminBundle:Systemes:systemes }
+
+trc_admin_tdc:
+    path:     /admin/crédits
+    defaults: { _controller: TRCAdminBundle:Credits:credits }
+
+trc_admin_tdc_voir:
+    path:     /admin/crédits/{code}
+    defaults: { _controller: TRCAdminBundle:Credits:creditsvoir }

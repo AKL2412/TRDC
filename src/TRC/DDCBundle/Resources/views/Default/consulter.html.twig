@@ -1,0 +1,19 @@
+{% extends 'TRCDDCBundle::ddc.html.twig' %}
+{%block titre%}
+	{{ddc.rc}}
+{%endblock titre%}
+{%block position %}
+	{{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-book"></i>
+            <a href="#">
+            	{{ddc.rc}}
+            </a>
+        </li>
+        
+    {%endblock position%}
+   
+{%block content %}
+
+{%endblock content %}

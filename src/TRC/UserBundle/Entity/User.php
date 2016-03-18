@@ -18,26 +18,7 @@ class User extends BaseUser
      */
     protected $id;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="timeUpdate", type="datetime",nullable=true)
-     */
-    private $timeUpdate;
-
-    /**
-     * @var \boolean
-     *
-     * @ORM\Column(name="logged", type="boolean",nullable=true)
-     */
-    private $logged;
-
-    /*
-    * @ORM\OneToOne(targetEntity="TRC\CoreBundle\Entity\Log",cascade={"remove", "persist"})
-    * @ORM\JoinColumn(nullable=true)
     
-    private $logIn;
-    //*/
     public function __construct()
     {
         parent::__construct();

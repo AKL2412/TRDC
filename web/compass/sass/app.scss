@@ -1,6 +1,8 @@
 @import "compass";
 body{
-
+	.panel{
+		overflow: hidden;
+	}
 	.recherche-client{
 		border: 1px solid #eee;
 		height: 25px;

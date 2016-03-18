@@ -1,0 +1,39 @@
+{%if profil.ddp %}
+   {%if ddps|length > 0 %}
+   		<table class="table table-condensed table-striped">
+   			<thead>
+   				<tr>
+   					<th>Min</th>
+   					<th>Max</th>
+   					<th>Crédit(s)</th>
+   					<th>Description</th>
+   				</tr>
+   			</thead>
+   			<tbody>
+   				{%for ddp in ddps %}
+   					<tr>
+   						<td>{{ddp.min}} </td>
+   						<td>{{ddp.max}} </td>
+   						<td>
+   							{%for tdc in ddp.tdc %}
+   								{{tdc.nom}} |
+   							{%endfor%}
+   						</td>
+   						<td>{{ddp.description|slice(0,60)}} </td>
+   					</tr>
+
+   				{%endfor%}
+   			</tbody>
+   		</table>
+   	{%else%}
+   		<div class="alert-info alert text-center">
+   			<h3>
+   				Aucune DDP
+   			</h3>
+   		</div>
+   {%endif%}
+{%else%}
+    <div class="alert text-center">
+        Le profil actuel n'exige pas de DDP
+    </div>
+{%endif%}

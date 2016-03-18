@@ -1,1 +1,107 @@
-Hello World!
+{% extends 'TRCDDCBundle::ddc.html.twig' %}
+{%block titre%}
+	{{parent()}}  
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Créer un Dossier De Crédit #DDC</button>       
+{%endblock titre%}
+   
+   {%block content %}
+   	
+   	
+   	<div class="panel panel-default">
+   		<div class="panel-heading">
+   			Vos DDCs
+   		</div>
+   		<div class="panel-body">
+   			<table class="table table-condensed table-striped">
+   				<thead>
+   					<tr>
+   						<th>RS</th>
+   						<th>RC</th>
+   						<th>Crédit</th>
+   						<th>Objet</th>
+   						<th>Client</th>
+   					</tr>
+   				</thead>
+   				<tbody>
+   					{%for ddc in ddcs %}
+   						<tr>
+   							<td>{{ddc.rs}} </td>
+   							<td>
+   								<a href="{{url('trcddc_consulter',{rc:ddc.rc})}} ">
+	   								{{ddc.rc}} 
+	   							</a>
+   							</td>
+   							<td>{{ddc.tdc.nom}} </td>
+   							<td>{{ddc.tddc.nom}} </td>
+   							<td>{{ddc.client.radical}} </td>
+   						</tr>
+   					{%endfor%}
+   				</tbody>
+   			</table>
+   		</div>
+   		<div class="panel-footer">
+   			
+   		</div>
+   		
+   	</div>
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	     
+	        <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	            <h5 class="modal-title" id="myModalLabel">
+	                Sélectionner le type de crédit
+	            </h5>
+	        </div>
+	        <div class="modal-body">
+	        	<form>
+
+	        		<div class="form-group">
+	        			<label>
+	        				Type de dossier
+	        				<select class="form-control">
+	        					{%for tddc in tddcs %}
+	        						<option value="{{tddc.code}} ">{{tddc.nom}} </option>
+	        					{%endfor%}
+	        				</select>
+	        			</label>
+	        		</div>
+	        	</form>
+	            <ul class="list-group">
+	            	{%for tdc in tdcs %}
+	            		<a href="{{url('trcddc_init',{code:tdc.code,type:'ND'})}} " class="">
+			              <li class="list-group-item btn">
+			                        {{tdc.nom}}
+			              </li>
+			            </a>
+	            	{%endfor%}
+	            
+	               
+	            </ul>
+	        </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+{%endblock content %}
+{%block script %}
+	<script type="text/javascript">
+		(function(){
+			$('select').change(function(event){
+				var type = $(this).val()
+				//alert(val)
+				$.each($('ul.list-group a'),function(i,val){
+					var a = $(val);
+					var href = a.attr('href');
+					var tab = href.split('-')
+					var h0 = tab[0]+'-'+type;
+					//alert(href+ " \n " + h0);
+					a.attr('href',h0)
+				})
+			})
+		})();
+	</script>
+{%endblock script %}

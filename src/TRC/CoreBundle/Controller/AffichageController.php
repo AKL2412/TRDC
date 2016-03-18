@@ -3,14 +3,18 @@
 namespace TRC\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use TRC\CoreBundle\Entity\DDP;
+use TRC\CoreBundle\Form\DDPType;
 
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 class AffichageController extends Controller
 {
     public function headerAction()
     {
         return $this->render('TRCCoreBundle:Affichage:header.html.twig');
     }
-    public function utilisateurAction(\TRC\CoreBundle\Entity\Utilisateur $utilisateur)
+    public function utilisateurAction(Request $request,\TRC\CoreBundle\Entity\Utilisateur $utilisateur)
     {
         $em = $this->getDoctrine()->getManager();
         $fonctions = $em->getRepository('TRCCoreBundle:Fonction')
@@ -26,6 +30,7 @@ class AffichageController extends Controller
                 break;
             }
         }
+
         return $this->render('TRCCoreBundle:Affichage:utilisateur.html.twig',
             array(
                 'utilisateur'=>$utilisateur,
@@ -44,5 +49,21 @@ class AffichageController extends Controller
     public function paginationAction($pagination)
     {
         return $this->render('TRCCoreBundle:Affichage:pagination.html.twig', array('pagination' => $pagination));
+    }
+
+    public function ddpAction($poste)
+    {
+        $ddps = array();
+        if($poste->getProfil()->getDdp()){
+            $em = $this->getDoctrine()->getManager();
+            $ddps = $em->getRepository('TRCCoreBundle:DDP')
+                ->findBy(
+                    array("fonction"=>$poste),
+                    array("id"=>"desc"),
+                    null,0);
+
+        }
+        return $this->render('TRCCoreBundle:Affichage:ddp.html.twig', array('profil' => $poste->getProfil(),
+            'ddps'=>$ddps));
     }
 }

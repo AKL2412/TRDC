@@ -43,7 +43,7 @@ class DDP
     private $description;
 
      /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\TDC")
+    * @ORM\ManyToMany(targetEntity="TRC\CoreBundle\Entity\DDC\TDC")
     * @ORM\JoinColumn(nullable=false)
     */
     private $tdc;
@@ -188,5 +188,29 @@ class DDP
     public function getFonction()
     {
         return $this->fonction;
+    }
+
+    /**
+     * Add tdc
+     *
+     * @param \TRC\CoreBundle\Entity\DDC\TDC $tdc
+     *
+     * @return DDP
+     */
+    public function addTdc(\TRC\CoreBundle\Entity\DDC\TDC $tdc)
+    {
+        $this->tdc[] = $tdc;
+
+        return $this;
+    }
+
+    /**
+     * Remove tdc
+     *
+     * @param \TRC\CoreBundle\Entity\DDC\TDC $tdc
+     */
+    public function removeTdc(\TRC\CoreBundle\Entity\DDC\TDC $tdc)
+    {
+        $this->tdc->removeElement($tdc);
     }
 }

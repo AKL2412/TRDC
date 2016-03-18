@@ -1,4 +1,41 @@
 (function(){
+
+	var i = $('<i style="cursor:pointer" class="reduire fa-chevron-up fa pull-left" etat="open"></i>')
+	
+	i.click(function(event){
+		var that = $(this);
+		var heading = that.parent();
+		var panel = heading.parent();
+		var etat = that.attr('etat');
+		
+		if(etat == 'open'){
+			that.attr('etat','close')
+			that.removeClass('fa-chevron-up')
+			that.addClass('fa-chevron-down')
+			panel.animate({height : heading.height()+20},10)
+		}else{
+			that.attr('etat','open')
+			that.removeClass('fa-chevron-down')
+			that.addClass('fa-chevron-up')
+			panel.animate({height : that.attr('h')},100)
+		}
+	})
+
+	$(".panel .panel-heading").append(i);
+
+	$.each($('i.reduire'),function(index,val){
+		var that = $(this);
+		var heading = that.parent();
+		var panel = heading.parent();
+		that.attr('h',panel.height());
+
+		if(panel.find('.panel-footer').length == 0 ){
+			that.attr('etat','close')
+			that.removeClass('fa-chevron-up')
+			that.addClass('fa-chevron-down')
+			panel.animate({height : heading.height()+20},0)
+		}
+	})
 	var exts = ['jpg','png','jpeg'];
 	$('.image-block input').change(function(evt){
 	

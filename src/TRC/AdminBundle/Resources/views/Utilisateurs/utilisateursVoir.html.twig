@@ -30,4 +30,71 @@
     {%endblock position%}
     {%block content%}
     {{render(controller('TRCCoreBundle:Affichage:utilisateur',{utilisateur:utilisateur}))}}
+
+    {%if 
+    	poste is not null and
+    	poste.profil is not null and
+    	poste.profil.ddp 
+    %}
+    	<hr>
+    	<div class="panel-default panel">
+    		<div class="panel-heading">
+    			Ajouter une DDP au profil actuel
+    		</div>
+    		<div class="panel-body">
+    			
+    			{{ form_start(form, {'attr': {'role':'form'}}) }}
+            	{{ form_errors(form) }}
+            	<div class="row">
+		        <div class="form-group col-md-6">
+		            <label for="inputName" class="control-label">
+		                Montant minimum
+		            </label>
+		            <div class="input-icon right">
+		                                
+		                {{ form_widget(form.min, {'attr': {'class': 'form-control','placeholder':"minimum"}}) }}
+		                {{ form_errors(form.min) }}
+		            </div>
+		        </div>
+		        <div class="form-group col-md-6">
+		            <label for="inputName" class="control-label">
+		                Montant maximum
+		            </label>
+		            <div class="input-icon right">
+		                                
+		                {{ form_widget(form.max, {'attr': {'class': 'form-control','placeholder':"maximum"}}) }}
+		                {{ form_errors(form.max) }}
+		            </div>
+		        </div>
+		        <div class="form-group col-md-6">
+		            <label for="inputName" class="control-label">
+		                Les crédits
+		            </label>
+		            <div class="input-icon right">
+		                                
+		                {{ form_widget(form.tdc, {'attr': {'class': 'form-control'}}) }}
+		                {{ form_errors(form.tdc) }}
+		            </div>
+		        </div>
+		        <div class="form-group col-md-6">
+		            <label for="inputName" class="control-label">
+		                Description
+		            </label>
+		            <div class="input-icon right">
+		                                
+		                {{ form_widget(form.description, {'attr': {'class': 'form-control','rows':'5'}}) }}
+		                {{ form_errors(form.description) }}
+		            </div>
+		        </div>
+		        </div>
+		        <div class="row">
+		        	<div class="form-group">
+		        		{{form_widget(form.save)}}
+		        	</div>
+		        </div>
+		        {{form_end(form)}}
+    		</div>
+    	</div>
+    {%endif%}
+
     {%endblock content%}

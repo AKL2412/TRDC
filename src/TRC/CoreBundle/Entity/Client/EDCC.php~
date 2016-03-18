@@ -99,4 +99,28 @@ class EDCC
     {
         return $this->solde;
     }
+
+    /**
+     * Set client
+     *
+     * @param \TRC\CoreBundle\Entity\Client\Client $client
+     *
+     * @return EDCC
+     */
+    public function setClient(\TRC\CoreBundle\Entity\Client\Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \TRC\CoreBundle\Entity\Client\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
 }

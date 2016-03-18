@@ -16,5 +16,20 @@ trc_client_identite:
 trc_client_coordonnee:
     path:     /{radical}/coordonnées
     defaults: { _controller: TRCClientBundle:MAJ:coordonnees }
+trc_client_employeur:
+    path:     /{radical}/employeur
+    defaults: { _controller: TRCClientBundle:MAJ:employeur }
 
+trc_client_profession:
+    path:     /{radical}/profession
+    defaults: { _controller: TRCClientBundle:MAJ:profession }
+trc_client_revenu:
+    path:     /{radical}/revenu
+    defaults: { _controller: TRCClientBundle:MAJ:revenu }
+trc_client_logement:
+    path:     /{radical}/logement
+    defaults: { _controller: TRCClientBundle:MAJ:logement }
 
+trc_client_pac:
+    path:     /{radical}/pac
+    defaults: { _controller: TRCClientBundle:MAJ:pac }

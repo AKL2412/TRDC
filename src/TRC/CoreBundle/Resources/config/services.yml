@@ -45,6 +45,11 @@ services:
         arguments: []
         calls:
             - [setEntityManager, ["@doctrine.orm.entity_manager"]]
+    trc_core.noti:
+        class: TRC\CoreBundle\Systemes\Journal\Noti
+        arguments: []
+        calls:
+            - [setEntityManager, ["@doctrine.orm.entity_manager"]]
     trc_core.twig.extension:
         class: TRC\CoreBundle\Systemes\Twig\TwigExtension
         arguments: ["@doctrine.orm.entity_manager"]
@@ -53,6 +58,11 @@ services:
 
     trc_core.gu:
         class: TRC\CoreBundle\Systemes\General\GU
+        arguments: []
+        calls:
+            - [setEntityManager, ["@doctrine.orm.entity_manager"]]
+    trc_core.ddc:
+        class: TRC\CoreBundle\Systemes\General\DDC
         arguments: []
         calls:
             - [setEntityManager, ["@doctrine.orm.entity_manager"]]

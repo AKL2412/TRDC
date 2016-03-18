@@ -1,0 +1,89 @@
+{%extends 'TRCAdminBundle::Credits/credits.html.twig'%}
+{%block title%}
+	   {{tdc.nom}}         
+	{%endblock title%}
+	{%block titre%}
+        {{tdc.code}}
+    {%endblock titre%}
+
+    {%block position %}
+    	{{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-tags"></i>
+            <a href="{{url('trc_admin_tdc_voir',{code:tdc.code})}}">
+            	{{tdc.code}}
+            </a>
+        </li>
+        
+    {%endblock position%}
+   
+   {%block content %}
+   	      
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          #{{tdc.code}} : {{tdc.nom}}
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tbody>
+              
+                <tr>
+                	<td>Code</td>
+                  	<td>
+	                    <a href="{{url('trc_admin_tdc_voir',{code:tdc.code})}} ">
+	                      {{tdc.code}} 
+	                    </a>
+	                </td>
+	            </tr>
+	            <tr>
+	            	<td>Nom</td>
+                  <td>{{tdc.nom}} </td>
+                </tr>
+                <tr>
+                	<td>Description</td>
+                  <td>{{tdc.description}} </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Liste de documents
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tbody>
+            	<tr>
+              {%for doc in docs %}
+                	
+                	<p class="badge">
+                
+                		<i class="fa-check fa"></i>
+                		{{doc.nom}}
+                	</p>
+                	
+	            
+              {%endfor%}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel-footer">
+        	{{form_start(form)}}
+        		
+        		<div class="input-group">
+			      <span class="input-group-btn">
+			        {{form_widget(form.save)}}
+			      </span>
+			      {{form_widget(form.nom,{'attr':{'class':'form-control','placeholder':'Entrer le nom du document'}})}}
+			    </div>
+        	{{form_end(form)}}
+        </div>
+      </div>
+   {%endblock%}
+
+

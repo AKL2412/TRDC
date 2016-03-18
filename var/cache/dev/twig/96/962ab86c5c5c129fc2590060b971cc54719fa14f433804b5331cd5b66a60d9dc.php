@@ -24,20 +24,20 @@ class __TwigTemplate_119c7a572280dd0d2c680086ce8df05a3353569fe3585e58a17dbe4d9a5
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_10b9b2959b29c4058c656f34e0e258746892b1dc1f68284d1acd5d0f1e753410 = $this->env->getExtension("native_profiler");
-        $__internal_10b9b2959b29c4058c656f34e0e258746892b1dc1f68284d1acd5d0f1e753410->enter($__internal_10b9b2959b29c4058c656f34e0e258746892b1dc1f68284d1acd5d0f1e753410_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCClientBundle:MAJ:Coordonnee.html.twig"));
+        $__internal_fcc6ac18aa7eed05bf78f133f81ca090764ce7f1029b1dc98900ec10b2394078 = $this->env->getExtension("native_profiler");
+        $__internal_fcc6ac18aa7eed05bf78f133f81ca090764ce7f1029b1dc98900ec10b2394078->enter($__internal_fcc6ac18aa7eed05bf78f133f81ca090764ce7f1029b1dc98900ec10b2394078_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCClientBundle:MAJ:Coordonnee.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_10b9b2959b29c4058c656f34e0e258746892b1dc1f68284d1acd5d0f1e753410->leave($__internal_10b9b2959b29c4058c656f34e0e258746892b1dc1f68284d1acd5d0f1e753410_prof);
+        $__internal_fcc6ac18aa7eed05bf78f133f81ca090764ce7f1029b1dc98900ec10b2394078->leave($__internal_fcc6ac18aa7eed05bf78f133f81ca090764ce7f1029b1dc98900ec10b2394078_prof);
 
     }
 
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        $__internal_eb66321e92eba70cd66f755d583498fb705bdaf40cb5fcfe01e681c5947d1fb4 = $this->env->getExtension("native_profiler");
-        $__internal_eb66321e92eba70cd66f755d583498fb705bdaf40cb5fcfe01e681c5947d1fb4->enter($__internal_eb66321e92eba70cd66f755d583498fb705bdaf40cb5fcfe01e681c5947d1fb4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_6652b11b3c6e724c293f74e4a5cf85f91c610bbff899dd80d303b3093f575b2c = $this->env->getExtension("native_profiler");
+        $__internal_6652b11b3c6e724c293f74e4a5cf85f91c610bbff899dd80d303b3093f575b2c->enter($__internal_6652b11b3c6e724c293f74e4a5cf85f91c610bbff899dd80d303b3093f575b2c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 3
         echo "\tCoordonnées || 
@@ -47,29 +47,29 @@ class __TwigTemplate_119c7a572280dd0d2c680086ce8df05a3353569fe3585e58a17dbe4d9a5
         echo "         
 ";
         
-        $__internal_eb66321e92eba70cd66f755d583498fb705bdaf40cb5fcfe01e681c5947d1fb4->leave($__internal_eb66321e92eba70cd66f755d583498fb705bdaf40cb5fcfe01e681c5947d1fb4_prof);
+        $__internal_6652b11b3c6e724c293f74e4a5cf85f91c610bbff899dd80d303b3093f575b2c->leave($__internal_6652b11b3c6e724c293f74e4a5cf85f91c610bbff899dd80d303b3093f575b2c_prof);
 
     }
 
     // line 6
     public function block_titre($context, array $blocks = array())
     {
-        $__internal_633485a07908e0ae1e3bebfda29716f06623f3b9bfb5bd66a2ef4d00a202c6d2 = $this->env->getExtension("native_profiler");
-        $__internal_633485a07908e0ae1e3bebfda29716f06623f3b9bfb5bd66a2ef4d00a202c6d2->enter($__internal_633485a07908e0ae1e3bebfda29716f06623f3b9bfb5bd66a2ef4d00a202c6d2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "titre"));
+        $__internal_a98271d9a933a7919d605473f17100ada30752740dd47ed1045a753e75c9b091 = $this->env->getExtension("native_profiler");
+        $__internal_a98271d9a933a7919d605473f17100ada30752740dd47ed1045a753e75c9b091->enter($__internal_a98271d9a933a7919d605473f17100ada30752740dd47ed1045a753e75c9b091_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "titre"));
 
         // line 7
         echo "   Ajout de coordonnées
 ";
         
-        $__internal_633485a07908e0ae1e3bebfda29716f06623f3b9bfb5bd66a2ef4d00a202c6d2->leave($__internal_633485a07908e0ae1e3bebfda29716f06623f3b9bfb5bd66a2ef4d00a202c6d2_prof);
+        $__internal_a98271d9a933a7919d605473f17100ada30752740dd47ed1045a753e75c9b091->leave($__internal_a98271d9a933a7919d605473f17100ada30752740dd47ed1045a753e75c9b091_prof);
 
     }
 
     // line 9
     public function block_position($context, array $blocks = array())
     {
-        $__internal_bbc04836faed6eff542ddc7daf697da1ee59c6fa56f07a47d73f4ab3325b08a3 = $this->env->getExtension("native_profiler");
-        $__internal_bbc04836faed6eff542ddc7daf697da1ee59c6fa56f07a47d73f4ab3325b08a3->enter($__internal_bbc04836faed6eff542ddc7daf697da1ee59c6fa56f07a47d73f4ab3325b08a3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "position"));
+        $__internal_c1610ad4ddc5ff90b6400d05425392289d417de1ac90689ce07bd04ef5bc2c43 = $this->env->getExtension("native_profiler");
+        $__internal_c1610ad4ddc5ff90b6400d05425392289d417de1ac90689ce07bd04ef5bc2c43->enter($__internal_c1610ad4ddc5ff90b6400d05425392289d417de1ac90689ce07bd04ef5bc2c43_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "position"));
 
         // line 10
         echo "\t";
@@ -85,23 +85,113 @@ class __TwigTemplate_119c7a572280dd0d2c680086ce8df05a3353569fe3585e58a17dbe4d9a5
         
 ";
         
-        $__internal_bbc04836faed6eff542ddc7daf697da1ee59c6fa56f07a47d73f4ab3325b08a3->leave($__internal_bbc04836faed6eff542ddc7daf697da1ee59c6fa56f07a47d73f4ab3325b08a3_prof);
+        $__internal_c1610ad4ddc5ff90b6400d05425392289d417de1ac90689ce07bd04ef5bc2c43->leave($__internal_c1610ad4ddc5ff90b6400d05425392289d417de1ac90689ce07bd04ef5bc2c43_prof);
 
     }
 
     // line 20
     public function block_content($context, array $blocks = array())
     {
-        $__internal_6ec8b5bcf382fc3642c4b954452cbafc960f403e875bcc5d7715b6f39ad854da = $this->env->getExtension("native_profiler");
-        $__internal_6ec8b5bcf382fc3642c4b954452cbafc960f403e875bcc5d7715b6f39ad854da->enter($__internal_6ec8b5bcf382fc3642c4b954452cbafc960f403e875bcc5d7715b6f39ad854da_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_f8a22d2d1f38d16e710049c26c03353b9d08b008eaf3597913ffef1f8fa4c094 = $this->env->getExtension("native_profiler");
+        $__internal_f8a22d2d1f38d16e710049c26c03353b9d08b008eaf3597913ffef1f8fa4c094->enter($__internal_f8a22d2d1f38d16e710049c26c03353b9d08b008eaf3597913ffef1f8fa4c094_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         // line 21
         echo "\t";
-        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
+        $context["value"] = $this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "vars", array()), "value", array());
+        // line 22
+        echo "    <div class=\"row\">
+        <div class=\"col-md-6 col-md-offset-3\">
+            <div class=\"panel-default panel\">
+                <div class=\"panel-heading\">
+                    ";
+        // line 26
+        if ((null === $this->getAttribute((isset($context["value"]) ? $context["value"] : $this->getContext($context, "value")), "id", array()))) {
+            // line 27
+            echo "                        Ajout de coordonnées du client
+                    ";
+        } else {
+            // line 29
+            echo "                        Modification de coordonnées du client
+                    ";
+        }
+        // line 31
+        echo "                </div>
+                <div class=\"panel-body\">
+                    ";
+        // line 33
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
+                    
+                        <div class=\"form-group \">
+                            <label> Tél. professionnel</label>
+                            ";
+        // line 37
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "telephoneProfessionnel", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                        </div>
+                        <div class=\"form-group\">
+                            <label> Tél. domicile</label>
+                            ";
+        // line 41
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "telephoneDomicile", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                        </div>
+                   
+                    <div class=\"form-group\">
+                        <label> Tél. mobile</label>
+                        ";
+        // line 46
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "gsm", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                    </div>
+                    <div class=\"form-group\">
+                        <label> Email</label>
+                        ";
+        // line 50
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                    </div>
+                    <div class=\"form-group\">
+                        <label> Ville</label>
+                        ";
+        // line 54
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ville", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                    </div>
+                    <div class=\"form-group\">
+                        <label> Boite postale</label>
+                        ";
+        // line 58
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "boitePostale", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                    </div>
+                    <div class=\"form-group\">
+                        <label> Adresse</label>
+                        ";
+        // line 62
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "adresse", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                    </div>
+                </div>
+                <div class=\"panel-footer\">
+                    <div class=\"form-group\">
+                        ";
+        // line 67
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "save", array()), 'widget');
+        echo "
+                    </div>
+                </div>
+                ";
+        // line 70
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
+        echo "
+            </div>
+            
+        </div>
+    </div>
 ";
         
-        $__internal_6ec8b5bcf382fc3642c4b954452cbafc960f403e875bcc5d7715b6f39ad854da->leave($__internal_6ec8b5bcf382fc3642c4b954452cbafc960f403e875bcc5d7715b6f39ad854da_prof);
+        $__internal_f8a22d2d1f38d16e710049c26c03353b9d08b008eaf3597913ffef1f8fa4c094->leave($__internal_f8a22d2d1f38d16e710049c26c03353b9d08b008eaf3597913ffef1f8fa4c094_prof);
 
     }
 
@@ -117,7 +207,7 @@ class __TwigTemplate_119c7a572280dd0d2c680086ce8df05a3353569fe3585e58a17dbe4d9a5
 
     public function getDebugInfo()
     {
-        return array (  99 => 21,  93 => 20,  75 => 10,  69 => 9,  61 => 7,  55 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  186 => 70,  180 => 67,  172 => 62,  165 => 58,  158 => 54,  151 => 50,  144 => 46,  136 => 41,  129 => 37,  122 => 33,  118 => 31,  114 => 29,  110 => 27,  108 => 26,  102 => 22,  99 => 21,  93 => 20,  75 => 10,  69 => 9,  61 => 7,  55 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }
 /* {%extends 'TRCClientBundle::Default/consulter.html.twig'%}*/
@@ -140,5 +230,58 @@ class __TwigTemplate_119c7a572280dd0d2c680086ce8df05a3353569fe3585e58a17dbe4d9a5
 /*         */
 /* {%endblock position%}*/
 /* {%block content %}*/
-/* 	{{form(form)}}*/
+/* 	{%set value = form.vars.value %}*/
+/*     <div class="row">*/
+/*         <div class="col-md-6 col-md-offset-3">*/
+/*             <div class="panel-default panel">*/
+/*                 <div class="panel-heading">*/
+/*                     {%if value.id is null %}*/
+/*                         Ajout de coordonnées du client*/
+/*                     {%else%}*/
+/*                         Modification de coordonnées du client*/
+/*                     {%endif%}*/
+/*                 </div>*/
+/*                 <div class="panel-body">*/
+/*                     {{form_start(form)}}*/
+/*                     */
+/*                         <div class="form-group ">*/
+/*                             <label> Tél. professionnel</label>*/
+/*                             {{form_widget(form.telephoneProfessionnel,{'attr':{'class':'form-control'}})}}*/
+/*                         </div>*/
+/*                         <div class="form-group">*/
+/*                             <label> Tél. domicile</label>*/
+/*                             {{form_widget(form.telephoneDomicile,{'attr':{'class':'form-control'}})}}*/
+/*                         </div>*/
+/*                    */
+/*                     <div class="form-group">*/
+/*                         <label> Tél. mobile</label>*/
+/*                         {{form_widget(form.gsm,{'attr':{'class':'form-control'}})}}*/
+/*                     </div>*/
+/*                     <div class="form-group">*/
+/*                         <label> Email</label>*/
+/*                         {{form_widget(form.email,{'attr':{'class':'form-control'}})}}*/
+/*                     </div>*/
+/*                     <div class="form-group">*/
+/*                         <label> Ville</label>*/
+/*                         {{form_widget(form.ville,{'attr':{'class':'form-control'}})}}*/
+/*                     </div>*/
+/*                     <div class="form-group">*/
+/*                         <label> Boite postale</label>*/
+/*                         {{form_widget(form.boitePostale,{'attr':{'class':'form-control'}})}}*/
+/*                     </div>*/
+/*                     <div class="form-group">*/
+/*                         <label> Adresse</label>*/
+/*                         {{form_widget(form.adresse,{'attr':{'class':'form-control'}})}}*/
+/*                     </div>*/
+/*                 </div>*/
+/*                 <div class="panel-footer">*/
+/*                     <div class="form-group">*/
+/*                         {{form_widget(form.save)}}*/
+/*                     </div>*/
+/*                 </div>*/
+/*                 {{form_end(form)}}*/
+/*             </div>*/
+/*             */
+/*         </div>*/
+/*     </div>*/
 /* {%endblock content %}*/

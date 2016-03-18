@@ -15,11 +15,13 @@ class EmployeurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('denomination')
-            ->add('adresseSociale')
-            ->add('telephone')
-            ->add('fax')
-            ->add('ville')
+            ->add('denomination','text')
+            ->add('adresseSociale','textarea')
+            ->add('telephone','text')
+            ->add('fax','text')
+            ->add('ville','text')
+            ->add('save','submit', array('label' => 'Enregistrer',
+            'attr'=>array('class'=>'btn btn-primary')))
         ;
     }
     
