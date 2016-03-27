@@ -125,6 +125,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_consulter')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\DefaultController::consulterAction',));
             }
 
+            // trc_client_ajouter_comptes
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/comptes$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_ajouter_comptes')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\DefaultController::ajouterCompteAction',));
+            }
+
+            // trc_client_modifier_comptes
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/comptes/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_modifier_comptes')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\DefaultController::ajouterCompteAction',));
+            }
+
+            // trc_client_voir_rubrique
+            if (preg_match('#^/clients/(?P<radical>[^/]++)/voir/(?P<rubrique>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_voir_rubrique')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\DefaultController::voirrubriqueAction',));
+            }
+
             // trc_client_identite
             if (preg_match('#^/clients/(?P<radical>[^/]++)/identite$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_client_identite')), array (  '_controller' => 'TRC\\ClientBundle\\Controller\\MAJController::identiteAction',));
@@ -182,17 +197,34 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_def_client')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::defclientAction',));
             }
 
-            if (0 === strpos($pathinfo, '/ddc/c')) {
-                // trcddc_consulter
-                if (0 === strpos($pathinfo, '/ddc/consulter') && preg_match('#^/ddc/consulter/(?P<rc>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_consulter')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::ddcvoirAction',));
-                }
+            // trcddc_ddc_edp
+            if (0 === strpos($pathinfo, '/ddc/edp') && preg_match('#^/ddc/edp/(?P<rc>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_ddc_edp')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DocsController::edpAction',));
+            }
 
-                // trcddc_get_client_ajax
-                if ($pathinfo === '/ddc/client/ajax') {
-                    return array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::getajaxclientAction',  '_route' => 'trcddc_get_client_ajax',);
-                }
+            // trcddc_ddc_upload_file
+            if (0 === strpos($pathinfo, '/ddc/upload-file') && preg_match('#^/ddc/upload\\-file/(?P<rc>[^/]++)/(?P<type>edp|doc)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_ddc_upload_file')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DocsController::uploadAction',));
+            }
 
+            // trcddc_consulter
+            if (0 === strpos($pathinfo, '/ddc/consulter') && preg_match('#^/ddc/consulter/(?P<rc>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_consulter')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::ddcvoirAction',));
+            }
+
+            // trcddc_ajout_docs
+            if (preg_match('#^/ddc/(?P<rs>[^/]++)/documents\\-joints\\-au\\-dossier$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_ajout_docs')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DocsController::ajoutAction',));
+            }
+
+            // trcddc_voir_docs
+            if (preg_match('#^/ddc/(?P<rs>[^/]++)/voir\\-documents$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_voir_docs')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DocsController::voirAction',));
+            }
+
+            // trcddc_get_client_ajax
+            if ($pathinfo === '/ddc/client/ajax') {
+                return array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::getajaxclientAction',  '_route' => 'trcddc_get_client_ajax',);
             }
 
         }
@@ -312,6 +344,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // trc_core_logout
         if ($pathinfo === '/deconnexion') {
             return array (  '_controller' => 'TRC\\CoreBundle\\Controller\\DefaultController::logoutAction',  '_route' => 'trc_core_logout',);
+        }
+
+        // trc_core_archiver
+        if (0 === strpos($pathinfo, '/archivage') && preg_match('#^/archivage/(?P<classe>[^/]++)/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_core_archiver')), array (  '_controller' => 'TRC\\CoreBundle\\Controller\\DefaultController::archiverAction',));
+        }
+
+        // trc_core_notification
+        if (0 === strpos($pathinfo, '/notification') && preg_match('#^/notification/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_core_notification')), array (  '_controller' => 'TRC\\CoreBundle\\Controller\\DefaultController::notificationAction',));
+        }
+
+        // trc_core_resume_ddc
+        if (0 === strpos($pathinfo, '/resumeddc') && preg_match('#^/resumeddc/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'trc_core_resume_ddc')), array (  '_controller' => 'TRC\\CoreBundle\\Controller\\DefaultController::resumeAction',));
         }
 
         if (0 === strpos($pathinfo, '/log')) {

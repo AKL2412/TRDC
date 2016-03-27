@@ -79,7 +79,8 @@ class UtilisateursController extends Controller
         $poste = $em->getRepository('TRCCoreBundle:Fonction')
                     ->findOneBy(
                         array('acteur'=>$utilisateur->getActeur(),
-                            'active'=>true),
+                            'active'=>true,
+                            'archive'=>false),
                         array('dateaffectation'=>'DESC'),
                         null,
                         0);
@@ -92,6 +93,14 @@ class UtilisateursController extends Controller
             $ddp->setFonction($poste);
             $em->persist($ddp);
             $em->flush();
+
+            $sysnoti = $this->get('trc_core.noti');
+                $sysnoti->notifier(array(
+                "acteur"=>$utilisateur->getActeur(),
+                "titre"=>"Ajout de Délégation de Pouvoir",
+                "contenu"=>" une Délégation de Pouvoir a été associée à votre profil"
+                ));
+
             return $this->redirect($this->generateUrl('trc_admin_utilisateurs_voir',array('matricule'=>$matricule)));
         }
         

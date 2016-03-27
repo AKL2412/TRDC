@@ -64,10 +64,10 @@ class EDP extends \TRC\CoreBundle\Entity\DDC\EDP implements \Doctrine\ORM\Proxy\
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\EDP' . "\0" . 'id'];
+            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\EDP' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\EDP' . "\0" . 'matricule'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\EDP' . "\0" . 'id'];
+        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\EDP' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\EDP' . "\0" . 'matricule'];
     }
 
     /**
@@ -186,6 +186,28 @@ class EDP extends \TRC\CoreBundle\Entity\DDC\EDP implements \Doctrine\ORM\Proxy\
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setMatricule($matricule)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMatricule', [$matricule]);
+
+        return parent::setMatricule($matricule);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMatricule()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMatricule', []);
+
+        return parent::getMatricule();
     }
 
 }

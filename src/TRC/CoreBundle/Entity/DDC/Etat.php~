@@ -37,23 +37,24 @@ class Etat
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="executeur", type="string", length=60,nullable=true)
-     */
-    private $executeur;
-
-    /**
     * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\Phase",cascade={"remove", "persist"})
     * @ORM\JoinColumn(nullable=false)
     */
     private $phase;
 
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\Etape")
-    * @ORM\JoinColumn(nullable=false)
-    */
-    private $etape;
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=250)
+     */
+    private $nom;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="decision", type="boolean")
+     */
+    private $decision;
 
     /**
      * Get id
@@ -137,29 +138,7 @@ class Etat
         return $this->description;
     }
 
-    /**
-     * Set executeur
-     *
-     * @param string $executeur
-     *
-     * @return Etat
-     */
-    public function setExecuteur($executeur)
-    {
-        $this->executeur = $executeur;
-
-        return $this;
-    }
-
-    /**
-     * Get executeur
-     *
-     * @return string
-     */
-    public function getExecuteur()
-    {
-        return $this->executeur;
-    }
+    
 
     /**
      * Set phase
@@ -185,27 +164,28 @@ class Etat
         return $this->phase;
     }
 
+
     /**
-     * Set etape
+     * Set decision
      *
-     * @param \TRC\CoreBundle\Entity\DDC\Etape $etape
+     * @param boolean $decision
      *
      * @return Etat
      */
-    public function setEtape(\TRC\CoreBundle\Entity\DDC\Etape $etape)
+    public function setDecision($decision)
     {
-        $this->etape = $etape;
+        $this->decision = $decision;
 
         return $this;
     }
 
     /**
-     * Get etape
+     * Get decision
      *
-     * @return \TRC\CoreBundle\Entity\DDC\Etape
+     * @return boolean
      */
-    public function getEtape()
+    public function getDecision()
     {
-        return $this->etape;
+        return $this->decision;
     }
 }

@@ -78,6 +78,12 @@ class Client
     private $employeur;
 
     /**
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Agence",cascade={"remove", "persist"})
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $agence;
+
+    /**
      * Get id
      *
      * @return int
@@ -301,5 +307,29 @@ class Client
     public function getIntitule()
     {
         return $this->intitule;
+    }
+
+    /**
+     * Set agence
+     *
+     * @param \TRC\CoreBundle\Entity\Agence $agence
+     *
+     * @return Client
+     */
+    public function setAgence(\TRC\CoreBundle\Entity\Agence $agence = null)
+    {
+        $this->agence = $agence;
+
+        return $this;
+    }
+
+    /**
+     * Get agence
+     *
+     * @return \TRC\CoreBundle\Entity\Agence
+     */
+    public function getAgence()
+    {
+        return $this->agence;
     }
 }

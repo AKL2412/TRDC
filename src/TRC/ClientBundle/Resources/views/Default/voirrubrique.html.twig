@@ -1,0 +1,349 @@
+
+			{%if rubrique == 'identite'%}
+				<table class="table table-condensed table-striped">
+					{%if client.identite is null %}
+						<caption>
+							<a class="btn btn-xs" href="{{url('trc_client_identite',{radical:client.radical})}} ">
+								Renseigner l'identité du client
+							</a>
+						</caption>
+					{%else%}
+						<caption>
+							<a class="pull-right btn btn-xs" href="{{url('trc_client_identite',{radical:client.radical})}} ">
+								<i class="fa-edit fa "></i>
+							</a>
+						</caption>
+					{%set iden = client.identite %}
+					
+						<tr>
+							<td>Civilité</td>
+							<td> {{iden.civilite.nom}} </td>
+						</tr>
+						<tr>
+							<td>Nom</td>
+							<td> {{iden.nom}} </td>
+						</tr>
+						<tr>
+							<td>Prenom</td>
+							<td> {{iden.prenom}} </td>
+						</tr>
+						<tr>
+							<td>Pièce</td>
+							<td> {{iden.piece.nom}} </td>
+						</tr>
+						<tr>
+							<td>Numero de pièce</td>
+							<td> {{iden.numeroPiece}} </td>
+						</tr>
+						<tr>
+							<td>Nationalité</td>
+							<td>{{iden.pays.nationalité}} [{{iden.pays.nom}}] </td>
+						</tr>
+					
+					{%endif%}
+				</table>
+			{%elseif rubrique == 'coordonnee' %}
+				<table class="table table-condensed table-striped">
+					{%if client.coordonnee is null %}
+						<caption>
+							<a class="btn btn-xs" href="{{url('trc_client_identite',{radical:client.radical})}} ">
+								Renseigner les coordonnées du client
+							</a>
+						</caption>
+					{%else%}
+						<caption>
+							<a class="pull-right btn btn-xs" href="{{url('trc_client_identite',{radical:client.radical})}} ">
+								<i class="fa-edit fa "></i>
+							</a>
+						</caption>				
+					{%set coor = client.coordonnee %}
+						<tr>
+							<td>Ville</td>
+							<td> {{coor.ville}} </td>
+						</tr>
+						<tr>
+							<td>Boite postale</td>
+							<td> {{coor.boitePostale}} </td>
+						</tr>
+						<tr>
+							<td>Tel. Pro</td>
+							<td> {{coor.telephoneProfessionnel}} </td>
+						</tr>
+						<tr>
+							<td>Tel. Domicile</td>
+							<td> {{coor.telephoneDomicile}} </td>
+						</tr>
+						<tr>
+							<td>Tel. mobile</td>
+							<td> {{coor.gsm}} </td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td> {{coor.email}} </td>
+						</tr>
+						<tr>
+							<td>Adresse</td>
+							<td> {{coor.adresse}} </td>
+						</tr>
+					
+					{%endif%}
+				</table>
+			{%elseif rubrique == 'employeur' %}
+				<table class="table table-condensed table-striped">
+					
+					<caption>
+						<a class="pull-right" href="{{url('trc_client_employeur',{radical:client.radical})}} ">
+							<i class="fa-edit fa "></i>
+						</a>
+					</caption>
+					{%if client.employeur is not null %}
+					{%set emp = client.employeur %}
+					<div>
+						{%if emp.estclient == 1 %}
+							<h5 class="text-success text-center">
+								<i class="fa-check fa"></i>
+								L'employeur est client
+								
+							</h5>
+						{%else%}
+							<h5 class="text-danger text-center">
+								<i class="fa-times fa"></i>
+								L'employeur n'est pas client
+								
+							</h5>
+						{%endif%}
+					</div>
+					
+						<tr>
+							<td>Dénomination</td>
+							<td> {{emp.denomination}} </td>
+						</tr>
+						<tr>
+							<td>Ville</td>
+							<td> {{emp.ville}} </td>
+						</tr>
+						<tr>
+							<td>Téléphone</td>
+							<td> {{emp.telephone}} </td>
+						</tr>
+						<tr>
+							<td>Fax</td>
+							<td> {{emp.fax}} </td>
+						</tr>
+						<tr>
+							<td>Adresse</td>
+							<td> {{emp.adressesociale}} </td>
+						</tr>
+						
+					
+					{%endif%}
+				</table>
+			{%elseif rubrique == 'profession' %}
+				<table class="table table-condensed table-striped">
+					<caption>
+						<a class="pull-right" href="{{url('trc_client_profession',{radical:client.radical})}} ">
+							<i class="fa-edit fa "></i>
+						</a>
+					</caption>
+					{%if client.profession is not null %}
+					
+					{%set emp = client.profession %}
+					
+						<tr>
+							<td>Fonction</td>
+							<td> {{emp.fonction}} </td>
+						</tr>
+						<tr>
+							<td>Type de fonction</td>
+							<td> {{emp.typefonction.nom}} </td>
+						</tr> 
+						
+						
+					
+					{%endif%}
+				</table>
+			{%elseif rubrique == 'revenu' %}
+				<table class="table table-condensed table-striped">
+					<caption>
+						<i class="fa-money fa"></i>
+						<a class="pull-right" href="{{url('trc_client_revenu',{radical:client.radical})}} ">
+							<i class="fa-edit fa "></i>
+						</a>
+					</caption>
+					{%if client.revenu is not null %}
+					{%set emp = client.revenu %}
+					
+						<tr>
+							<td>Revenu salarial</td>
+							<td> {{emp.rsmn}} </td>
+						</tr>
+						<tr>
+							<td>Autres revenus</td>
+							<td> {{emp.natureAutresRevenus}} </td>
+						</tr> 
+						
+						
+					
+					{%endif%}
+				</table>
+			{%elseif rubrique == 'logement' %}
+				<table class="table table-condensed table-striped">	
+					<caption>
+						<i class="fa-home fa"></i>
+						<a class="pull-right" href="{{url('trc_client_logement',{radical:client.radical})}} ">
+							<i class="fa-edit fa "></i>
+						</a>
+					</caption>
+					{%if client.logement is not null %}
+					{%set emp = client.logement %}
+					
+						<tr>
+							<td>Frais de location mensuelle</td>
+							<td> {{emp.flm}} </td>
+						</tr>
+						<tr>
+							<td>Statut</td>
+							<td> {{emp.statut.nom}} </td>
+						</tr> 
+						
+						
+					
+					{%endif%}
+				</table>
+			{%elseif rubrique == 'pac' %}
+				<table class="table table-condensed table-striped">
+					<caption>
+						<i class="fa-phone fa"></i>
+						<a class="pull-right" href="{{url('trc_client_pac',{radical:client.radical})}} ">
+							<i class="fa-edit fa "></i>
+						</a>
+					</caption>
+				{%if client.pac is not null %}
+					{%set emp = client.pac %}
+					
+						<tr>
+							<td>Nom</td>
+							<td> {{emp.nom}} </td>
+						</tr>
+						<tr>
+							<td>Prenom</td>
+							<td> {{emp.prenom}} </td>
+						</tr> 
+						<tr>
+							<td>Lien</td>
+							<td> {{emp.lpd.nom}} </td>
+						</tr> 
+						{%set coor = emp.coordonnee%}
+						<tr>
+							<td>Ville</td>
+							<td> {{coor.ville}} </td>
+						</tr>
+						<tr>
+							<td>Boite postale</td>
+							<td> {{coor.boitePostale}} </td>
+						</tr>
+						<tr>
+							<td>Tel. Pro</td>
+							<td> {{coor.telephoneProfessionnel}} </td>
+						</tr>
+						<tr>
+							<td>Tel. Domicile</td>
+							<td> {{coor.telephoneDomicile}} </td>
+						</tr>
+						<tr>
+							<td>Tel. mobile</td>
+							<td> {{coor.gsm}} </td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td> {{coor.email}} </td>
+						</tr>
+						<tr>
+							<td>Adresse</td>
+							<td> {{coor.adresse}} </td>
+						</tr>
+						
+					
+					{%endif%}
+				</table>
+			{%elseif rubrique == 'comptes' %}
+				<a href="{{url('trc_client_ajouter_comptes',{radical:client.radical})}} ">
+					<i class="fa-plus-circle fa"></i>
+					Ajouter un compte
+				</a>
+				{%if comptes|length > 0 %}
+					<table class=" table table-striped table-condensed">
+						<thead>
+							<tr>
+								<th>Type de compte</th>
+								<th>Numéro de compte</th>
+								<th>Solde du compte</th>
+							</tr>
+						</thead>
+						<tbody>
+							{%for compte in comptes%}
+								<tr>
+									<td>{{compte.type}} </td>
+									<td>{{compte.numeroCompte}} </td>
+									<td>{{compte.solde}} </td>
+									<td>
+										<a href="{{url('trc_client_modifier_comptes',{radical:client.radical,id:compte.id})}} ">
+											<i class="fa-edit fa"></i>
+										</a>
+									</td>
+								</tr>
+							{%endfor%}
+						</tbody>
+					</table>
+				{%else%}
+
+				<div class="alert-danger alert text-center">
+					<h4>Aucun ajouter</h4>
+				</div>
+				{%endif%}
+			{%elseif rubrique == 'engagements' %}
+				{%if engagements|length > 0 %}
+					<table class=" table table-striped table-condensed">
+						<thead>
+							<tr>
+								<th>Type de crédit</th>
+								<th>Montant</th>
+								<th>Durée</th>
+								<th>Phase</th>
+								<th>Etat</th>
+							</tr>
+						</thead>
+						<tbody>
+							{%for ddc in engagements%}
+								{%set pddc = getPhaseDDC(ddc) %}
+								{%set eddc = getEtatPhase(pddc) %}
+								<tr>
+									<td>{{ddc.tdc.nom}} </td>
+									<td>{{ddc.cdcd.montant}} </td>
+									<td>{{ddc.cdcd.duree}} </td>
+									<td>
+										{%if pddc is not null %}
+											{{pddc.phase.nom}}
+										{%else%}	
+											#####
+										{%endif%}
+									</td>
+									<td>
+										{%if eddc is not null %}
+											{{eddc.etat.nom}}
+										{%else%}	
+											#####
+										{%endif%}
+									</td>
+								</tr>
+							{%endfor%}
+						</tbody>
+					</table>
+				{%else%}
+
+				<div class="alert-danger alert text-center">
+					<h4>Aucun engagement</h4>
+				</div>
+				{%endif%}
+			{%endif%}
+			

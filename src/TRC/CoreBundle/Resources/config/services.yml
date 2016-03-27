@@ -49,15 +49,20 @@ services:
         class: TRC\CoreBundle\Systemes\Journal\Noti
         arguments: []
         calls:
-            - [setEntityManager, ["@doctrine.orm.entity_manager"]]
+            - [setEntityManager, ["@doctrine.orm.entity_manager","@trc_core.gu"]]
     trc_core.twig.extension:
         class: TRC\CoreBundle\Systemes\Twig\TwigExtension
-        arguments: ["@doctrine.orm.entity_manager"]
+        arguments: ["@doctrine.orm.entity_manager","@trc_core.gu"]
         tags:
             - { name: twig.extension }
 
     trc_core.gu:
         class: TRC\CoreBundle\Systemes\General\GU
+        arguments: []
+        calls:
+            - [setEntityManager, ["@doctrine.orm.entity_manager"]]
+    trc_core.sgf:
+        class: TRC\CoreBundle\Systemes\General\SGF
         arguments: []
         calls:
             - [setEntityManager, ["@doctrine.orm.entity_manager"]]

@@ -56,6 +56,13 @@ class Employeur
      */
     private $ville;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="estclient", type="boolean")
+     */
+    private $estclient;
+
 
     /**
      * Get id
@@ -185,5 +192,29 @@ class Employeur
     public function getVille()
     {
         return $this->ville;
+    }
+
+    /**
+     * Set estclient
+     *
+     * @param boolean $estclient
+     *
+     * @return Employeur
+     */
+    public function setEstclient($estclient)
+    {
+        $this->estclient = $estclient;
+
+        return $this;
+    }
+
+    /**
+     * Get estclient
+     *
+     * @return boolean
+     */
+    public function getEstclient()
+    {
+        return $this->estclient;
     }
 }

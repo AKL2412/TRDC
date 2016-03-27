@@ -15,9 +15,9 @@ class FichierType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('chemin')
-            ->add('type')
+            ->add('nom','text')
+            ->add('chemin','file',array("label"=>"Fichier"))
+            
         ;
     }
     

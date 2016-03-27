@@ -64,10 +64,10 @@ class Employeur extends \TRC\CoreBundle\Entity\Client\Employeur implements \Doct
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'denomination', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'adresseSociale', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'telephone', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'fax', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'ville'];
+            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'denomination', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'adresseSociale', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'telephone', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'fax', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'ville', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'estclient'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'denomination', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'adresseSociale', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'telephone', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'fax', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'ville'];
+        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'denomination', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'adresseSociale', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'telephone', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'fax', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'ville', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Employeur' . "\0" . 'estclient'];
     }
 
     /**
@@ -296,6 +296,28 @@ class Employeur extends \TRC\CoreBundle\Entity\Client\Employeur implements \Doct
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getVille', []);
 
         return parent::getVille();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEstclient($estclient)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEstclient', [$estclient]);
+
+        return parent::setEstclient($estclient);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEstclient()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEstclient', []);
+
+        return parent::getEstclient();
     }
 
 }

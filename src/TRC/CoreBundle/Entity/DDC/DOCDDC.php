@@ -36,7 +36,7 @@ class DOCDDC
     private $charge;
 
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\DDC")
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\DDC",cascade={"remove", "persist"})
     * @ORM\JoinColumn(nullable=false)
     */
     private $ddc;

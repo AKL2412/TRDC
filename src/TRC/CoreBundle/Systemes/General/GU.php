@@ -16,6 +16,23 @@ class GU
 	   $this->cheminPrincipal = 'Utilisateurs/';
 	}
 
+	public function getEntite(\TRC\CoreBundle\ENtity\Entite $entite){
+		
+		return  $this->em->getRepository('TRCCoreBundle:'.$entite->getClasse())
+				->findOneByEntite($entite);
+	}
+	
+	public function fonction(\TRC\CoreBundle\Entity\Utilisateur $utilisateur){
+
+		return $this->em->getRepository('TRCCoreBundle:Fonction')
+                    ->findOneBy(
+                        array('acteur'=>$utilisateur->getActeur(),
+                            'active'=>true,
+                            'archive'=>false),
+                        array('dateaffectation'=>'DESC'),
+                        null,
+                        0);
+	}
 	public function creerUtilisateur($utilisateur,$user){
 		if($utilisateur === null)
 			return false;
@@ -134,5 +151,9 @@ class GU
 		$this->em->persist($j);
 		$this->em->flush();
 		return true;
+	}
+	public function getParentActeur(\TRC\CoreBundle\Entity\Acteur $acteur){
+		return  $this->em->getRepository('TRCCoreBundle:'.$acteur->getClasse())
+				->findOneByActeur($acteur);
 	}
 }

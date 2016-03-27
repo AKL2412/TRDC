@@ -38,6 +38,13 @@ class DDC
     /**
      * @var string
      *
+     * @ORM\Column(name="ordre", type="string", length=20,nullable=true)
+     */
+    private $ordre;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="dossier", type="string", length=255)
      */
     private $dossier;
@@ -73,15 +80,30 @@ class DDC
     private $cdcd;
 
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Acteur")
-    * @ORM\JoinColumn(nullable=true)
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Fonction")
+    * @ORM\JoinColumn(nullable=false)
     */
-    private $acteur;
+    private $fonction;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="at", type="datetime",nullable=true)
+     */
+    protected $at;
+
+    public function resume(){
+        $resume = "";
+        
+
+        return $resume;
+    }
+    
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -137,78 +159,6 @@ class DDC
     }
 
     /**
-     * Set client
-     *
-     * @param \TRC\CoreBundle\Entity\Client\Client $client
-     *
-     * @return DDC
-     */
-    public function setClient(\TRC\CoreBundle\Entity\Client\Client $client = null)
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
-    /**
-     * Get client
-     *
-     * @return \TRC\CoreBundle\Entity\Client\Client
-     */
-    public function getClient()
-    {
-        return $this->client;
-    }
-
-    /**
-     * Set edp
-     *
-     * @param \TRC\CoreBundle\Entity\DDC\EDP $edp
-     *
-     * @return DDC
-     */
-    public function setEdp(\TRC\CoreBundle\Entity\DDC\EDP $edp)
-    {
-        $this->edp = $edp;
-
-        return $this;
-    }
-
-    /**
-     * Get edp
-     *
-     * @return \TRC\CoreBundle\Entity\DDC\EDP
-     */
-    public function getEdp()
-    {
-        return $this->edp;
-    }
-
-    /**
-     * Set cdcd
-     *
-     * @param \TRC\CoreBundle\Entity\DDC\CDCD $cdcd
-     *
-     * @return DDC
-     */
-    public function setCdcd(\TRC\CoreBundle\Entity\DDC\CDCD $cdcd = null)
-    {
-        $this->cdcd = $cdcd;
-
-        return $this;
-    }
-
-    /**
-     * Get cdcd
-     *
-     * @return \TRC\CoreBundle\Entity\DDC\CDCD
-     */
-    public function getCdcd()
-    {
-        return $this->cdcd;
-    }
-
-    /**
      * Set dossier
      *
      * @param string $dossier
@@ -230,6 +180,30 @@ class DDC
     public function getDossier()
     {
         return $this->dossier;
+    }
+
+    /**
+     * Set client
+     *
+     * @param \TRC\CoreBundle\Entity\Client\Client $client
+     *
+     * @return DDC
+     */
+    public function setClient(\TRC\CoreBundle\Entity\Client\Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \TRC\CoreBundle\Entity\Client\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
     }
 
     /**
@@ -281,26 +255,122 @@ class DDC
     }
 
     /**
-     * Set acteur
+     * Set edp
      *
-     * @param \TRC\CoreBundle\Entity\Acteur $acteur
+     * @param \TRC\CoreBundle\Entity\DDC\EDP $edp
      *
      * @return DDC
      */
-    public function setActeur(\TRC\CoreBundle\Entity\Acteur $acteur = null)
+    public function setEdp(\TRC\CoreBundle\Entity\DDC\EDP $edp)
     {
-        $this->acteur = $acteur;
+        $this->edp = $edp;
 
         return $this;
     }
 
     /**
-     * Get acteur
+     * Get edp
      *
-     * @return \TRC\CoreBundle\Entity\Acteur
+     * @return \TRC\CoreBundle\Entity\DDC\EDP
      */
-    public function getActeur()
+    public function getEdp()
     {
-        return $this->acteur;
+        return $this->edp;
+    }
+
+    /**
+     * Set cdcd
+     *
+     * @param \TRC\CoreBundle\Entity\DDC\CDCD $cdcd
+     *
+     * @return DDC
+     */
+    public function setCdcd(\TRC\CoreBundle\Entity\DDC\CDCD $cdcd = null)
+    {
+        $this->cdcd = $cdcd;
+
+        return $this;
+    }
+
+    /**
+     * Get cdcd
+     *
+     * @return \TRC\CoreBundle\Entity\DDC\CDCD
+     */
+    public function getCdcd()
+    {
+        return $this->cdcd;
+    }
+
+    /**
+     * Set fonction
+     *
+     * @param \TRC\CoreBundle\Entity\Fonction $fonction
+     *
+     * @return DDC
+     */
+    public function setFonction(\TRC\CoreBundle\Entity\Fonction $fonction = null)
+    {
+        $this->fonction = $fonction;
+
+        return $this;
+    }
+
+    /**
+     * Get fonction
+     *
+     * @return \TRC\CoreBundle\Entity\Fonction
+     */
+    public function getFonction()
+    {
+        return $this->fonction;
+    }
+
+    /**
+     * Set ordre
+     *
+     * @param string $ordre
+     *
+     * @return DDC
+     */
+    public function setOrdre($ordre)
+    {
+        $this->ordre = $ordre;
+
+        return $this;
+    }
+
+    /**
+     * Get ordre
+     *
+     * @return string
+     */
+    public function getOrdre()
+    {
+        return $this->ordre;
+    }
+
+    /**
+     * Set at
+     *
+     * @param \DateTime $at
+     *
+     * @return DDC
+     */
+    public function setAt($at)
+    {
+        $this->at = $at;
+
+        return $this;
+    }
+
+    /**
+     * Get at
+     *
+     * @return \DateTime
+     */
+    public function getAt()
+    {
+        return $this->at;
     }
 }

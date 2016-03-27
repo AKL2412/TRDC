@@ -1,13 +1,19 @@
 {% extends 'TRCDDCBundle::ddc.html.twig' %}
+{%block title%}
+    #{{ddc.id}} | {{parent()}}
+{%endblock title%}
 {%block titre%}
-	{{ddc.rc}}
+	{{ddc.rc}} 
+    <a href="{{url('trcddc_ddc_edp',{rc:ddc.rc})}} " title="Espace De Partage">
+        #EDP
+    </a>
 {%endblock titre%}
 {%block position %}
 	{{parent()}}
     	<li class="active">
     		<i class="fa fa-angle-right"></i>
-    		<i class="fa fa-book"></i>
-            <a href="#">
+    		<i class="fa fa-folder"></i>
+            <a href="{{url('trcddc_consulter',{rc:ddc.rc})}} ">
             	{{ddc.rc}}
             </a>
         </li>
@@ -15,5 +21,85 @@
     {%endblock position%}
    
 {%block content %}
+    
+        
+    {%block main%}
+        {%if form is not null %}
+           
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Renseigner les caratéristiques du crédit <br>
+                    Crédit :: {{ddc.tdc.nom}}
+                </div>
+                {{form_start(form)}}
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>
+                            Montant
+                        </label>
+                        {{form_widget(form.montant,{'attr':{'class':'form-control'}})}}
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Durée
+                        </label>
+                        {{form_widget(form.duree,{'attr':{'class':'form-control'}})}}
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Traite
+                        </label>
+                        {{form_widget(form.quotite,{'attr':{'class':'form-control'}})}}
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    {{form_widget(form.save)}}
+                </div>
+                {{form_end(form)}}
+            </div>
+        
+        {%else%}
+                    <div class="panel-default panel">
+                        {% set documents = 0 %}
+                        <div class="panel-heading">
+                            Les documents joints au dossier
+                            <a class="pull-right" href="{{url('trcddc_ajout_docs',{rs:ddc.rs})}} ">
+                                <i class="fa-plus-square fa"></i>
+                            </a>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table">
+                                {%for doc in docs %}
+                                    <tr>
+                                        <td>
+                                            {{doc.nom}}
+                                        </td>
+                                        <td>
+                                            {%if doc.charge %}
+                                                <span class="label-success label">
+                                                    <i class="fa-check fa"></i>
+                                                    Chargé
+                                                </span>
+                                                {%set documents = documents + 1 %}
+                                            {%else%}
+                                                <span class="label label-danger">
+                                                    <i class="fa-times fa"></i>
+                                                    Non chargé
+                                                </span>
+                                            {%endif%}
+                                        </td>
+                                    </tr>
+                                {%endfor%}
+                            </table>
+                        </div>
+                        <div class="panel-footer">
+                            Documents chargés : {{documents}}
+                        </div>
+                    </div>
+               
+        {%endif%}
+    {%endblock main%}
+    
+    
 
 {%endblock content %}

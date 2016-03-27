@@ -29,6 +29,13 @@ class EDCC
     private $numeroCompte;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="solde", type="float")
@@ -122,5 +129,29 @@ class EDCC
     public function getClient()
     {
         return $this->client;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return EDCC
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

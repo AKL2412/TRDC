@@ -21,6 +21,12 @@ class EDP
      */
     private $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matricule", type="string", length=255,nullable=true)
+     */
+    private $matricule;
 
     /**
      * Get id
@@ -30,5 +36,29 @@ class EDP
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set matricule
+     *
+     * @param string $matricule
+     *
+     * @return EDP
+     */
+    public function setMatricule($matricule)
+    {
+        $this->matricule = $matricule;
+
+        return $this;
+    }
+
+    /**
+     * Get matricule
+     *
+     * @return string
+     */
+    public function getMatricule()
+    {
+        return $this->matricule;
     }
 }

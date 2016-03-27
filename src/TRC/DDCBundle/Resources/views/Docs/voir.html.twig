@@ -1,0 +1,20 @@
+{%if fichiers|length > 0 %}
+<div class="row">
+	
+	{%for doc in fichiers%}
+		{%set fichier = doc.fichier %}
+		<div class="col-md-4">
+				{{fichier.type}}
+			{{fichier.nom}}
+		</div>	
+	{%endfor%}
+
+</div>
+
+{%else%}
+	<div class="alert-info alert text-center">
+		<h1>
+			Aucun fichier chargé
+		</h1>
+	</div>
+{%endif%}

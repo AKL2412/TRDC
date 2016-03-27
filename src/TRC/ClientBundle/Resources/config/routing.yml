@@ -8,6 +8,15 @@ trc_client_recherche:
 trc_client_consulter:
     path:     /{radical}
     defaults: { _controller: TRCClientBundle:Default:consulter }
+trc_client_ajouter_comptes:
+    path:     /{radical}/comptes
+    defaults: { _controller: TRCClientBundle:Default:ajouterCompte }
+trc_client_modifier_comptes:
+    path:     /{radical}/comptes/{id}
+    defaults: { _controller: TRCClientBundle:Default:ajouterCompte }
+trc_client_voir_rubrique:
+    path:     /{radical}/voir/{rubrique}
+    defaults: { _controller: TRCClientBundle:Default:voirrubrique }
 
 trc_client_identite:
     path:     /{radical}/identite

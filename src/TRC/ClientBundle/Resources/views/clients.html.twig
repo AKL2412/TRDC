@@ -4,7 +4,7 @@
 {%endblock title%}
 {%block titre%}
        <form class="recherche-client" action="{{url('trc_client_recherche')}}">
-       	<input name="radical" type="search" placeholder="Radical ou CIN" class="form-control recherche-client" />
+       	<input autocomplete="off" name="radical" type="search" placeholder="Radical ou CIN" class="form-control recherche-client" />
        </form>
 {%endblock titre%}
 

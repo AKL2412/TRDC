@@ -14,12 +14,20 @@ class AffichageController extends Controller
     {
         return $this->render('TRCCoreBundle:Affichage:header.html.twig');
     }
+    public function edpddcAction(Request $request,\TRC\CoreBundle\Entity\DDC\DDC  $ddc)
+    {
+        return $this->render('TRCCoreBundle:Affichage:edpddc.html.twig',
+            array(
+                'ddc'=>$ddc,));
+
+    }
     public function utilisateurAction(Request $request,\TRC\CoreBundle\Entity\Utilisateur $utilisateur)
     {
         $em = $this->getDoctrine()->getManager();
         $fonctions = $em->getRepository('TRCCoreBundle:Fonction')
                     ->findBy(
-                        array('acteur'=>$utilisateur->getActeur()),
+                        array('acteur'=>$utilisateur->getActeur(),
+                            'archive'=>false),
                         array('dateaffectation'=>'DESC'),
                         null,
                         0);
@@ -44,7 +52,18 @@ class AffichageController extends Controller
     }
     public function connecteAction()
     {
-        return $this->render('TRCCoreBundle:Affichage:connecte.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+        $utilisateur = $em->getRepository('TRCCoreBundle:Utilisateur')
+                        ->findOneByCompte($user);
+        $acteur = $utilisateur->getActeur();
+        $notifications = $em->getRepository('TRCCoreBundle:Notification')
+            ->findBy(
+                array('acteur'=>$acteur,
+                    'lu'=>false),
+                array('datenoti'=>"desc"),null,0);
+        return $this->render('TRCCoreBundle:Affichage:connecte.html.twig',
+            array('notifications'=>$notifications));
     }
     public function paginationAction($pagination)
     {

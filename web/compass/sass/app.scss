@@ -1,5 +1,144 @@
 @import "compass";
+/*@import "timeline.css";
+@import "timeline2.css";*/
 body{
+	span#surveiller{
+		display: inline-block;
+		color: red;
+		position: absolute;
+	}
+	#edp{
+		height: 500px;
+		width: 100%;
+		overflow: hidden;
+		@include box-shadow(0 0 2px rgba(0,0,0,0.4));
+		.bann{
+			height: 30px;
+			background-color: rgba(0,0,0,0.5);
+			.titre{
+				.d{
+					color: #ccc;
+					text-align: center;
+					.b{
+						color: #fff;
+						font-weight: bolder;
+						font-size: 1.3em;
+					}
+				}
+				.description{
+					font-family: "consolas";
+					font-size: 0.8em;
+					color: #fff;
+					padding: 10px;
+				}
+			}
+		}
+		.edp-form{
+			height: 95px;
+			width: 100%;
+			background: #fff;
+			border-bottom: 3px solid #ccc;
+			form{
+				input[type="file"]{
+					display: none;
+				}
+				textarea{
+					border: 1px solid rgba(0,0,0,0.3);
+					height: 90px;
+					width: 80%;
+					padding: 10px;
+					display: inline-block;
+					@include box-shadow(-1px -1px 4px rgba(0,0,0,0.2) inset,
+						1px 1px 4px rgba(0,0,0,0.2) inset);
+				}
+				div.vali{
+					display: inline-block;
+					vertical-align: top;
+					width: 19%;
+					height: 90px;
+					overflow: hidden;
+					.button{
+					text-align: center;
+					display: block;
+					height: 50px;
+					line-height: 40px;
+					width: 100%;
+					i{
+						font-size: 2em;
+						margin-top: 0.5em;
+
+					}
+				}
+				label{
+					display: block;
+					width: 100%;
+					height: 30px;
+					padding: 3% 2%;
+					i{
+						margin-right: 6px;
+					}
+				}
+				}
+				
+			}
+		}
+		.edp-body{
+			overflow: auto;
+			height: 380px;
+			overflow-x: hidden;
+			.m{
+				margin-bottom: 6px;
+				border-bottom: 1px solid #ccc;
+				.i{
+					display: inline-block;
+					width: 19%;
+					text-align: center;
+					img{
+						height: 80px;
+					}
+
+					.d{
+						display: inline-block;
+						float: left;
+						text-align: center;
+						width: 100%;
+						font-size: 0.8em;
+						font-style: italic;
+					}
+					
+				}
+				.t{
+					display: inline-block;
+					max-width: 78%;
+					overflow-x:hidden; 
+					vertical-align: middle;
+					padding: 10px;
+					a{
+						color: #68d9ff;
+						font-weight: bolder;
+					}
+				}
+					
+			}
+		}
+		
+	}
+	.block{
+		@include box-shadow(0 0 4px rgba(0,0,0,0.3));
+		background-color: rgba(255,255,255,08);
+	}
+	.cover{
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top:0;
+		z-index: 5;
+		background-color: rgba(255,255,255,0.7);
+		text-align: center;
+		img{
+			margin-top: 11%;
+		}
+	}
 	.panel{
 		overflow: hidden;
 	}
@@ -24,5 +163,8 @@ body{
 				}
 			}
 		}
+	}
+	.supp-fichier{
+		color: #f76f6f;
 	}
 }

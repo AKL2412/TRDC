@@ -67,6 +67,12 @@ class Fonction
     */
     private $profil;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="archive", type="boolean")
+     */
+    private $archive;
     /*
     @ORM\OneToOne(targetEntity="TRC\CoreBundle\Entity\DDP",cascade={"remove", "persist"})
     * @ORM\JoinColumn(nullable=true)
@@ -278,5 +284,29 @@ class Fonction
     public function getDdp()
     {
         return $this->ddp;
+    }
+
+    /**
+     * Set archive
+     *
+     * @param boolean $archive
+     *
+     * @return Fonction
+     */
+    public function setArchive($archive)
+    {
+        $this->archive = $archive;
+
+        return $this;
+    }
+
+    /**
+     * Get archive
+     *
+     * @return boolean
+     */
+    public function getArchive()
+    {
+        return $this->archive;
     }
 }

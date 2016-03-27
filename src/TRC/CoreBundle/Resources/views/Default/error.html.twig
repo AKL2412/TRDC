@@ -8,14 +8,14 @@
         
 {%endblock position%}
 {%block content %}
- <h1 >
+ 
 
 				{% for message in app.session.flashbag.get('erreur') %}
 				<p class="alert span6 alert-danger alert-block" style="text-align:center;margin-left:auto;margin-right:auto" > 
-				<i class="fa-warning fa fa-3x"></i>
+				
 				{{ message }}
 
 				</p>
 				{% endfor %}
-			</h1>
+		
 {%endblock content %}

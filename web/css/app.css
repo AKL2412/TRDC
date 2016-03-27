@@ -1,8 +1,166 @@
-/* line 3, ../compass/sass/app.scss */
+/*@import "timeline.css";
+@import "timeline2.css";*/
+/* line 5, ../compass/sass/app.scss */
+body span#surveiller {
+  display: inline-block;
+  color: red;
+  position: absolute;
+}
+/* line 10, ../compass/sass/app.scss */
+body #edp {
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+/* line 15, ../compass/sass/app.scss */
+body #edp .bann {
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 19, ../compass/sass/app.scss */
+body #edp .bann .titre .d {
+  color: #ccc;
+  text-align: center;
+}
+/* line 22, ../compass/sass/app.scss */
+body #edp .bann .titre .d .b {
+  color: #fff;
+  font-weight: bolder;
+  font-size: 1.3em;
+}
+/* line 28, ../compass/sass/app.scss */
+body #edp .bann .titre .description {
+  font-family: "consolas";
+  font-size: 0.8em;
+  color: #fff;
+  padding: 10px;
+}
+/* line 36, ../compass/sass/app.scss */
+body #edp .edp-form {
+  height: 95px;
+  width: 100%;
+  background: #fff;
+  border-bottom: 3px solid #ccc;
+}
+/* line 42, ../compass/sass/app.scss */
+body #edp .edp-form form input[type="file"] {
+  display: none;
+}
+/* line 45, ../compass/sass/app.scss */
+body #edp .edp-form form textarea {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  height: 90px;
+  width: 80%;
+  padding: 10px;
+  display: inline-block;
+  -moz-box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.2) inset, 1px 1px 4px rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.2) inset, 1px 1px 4px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.2) inset, 1px 1px 4px rgba(0, 0, 0, 0.2) inset;
+}
+/* line 54, ../compass/sass/app.scss */
+body #edp .edp-form form div.vali {
+  display: inline-block;
+  vertical-align: top;
+  width: 19%;
+  height: 90px;
+  overflow: hidden;
+}
+/* line 60, ../compass/sass/app.scss */
+body #edp .edp-form form div.vali .button {
+  text-align: center;
+  display: block;
+  height: 50px;
+  line-height: 40px;
+  width: 100%;
+}
+/* line 66, ../compass/sass/app.scss */
+body #edp .edp-form form div.vali .button i {
+  font-size: 2em;
+  margin-top: 0.5em;
+}
+/* line 72, ../compass/sass/app.scss */
+body #edp .edp-form form div.vali label {
+  display: block;
+  width: 100%;
+  height: 30px;
+  padding: 3% 2%;
+}
+/* line 77, ../compass/sass/app.scss */
+body #edp .edp-form form div.vali label i {
+  margin-right: 6px;
+}
+/* line 85, ../compass/sass/app.scss */
+body #edp .edp-body {
+  overflow: auto;
+  height: 380px;
+  overflow-x: hidden;
+}
+/* line 89, ../compass/sass/app.scss */
+body #edp .edp-body .m {
+  margin-bottom: 6px;
+  border-bottom: 1px solid #ccc;
+}
+/* line 92, ../compass/sass/app.scss */
+body #edp .edp-body .m .i {
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+}
+/* line 96, ../compass/sass/app.scss */
+body #edp .edp-body .m .i img {
+  height: 80px;
+}
+/* line 100, ../compass/sass/app.scss */
+body #edp .edp-body .m .i .d {
+  display: inline-block;
+  float: left;
+  text-align: center;
+  width: 100%;
+  font-size: 0.8em;
+  font-style: italic;
+}
+/* line 110, ../compass/sass/app.scss */
+body #edp .edp-body .m .t {
+  display: inline-block;
+  max-width: 78%;
+  overflow-x: hidden;
+  vertical-align: middle;
+  padding: 10px;
+}
+/* line 116, ../compass/sass/app.scss */
+body #edp .edp-body .m .t a {
+  color: #68d9ff;
+  font-weight: bolder;
+}
+/* line 126, ../compass/sass/app.scss */
+body .block {
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+/* line 130, ../compass/sass/app.scss */
+body .cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 5;
+  background-color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+/* line 138, ../compass/sass/app.scss */
+body .cover img {
+  margin-top: 11%;
+}
+/* line 142, ../compass/sass/app.scss */
 body .panel {
   overflow: hidden;
 }
-/* line 6, ../compass/sass/app.scss */
+/* line 145, ../compass/sass/app.scss */
 body .recherche-client {
   border: 1px solid #eee;
   height: 25px;
@@ -10,7 +168,11 @@ body .recherche-client {
   border-radius: 5px;
   outline: none;
 }
-/* line 14, ../compass/sass/app.scss */
+/* line 153, ../compass/sass/app.scss */
 body .position li {
   display: inline;
+}
+/* line 167, ../compass/sass/app.scss */
+body .supp-fichier {
+  color: #f76f6f;
 }

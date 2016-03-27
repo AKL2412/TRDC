@@ -64,10 +64,10 @@ class Client extends \TRC\CoreBundle\Entity\Client\Client implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'radical', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'intitule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'identite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'revenu', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'logement', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'pac', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'coordonnee', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'profession', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'employeur'];
+            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'radical', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'intitule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'identite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'revenu', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'logement', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'pac', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'coordonnee', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'profession', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'employeur', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'agence'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'radical', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'intitule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'identite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'revenu', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'logement', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'pac', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'coordonnee', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'profession', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'employeur'];
+        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'radical', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'intitule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'identite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'revenu', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'logement', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'pac', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'coordonnee', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'profession', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'employeur', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Client\\Client' . "\0" . 'agence'];
     }
 
     /**
@@ -384,6 +384,28 @@ class Client extends \TRC\CoreBundle\Entity\Client\Client implements \Doctrine\O
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIntitule', []);
 
         return parent::getIntitule();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgence(\TRC\CoreBundle\Entity\Agence $agence = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgence', [$agence]);
+
+        return parent::setAgence($agence);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgence()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgence', []);
+
+        return parent::getAgence();
     }
 
 }

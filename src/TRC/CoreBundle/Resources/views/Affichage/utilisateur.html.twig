@@ -16,13 +16,13 @@
                     {%if poste is not null %}
                         {%set ag = getEntite(poste.entite) %}
             		    {%if poste.profil is not null %}
-                            {{poste.profil.code}} 
+                           <p class="badge">#{{poste.profil.nom}} </p>
                         {%else%}
                             Pas Statut 
                         {%endif%}
                         
                         <small>
-                            {{poste.entite.classe}}
+                            {#{poste.entite.classe}#}
                         </small>
 
                         
@@ -33,7 +33,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <div class="text-center mbl">
-                            	<img src="{{asset(utilisateur.image)}} " height="480" alt="" class="img-responsive"/>
+                            	<img src="{{asset(utilisateur.image)}} " height="480" alt="" class="thumbnail img-responsive"/>
                             </div>
                             <div class="text-center mbl">
        <button type="button" class="btn btn-green btn-lg" data-toggle="modal" data-target=".bs-example-modal-sm">Affecter à une entité</button>
@@ -181,6 +181,10 @@
                                                         Activée
                                                     {%else%}
                                                         Desactivée
+                                                        <a role="{{url('trc_core_archiver',{classe:'Fonction',id:fonction.id})}} " href="#" class="archiver btn-danger btn btn-xs">
+                                                            <i class="fa-archive fa"></i>
+                                                            Archiver
+                                                        </a>
                                                     {%endif%}
                                                 </td>
                                                 <td>

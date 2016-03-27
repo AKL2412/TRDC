@@ -1,10 +1,24 @@
 <li class="dropdown">
     <a data-hover="dropdown" href="#" class="dropdown-toggle">
         <i class="fa fa-bell fa-fw"></i>
-        <span class="badge badge-green">3</span>
+        {%if notifications|length > 0 %}
+            <span class="badge badge-green">
+                {{notifications|length}}
+            </span>
+        {%endif%}
     </a>
     <ul id="notifications" class="dropdown-menu dropdown-user pull-right">
+        {%for noti in notifications %}
+            <li>
+                <a link="{{url('trc_core_notification',{id:noti.id})}} " class="notification"  href="#" data-toggle="modal" data-target=".modal-general">
 
+                {{noti.titre}}
+                {%if noti.alerte %}
+                        <i class="fa-warning fa"></i>
+                {%endif%}
+                </a>
+            </li>
+        {%endfor%}
     </ul>
 </li>
 <li class="dropdown">

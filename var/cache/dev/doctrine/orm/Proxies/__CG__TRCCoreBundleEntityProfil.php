@@ -64,10 +64,10 @@ class Profil extends \TRC\CoreBundle\Entity\Profil implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'role', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'entite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'ddp'];
+            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'role', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'entite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'ddp', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'responsable'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'role', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'entite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'ddp'];
+        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'description', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'code', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'role', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'matricule', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'entite', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'ddp', '' . "\0" . 'TRC\\CoreBundle\\Entity\\Profil' . "\0" . 'responsable'];
     }
 
     /**
@@ -362,6 +362,28 @@ class Profil extends \TRC\CoreBundle\Entity\Profil implements \Doctrine\ORM\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDdp', []);
 
         return parent::getDdp();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setResponsable($responsable)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setResponsable', [$responsable]);
+
+        return parent::setResponsable($responsable);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getResponsable()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getResponsable', []);
+
+        return parent::getResponsable();
     }
 
 }

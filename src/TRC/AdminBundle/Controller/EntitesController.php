@@ -120,9 +120,17 @@ class EntitesController extends Controller
             throw new NotFoundHttpException("Error de code. Ce code [$code] ne correspond à rien");
         $profils = $em->getRepository('TRCCoreBundle:Profil')
                     ->findByEntite($entite);
+
+        $acteurs = $em->getRepository('TRCCoreBundle:Fonction')
+                    ->findBy(
+                        array("entite"=>$objet->getEntite(),
+                            "active"=>true),
+                        array(),null,0);
+
         return $this->render('TRCAdminBundle:Entites:entitesVoirUne.html.twig',array('entite'=>$entite,
             'profils'=>$profils,
-            'objet'=>$objet));
+            'objet'=>$objet,
+            'acteurs'=>$acteurs));
     }
 
     public function entitesParCategorieAction($entite,Request $request)
@@ -132,7 +140,7 @@ class EntitesController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $p = 1;
-        $nbre = 1;
+        $nbre = 4;
         $criteres = array();
         if( 
             $request->query->get('p')!== null 

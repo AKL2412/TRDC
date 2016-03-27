@@ -23,39 +23,44 @@ class __TwigTemplate_833ea3775f5aea9bd8be6d0a4dcf61c54e0939fdc484cb774aa1885308e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_93ebf1a5701fd627280721b16b7d5d7aedea15d00b32b4415347e62bba8006c3 = $this->env->getExtension("native_profiler");
-        $__internal_93ebf1a5701fd627280721b16b7d5d7aedea15d00b32b4415347e62bba8006c3->enter($__internal_93ebf1a5701fd627280721b16b7d5d7aedea15d00b32b4415347e62bba8006c3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCDDCBundle:Default:index.html.twig"));
+        $__internal_ca87df83c645f4362d167030c54224ca31de555e8042bbf4b407a0448220e31d = $this->env->getExtension("native_profiler");
+        $__internal_ca87df83c645f4362d167030c54224ca31de555e8042bbf4b407a0448220e31d->enter($__internal_ca87df83c645f4362d167030c54224ca31de555e8042bbf4b407a0448220e31d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TRCDDCBundle:Default:index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_93ebf1a5701fd627280721b16b7d5d7aedea15d00b32b4415347e62bba8006c3->leave($__internal_93ebf1a5701fd627280721b16b7d5d7aedea15d00b32b4415347e62bba8006c3_prof);
+        $__internal_ca87df83c645f4362d167030c54224ca31de555e8042bbf4b407a0448220e31d->leave($__internal_ca87df83c645f4362d167030c54224ca31de555e8042bbf4b407a0448220e31d_prof);
 
     }
 
     // line 2
     public function block_titre($context, array $blocks = array())
     {
-        $__internal_e7cf5d25ed549192e131f5267497f4cad3edf59513a9998109a2a98d271a4202 = $this->env->getExtension("native_profiler");
-        $__internal_e7cf5d25ed549192e131f5267497f4cad3edf59513a9998109a2a98d271a4202->enter($__internal_e7cf5d25ed549192e131f5267497f4cad3edf59513a9998109a2a98d271a4202_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "titre"));
+        $__internal_9b059065d13485250c34547ab386bbe13aeb6a40450dc6552ca2496201aea558 = $this->env->getExtension("native_profiler");
+        $__internal_9b059065d13485250c34547ab386bbe13aeb6a40450dc6552ca2496201aea558->enter($__internal_9b059065d13485250c34547ab386bbe13aeb6a40450dc6552ca2496201aea558_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "titre"));
 
         // line 3
         echo "\t";
         $this->displayParentBlock("titre", $context, $blocks);
         echo "  
-\t<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\">Créer un Dossier De Crédit #DDC</button>       
-";
+\t";
+        // line 4
+        if ($this->env->getExtension('TwigExtension')->createDDC($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()))) {
+            echo "      
+\t\t<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\">Créer un Dossier De Crédit #DDC</button> 
+\t";
+        }
         
-        $__internal_e7cf5d25ed549192e131f5267497f4cad3edf59513a9998109a2a98d271a4202->leave($__internal_e7cf5d25ed549192e131f5267497f4cad3edf59513a9998109a2a98d271a4202_prof);
+        $__internal_9b059065d13485250c34547ab386bbe13aeb6a40450dc6552ca2496201aea558->leave($__internal_9b059065d13485250c34547ab386bbe13aeb6a40450dc6552ca2496201aea558_prof);
 
     }
 
-    // line 7
+    // line 9
     public function block_content($context, array $blocks = array())
     {
-        $__internal_b8abc2a817c4d54e00817aa386fe805c53d0d1dba04b4f0879917ceddeed41eb = $this->env->getExtension("native_profiler");
-        $__internal_b8abc2a817c4d54e00817aa386fe805c53d0d1dba04b4f0879917ceddeed41eb->enter($__internal_b8abc2a817c4d54e00817aa386fe805c53d0d1dba04b4f0879917ceddeed41eb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_59f77f314ab2ec338ccccd97e2f9e2761c819c40bf1bbc2d076e7d8525eb2928 = $this->env->getExtension("native_profiler");
+        $__internal_59f77f314ab2ec338ccccd97e2f9e2761c819c40bf1bbc2d076e7d8525eb2928->enter($__internal_59f77f314ab2ec338ccccd97e2f9e2761c819c40bf1bbc2d076e7d8525eb2928_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
-        // line 8
+        // line 10
         echo "   \t
    \t
    \t<div class=\"panel panel-default\">
@@ -75,46 +80,60 @@ class __TwigTemplate_833ea3775f5aea9bd8be6d0a4dcf61c54e0939fdc484cb774aa1885308e
    \t\t\t\t</thead>
    \t\t\t\t<tbody>
    \t\t\t\t\t";
-        // line 26
+        // line 28
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["ddcs"]) ? $context["ddcs"] : $this->getContext($context, "ddcs")));
         foreach ($context['_seq'] as $context["_key"] => $context["ddc"]) {
-            // line 27
+            // line 29
             echo "   \t\t\t\t\t\t<tr>
    \t\t\t\t\t\t\t<td>";
-            // line 28
+            // line 30
             echo twig_escape_filter($this->env, $this->getAttribute($context["ddc"], "rs", array()), "html", null, true);
             echo " </td>
    \t\t\t\t\t\t\t<td>
-   \t\t\t\t\t\t\t\t<a href=\"";
-            // line 30
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("trcddc_consulter", array("rc" => $this->getAttribute($context["ddc"], "rc", array()))), "html", null, true);
-            echo " \">
+   \t\t\t\t\t\t\t\t";
+            // line 32
+            if ( !(null === $this->getAttribute($context["ddc"], "rc", array()))) {
+                // line 33
+                echo "   \t\t\t\t\t\t\t\t<a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("trcddc_consulter", array("rc" => $this->getAttribute($context["ddc"], "rc", array()))), "html", null, true);
+                echo " \">
 \t   \t\t\t\t\t\t\t\t";
-            // line 31
-            echo twig_escape_filter($this->env, $this->getAttribute($context["ddc"], "rc", array()), "html", null, true);
-            echo " 
+                // line 34
+                echo twig_escape_filter($this->env, $this->getAttribute($context["ddc"], "rc", array()), "html", null, true);
+                echo " 
 \t   \t\t\t\t\t\t\t</a>
-   \t\t\t\t\t\t\t</td>
+\t   \t\t\t\t\t\t\t";
+            }
+            // line 37
+            echo "   \t\t\t\t\t\t\t</td>
    \t\t\t\t\t\t\t<td>";
-            // line 34
+            // line 38
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["ddc"], "tdc", array()), "nom", array()), "html", null, true);
             echo " </td>
    \t\t\t\t\t\t\t<td>";
-            // line 35
+            // line 39
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["ddc"], "tddc", array()), "nom", array()), "html", null, true);
             echo " </td>
-   \t\t\t\t\t\t\t<td>";
-            // line 36
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["ddc"], "client", array()), "radical", array()), "html", null, true);
-            echo " </td>
+   \t\t\t\t\t\t\t<td>
+   \t\t\t\t\t\t\t\t";
+            // line 41
+            if ( !(null === $this->getAttribute($context["ddc"], "client", array()))) {
+                // line 42
+                echo "   \t\t\t\t\t\t\t\t";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["ddc"], "client", array()), "radical", array()), "html", null, true);
+                echo " 
+   \t\t\t\t\t\t\t\t";
+            }
+            // line 44
+            echo "   \t\t\t\t\t\t\t</td>
    \t\t\t\t\t\t</tr>
    \t\t\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddc'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 47
         echo "   \t\t\t\t</tbody>
    \t\t\t</table>
    \t\t</div>
@@ -141,11 +160,11 @@ class __TwigTemplate_833ea3775f5aea9bd8be6d0a4dcf61c54e0939fdc484cb774aa1885308e
 \t        \t\t\t\tType de dossier
 \t        \t\t\t\t<select class=\"form-control\">
 \t        \t\t\t\t\t";
-        // line 64
+        // line 72
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["tddcs"]) ? $context["tddcs"] : $this->getContext($context, "tddcs")));
         foreach ($context['_seq'] as $context["_key"] => $context["tddc"]) {
-            // line 65
+            // line 73
             echo "\t        \t\t\t\t\t\t<option value=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($context["tddc"], "code", array()), "html", null, true);
             echo " \">";
@@ -156,24 +175,24 @@ class __TwigTemplate_833ea3775f5aea9bd8be6d0a4dcf61c54e0939fdc484cb774aa1885308e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tddc'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 67
+        // line 75
         echo "\t        \t\t\t\t</select>
 \t        \t\t\t</label>
 \t        \t\t</div>
 \t        \t</form>
 \t            <ul class=\"list-group\">
 \t            \t";
-        // line 72
+        // line 80
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["tdcs"]) ? $context["tdcs"] : $this->getContext($context, "tdcs")));
         foreach ($context['_seq'] as $context["_key"] => $context["tdc"]) {
-            // line 73
+            // line 81
             echo "\t            \t\t<a href=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("trcddc_init", array("code" => $this->getAttribute($context["tdc"], "code", array()), "type" => "ND")), "html", null, true);
             echo " \" class=\"\">
 \t\t\t              <li class=\"list-group-item btn\">
 \t\t\t                        ";
-            // line 75
+            // line 83
             echo twig_escape_filter($this->env, $this->getAttribute($context["tdc"], "nom", array()), "html", null, true);
             echo "
 \t\t\t              </li>
@@ -183,7 +202,7 @@ class __TwigTemplate_833ea3775f5aea9bd8be6d0a4dcf61c54e0939fdc484cb774aa1885308e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tdc'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 79
+        // line 87
         echo "\t            
 \t               
 \t            </ul>
@@ -196,17 +215,17 @@ class __TwigTemplate_833ea3775f5aea9bd8be6d0a4dcf61c54e0939fdc484cb774aa1885308e
 \t</div>
 ";
         
-        $__internal_b8abc2a817c4d54e00817aa386fe805c53d0d1dba04b4f0879917ceddeed41eb->leave($__internal_b8abc2a817c4d54e00817aa386fe805c53d0d1dba04b4f0879917ceddeed41eb_prof);
+        $__internal_59f77f314ab2ec338ccccd97e2f9e2761c819c40bf1bbc2d076e7d8525eb2928->leave($__internal_59f77f314ab2ec338ccccd97e2f9e2761c819c40bf1bbc2d076e7d8525eb2928_prof);
 
     }
 
-    // line 90
+    // line 98
     public function block_script($context, array $blocks = array())
     {
-        $__internal_056973081dc3358eeaaeb6ed27dc50948d8d7c0613ce38355ee70ea34f4b1fc3 = $this->env->getExtension("native_profiler");
-        $__internal_056973081dc3358eeaaeb6ed27dc50948d8d7c0613ce38355ee70ea34f4b1fc3->enter($__internal_056973081dc3358eeaaeb6ed27dc50948d8d7c0613ce38355ee70ea34f4b1fc3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "script"));
+        $__internal_15803dbb9d7dce7182bc20ba4b4c927ec03775ebd433ac4341823d86c470d2c1 = $this->env->getExtension("native_profiler");
+        $__internal_15803dbb9d7dce7182bc20ba4b4c927ec03775ebd433ac4341823d86c470d2c1->enter($__internal_15803dbb9d7dce7182bc20ba4b4c927ec03775ebd433ac4341823d86c470d2c1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "script"));
 
-        // line 91
+        // line 99
         echo "\t<script type=\"text/javascript\">
 \t\t(function(){
 \t\t\t\$('select').change(function(event){
@@ -225,7 +244,7 @@ class __TwigTemplate_833ea3775f5aea9bd8be6d0a4dcf61c54e0939fdc484cb774aa1885308e
 \t</script>
 ";
         
-        $__internal_056973081dc3358eeaaeb6ed27dc50948d8d7c0613ce38355ee70ea34f4b1fc3->leave($__internal_056973081dc3358eeaaeb6ed27dc50948d8d7c0613ce38355ee70ea34f4b1fc3_prof);
+        $__internal_15803dbb9d7dce7182bc20ba4b4c927ec03775ebd433ac4341823d86c470d2c1->leave($__internal_15803dbb9d7dce7182bc20ba4b4c927ec03775ebd433ac4341823d86c470d2c1_prof);
 
     }
 
@@ -241,13 +260,15 @@ class __TwigTemplate_833ea3775f5aea9bd8be6d0a4dcf61c54e0939fdc484cb774aa1885308e
 
     public function getDebugInfo()
     {
-        return array (  210 => 91,  204 => 90,  187 => 79,  177 => 75,  171 => 73,  167 => 72,  160 => 67,  149 => 65,  145 => 64,  118 => 39,  109 => 36,  105 => 35,  101 => 34,  95 => 31,  91 => 30,  86 => 28,  83 => 27,  79 => 26,  59 => 8,  53 => 7,  42 => 3,  36 => 2,  11 => 1,);
+        return array (  229 => 99,  223 => 98,  206 => 87,  196 => 83,  190 => 81,  186 => 80,  179 => 75,  168 => 73,  164 => 72,  137 => 47,  129 => 44,  123 => 42,  121 => 41,  116 => 39,  112 => 38,  109 => 37,  103 => 34,  98 => 33,  96 => 32,  91 => 30,  88 => 29,  84 => 28,  64 => 10,  58 => 9,  47 => 4,  42 => 3,  36 => 2,  11 => 1,);
     }
 }
 /* {% extends 'TRCDDCBundle::ddc.html.twig' %}*/
 /* {%block titre%}*/
 /* 	{{parent()}}  */
-/* 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Créer un Dossier De Crédit #DDC</button>       */
+/* 	{%if createDDC(app.user)%}      */
+/* 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Créer un Dossier De Crédit #DDC</button> */
+/* 	{%endif%}*/
 /* {%endblock titre%}*/
 /*    */
 /*    {%block content %}*/
@@ -273,13 +294,19 @@ class __TwigTemplate_833ea3775f5aea9bd8be6d0a4dcf61c54e0939fdc484cb774aa1885308e
 /*    						<tr>*/
 /*    							<td>{{ddc.rs}} </td>*/
 /*    							<td>*/
+/*    								{%if ddc.rc is not null %}*/
 /*    								<a href="{{url('trcddc_consulter',{rc:ddc.rc})}} ">*/
 /* 	   								{{ddc.rc}} */
 /* 	   							</a>*/
+/* 	   							{%endif%}*/
 /*    							</td>*/
 /*    							<td>{{ddc.tdc.nom}} </td>*/
 /*    							<td>{{ddc.tddc.nom}} </td>*/
-/*    							<td>{{ddc.client.radical}} </td>*/
+/*    							<td>*/
+/*    								{%if ddc.client is not null %}*/
+/*    								{{ddc.client.radical}} */
+/*    								{%endif%}*/
+/*    							</td>*/
 /*    						</tr>*/
 /*    					{%endfor%}*/
 /*    				</tbody>*/

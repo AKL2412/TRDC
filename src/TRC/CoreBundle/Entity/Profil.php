@@ -77,6 +77,13 @@ class Profil
      */
     private $ddp;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="responsable", type="boolean")
+     */
+    private $responsable;
+
     public function __construct(){
         $this->dateajout = new \DateTime();
     }
@@ -282,5 +289,29 @@ class Profil
     public function getDdp()
     {
         return $this->ddp;
+    }
+
+    /**
+     * Set responsable
+     *
+     * @param boolean $responsable
+     *
+     * @return Profil
+     */
+    public function setResponsable($responsable)
+    {
+        $this->responsable = $responsable;
+
+        return $this;
+    }
+
+    /**
+     * Get responsable
+     *
+     * @return boolean
+     */
+    public function getResponsable()
+    {
+        return $this->responsable;
     }
 }

@@ -12,10 +12,10 @@ class Matricule{
 	}
 
 	public function matriculeStandard($object){
-
-		$temp = explode("\\", get_class($object));
+		$classes = get_class($object);
+		$temp = explode("\\", $classes);
 		$classe = $temp[count($temp) - 1];
-		$index = count($this->em->getRepository('TRCCoreBundle:'.$classe)->findAll())+1;
+		$index = count($this->em->getRepository($classes)->findAll())+1;
 		$date = date('dmY');
 		$matricule = $this->ct($classe).Core::position($index).$date;
 		return $matricule;
@@ -34,8 +34,12 @@ class Matricule{
 					"tdc"=>$ddc->getTdc()
 					),array(),null,0))+1;
 		$date = date('dmY');
-		$matricule = $t.$ctc.Core::position($index).$date;
-		return $matricule;
+		$ordre = Core::position($index);
+		$matricule = $t.$ctc.$ordre.$date;
+		$ddc->setRs($matricule);
+		$ddc->setAt(new \DateTime());
+		$ddc->setOrdre($ordre);
+		return $ddc;
 	}
 	public function rcDDC($ddc){
 

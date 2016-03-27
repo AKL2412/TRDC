@@ -26,6 +26,40 @@
         
     {%endblock position%}
     {%block content%}
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+            <table>
+                {%for fonction in acteurs %}
+                    {%set util = getParentActeur(fonction.acteur) %}
+                    {%set profil = fonction.profil %}
+                    {%if util is not null %}
+                        <tr>
+                            <td>
+                            <img src="{{asset(util.image)}} " class=" img-circle" height="40">
+                            </td>
+                            <td>
+                            {{util.prenom}}
+                            {{util.nom|upper}}
+                            </td>
+                            <td>
+                            {%if profil is not null %}
+                                {%if profil.responsable %}
+                                    <p class="label label-primary">{{profil.nom}}</p>
+                                {%else%}
+                                    <p class="label label-default">{{profil.nom}}</p>
+                                {%endif%}
+                            
+                            {%else%}
+                                ###
+                            {%endif%}
+                            </td>
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+            </table>
+            </div>
+        </div>
     	{{dump(objet)}}
         <hr>
         {{dump(profils)}}

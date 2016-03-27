@@ -17,7 +17,7 @@ class FDDCType extends AbstractType
         $builder
             ->add('dateajout', 'datetime')
             ->add('ddc')
-            ->add('fichier')
+            ->add('fichier',new FichierType())
         ;
     }
     

@@ -24,9 +24,23 @@ class Fichier
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255,nullable=true)
      */
     private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rs", type="string", length=255,nullable=true)
+     */
+    private $rs;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomoriginal", type="string", length=255)
+     */
+    private $nomoriginal;
 
     /**
      * @var string
@@ -42,7 +56,12 @@ class Fichier
      */
     private $type;
 
-
+    public function detail(){
+        return "nom original : ".$this->nomoriginal.
+                "; nom : ".$this->nom.
+                ";chemin : ".$this->chemin.
+                "; type : ".$this->type;
+    }
     /**
      * Get id
      *
@@ -123,5 +142,53 @@ class Fichier
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set nomoriginal
+     *
+     * @param string $nomoriginal
+     *
+     * @return Fichier
+     */
+    public function setNomoriginal($nomoriginal)
+    {
+        $this->nomoriginal = $nomoriginal;
+
+        return $this;
+    }
+
+    /**
+     * Get nomoriginal
+     *
+     * @return string
+     */
+    public function getNomoriginal()
+    {
+        return $this->nomoriginal;
+    }
+
+    /**
+     * Set rs
+     *
+     * @param string $rs
+     *
+     * @return Fichier
+     */
+    public function setRs($rs)
+    {
+        $this->rs = $rs;
+
+        return $this;
+    }
+
+    /**
+     * Get rs
+     *
+     * @return string
+     */
+    public function getRs()
+    {
+        return $this->rs;
     }
 }

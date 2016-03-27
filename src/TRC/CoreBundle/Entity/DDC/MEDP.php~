@@ -36,18 +36,26 @@ class MEDP
     private $message;
 
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\EDP")
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\EDP",cascade={"remove", "persist"})
     * @ORM\JoinColumn(nullable=false)
     */
     private $edp;
 
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\UserBundle\Entity\User")
+    * @ORM\OneToOne(targetEntity="TRC\CoreBundle\Entity\DDC\Fichier",cascade={"remove", "persist"})
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $fichier;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Fonction")
     * @ORM\JoinColumn(nullable=false)
     */
-    private $user;
+    private $fonction;
 
-
+    public function __construct(){
+        $this->dateposte = new \DateTime();
+    }
     /**
      * Get id
      *
@@ -130,27 +138,53 @@ class MEDP
         return $this->edp;
     }
 
+   
+
     /**
-     * Set user
+     * Set fichier
      *
-     * @param \TRC\UserBundle\Entity\User $user
+     * @param \TRC\CoreBundle\Entity\DDC\Fichier $fichier
      *
      * @return MEDP
      */
-    public function setUser(\TRC\UserBundle\Entity\User $user)
+    public function setFichier(\TRC\CoreBundle\Entity\DDC\Fichier $fichier = null)
     {
-        $this->user = $user;
+        $this->fichier = $fichier;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get fichier
      *
-     * @return \TRC\UserBundle\Entity\User
+     * @return \TRC\CoreBundle\Entity\DDC\Fichier
      */
-    public function getUser()
+    public function getFichier()
     {
-        return $this->user;
+        return $this->fichier;
+    }
+
+    /**
+     * Set fonction
+     *
+     * @param \TRC\CoreBundle\Entity\Fonction $fonction
+     *
+     * @return MEDP
+     */
+    public function setFonction(\TRC\CoreBundle\Entity\Fonction $fonction)
+    {
+        $this->fonction = $fonction;
+
+        return $this;
+    }
+
+    /**
+     * Get fonction
+     *
+     * @return \TRC\CoreBundle\Entity\Fonction
+     */
+    public function getFonction()
+    {
+        return $this->fonction;
     }
 }

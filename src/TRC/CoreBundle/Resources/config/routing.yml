@@ -9,3 +9,15 @@ trc_core_error:
 trc_core_logout:
     path:     /deconnexion
     defaults: { _controller: TRCCoreBundle:Default:logout }
+
+trc_core_archiver:
+    path:     /archivage/{classe}/{id}
+    defaults: { _controller: TRCCoreBundle:Default:archiver }
+
+trc_core_notification:
+    path:     /notification/{id}
+    defaults: { _controller: TRCCoreBundle:Default:notification }
+
+trc_core_resume_ddc:
+    path:     /resumeddc/{id}
+    defaults: { _controller: TRCCoreBundle:Default:resume }

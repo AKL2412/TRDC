@@ -9,9 +9,26 @@ trcddc_def_client:
     path:     /{rs}
     defaults: { _controller: TRCDDCBundle:Default:defclient }
 
+trcddc_ddc_edp:
+    path:     /edp/{rc}
+    defaults: { _controller: TRCDDCBundle:Docs:edp }
+
+trcddc_ddc_upload_file:
+    path:     /upload-file/{rc}/{type}
+    defaults: { _controller: TRCDDCBundle:Docs:upload }
+    requirements:
+        type: edp|doc
+
 trcddc_consulter:
     path:     /consulter/{rc}
     defaults: { _controller: TRCDDCBundle:Default:ddcvoir }
+
+trcddc_ajout_docs:
+    path:     /{rs}/documents-joints-au-dossier
+    defaults: { _controller: TRCDDCBundle:Docs:ajout }
+trcddc_voir_docs:
+    path:     /{rs}/voir-documents
+    defaults: { _controller: TRCDDCBundle:Docs:voir }
 
 trcddc_get_client_ajax:
     path:     /client/ajax

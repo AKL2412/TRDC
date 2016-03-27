@@ -1,7 +1,9 @@
 {% extends 'TRCDDCBundle::ddc.html.twig' %}
 {%block titre%}
 	{{parent()}}  
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Créer un Dossier De Crédit #DDC</button>       
+	{%if createDDC(app.user)%}      
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Créer un Dossier De Crédit #DDC</button> 
+	{%endif%}
 {%endblock titre%}
    
    {%block content %}
@@ -27,13 +29,19 @@
    						<tr>
    							<td>{{ddc.rs}} </td>
    							<td>
+   								{%if ddc.rc is not null %}
    								<a href="{{url('trcddc_consulter',{rc:ddc.rc})}} ">
 	   								{{ddc.rc}} 
 	   							</a>
+	   							{%endif%}
    							</td>
    							<td>{{ddc.tdc.nom}} </td>
    							<td>{{ddc.tddc.nom}} </td>
-   							<td>{{ddc.client.radical}} </td>
+   							<td>
+   								{%if ddc.client is not null %}
+   								{{ddc.client.radical}} 
+   								{%endif%}
+   							</td>
    						</tr>
    					{%endfor%}
    				</tbody>

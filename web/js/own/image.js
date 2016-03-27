@@ -1,5 +1,59 @@
 (function(){
+	
 
+	$.each($("#timeline .details"),function(index,val){
+		var elt = $(val);
+		var divheight = elt.height() / 2;
+		//elt.attr('style','margin-top:'+divheight+'px;');
+	})
+	$('a.noti-modal').click(function(event){
+		lien = $(this).attr('link');
+		var box = $('#gl-modal');
+		var bt = box.find('#myModalLabel');
+		bt.html('');
+		var body = box.find('.modal-body:first');
+		body.html('<div class="text-center" ><img src="'+loader+'"><br>Chargement en cours...</div>');
+		$.post(lien,{},function(data){
+			if(data.code == 1 ){
+				box.find('.modal-dialog:first').removeClass("modal-md");
+				box.find('.modal-dialog:first').addClass("modal-lg");
+
+				bt.html(data.notification.titre)
+				body.html("<div>"+data.notification.contenu+"</div>");
+				body.append($("<em>"+data.notification.date+"</em>"))
+				
+			}else{
+				alert(data.message)
+			}
+		});
+	})
+	$('a.notification').click(function(event){
+		var li = $(this).parent();
+		var span = li.parent().parent().find('span.badge:first');
+		
+		lien = $(this).attr('link');
+		var box = $('#gl-modal');
+		var bt = box.find('#myModalLabel');
+		bt.html('');
+		var body = box.find('.modal-body:first');
+
+		body.html('<div class="text-center" ><img src="'+loader+'"><br>Chargement en cours...</div>');
+		$.post(lien,{},function(data){
+			if(data.code == 1 ){
+				bt.html(data.notification.titre)
+				body.html("<div>"+data.notification.contenu+"</div>");
+				body.append($("<em>"+data.notification.date+"</em>"))
+				nbre = parseInt(span.text().trim()) - 1;
+				if(nbre > 0 )
+					span.text(nbre)
+				else
+					span.text('');
+				li.hide();
+			}else{
+				alert(data.message)
+			}
+		});
+	})
 	var i = $('<i style="cursor:pointer" class="reduire fa-chevron-up fa pull-left" etat="open"></i>')
 	
 	i.click(function(event){

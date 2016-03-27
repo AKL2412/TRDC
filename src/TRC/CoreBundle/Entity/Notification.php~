@@ -49,6 +49,13 @@ class Notification
     private $lu;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="alerte", type="boolean")
+     */
+    private $alerte;
+
+    /**
     * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Acteur")
     * @ORM\JoinColumn(nullable=true)
     */
@@ -61,7 +68,7 @@ class Notification
     private $entite;
 
     public function __construct(){
-        $this->lu = false;
+        $this->lu = $this->alerte = false;
         $this->datenoti = new \DateTime();
     }
 
@@ -217,5 +224,29 @@ class Notification
     public function getEntite()
     {
         return $this->entite;
+    }
+
+    /**
+     * Set alerte
+     *
+     * @param boolean $alerte
+     *
+     * @return Notification
+     */
+    public function setAlerte($alerte)
+    {
+        $this->alerte = $alerte;
+
+        return $this;
+    }
+
+    /**
+     * Get alerte
+     *
+     * @return boolean
+     */
+    public function getAlerte()
+    {
+        return $this->alerte;
     }
 }

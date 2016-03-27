@@ -19,6 +19,7 @@ class EmployeurType extends AbstractType
             ->add('adresseSociale','textarea')
             ->add('telephone','text')
             ->add('fax','text')
+            ->add('estclient','checkbox')
             ->add('ville','text')
             ->add('save','submit', array('label' => 'Enregistrer',
             'attr'=>array('class'=>'btn btn-primary')))

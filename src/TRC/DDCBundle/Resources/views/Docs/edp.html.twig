@@ -1,0 +1,111 @@
+{% extends 'TRCDDCBundle::Default/consulter.html.twig' %}
+{%block title%}
+	#EDP | {{parent()}}
+{%endblock title%}
+{%block titre%}
+	EDP {{messages|length}} post(s)
+{%endblock titre%}
+{%block position %}
+	{{parent()}}
+    	<li class="active">
+    		<i class="fa fa-angle-right"></i>
+    		<i class="fa fa-comments"></i>
+            <a href="#">
+            	EDP
+            </a>
+        </li>
+        
+    {%endblock position%}
+{%block main%}
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div id="edp">
+            <div class="bann">
+                <div class="titre">
+                    <div class="d">
+                        <span class="b">E</span>space <span class="b">D</span>e <span class="b">P</span>artage
+                    </div>
+                    <p class="description"> 
+                    </p>    
+                </div>
+                
+            </div>
+            <div class="edp-form">
+                <form  url="{{url('trcddc_ddc_upload_file',{rc:ddc.rc,type:'edp'})}} " id="data-form-edp" method="post" enctype="multipart/form-data">
+                    <textarea name="message" placeholder="Entrer le texte ici"></textarea>
+                   <div class="vali">
+                        <label>
+                            <i class="fa-upload fa"></i>
+                            <input name="fichier" type="file" class="surveiller" />
+                        </label>
+                        <button type="submit" class="btn btn-success button">
+                            <i class="fa-send fa"></i>
+                        </button>
+                   </div>
+                </form>
+            </div>
+            <div class="edp-body">
+                <a class="noti-modal" data-toggle="modal" data-target=".modal-general" href="#" link="{{url('trc_core_resume_ddc',{id:ddc.id})}}">
+                    Voir resume
+                </a>
+                {%if messages|length > 0 %}
+                    {%for medp in messages %}
+                        <div class="m">
+                            <div class="i">
+                                {%set utilisateur = getParentActeur(medp.fonction.acteur)%}
+                                {%if utilisateur is not null %}
+                                    <img src="{{asset(utilisateur.image)}} " class="img-circle">
+                                
+                                    <div class="d">
+                                        {{utilisateur.prenom}} <br>
+                                        {{medp.dateposte|date('d-m-Y H:i')}}
+                                    </div>
+                                {%else%}
+                                    <img src="{{asset('img/default.png')}} " class="img-circle">
+                                
+                                    <div class="d">
+                                        Erreur <br>
+                                        ##-##-#### ##:##
+                                    </div>
+                                {%endif%}
+                                
+                            </div>
+                            <div class="t">
+                                {{medp.message|raw}}
+                                <div class="fichier">
+                                    {%if medp.fichier is not null %}
+                                        {%set fichier = medp.fichier%}
+                                        Chemin : {{fichier.chemin}}<br>
+                                        Nom : {{fichier.nom}} <br>
+                                        Nom Ori: {{fichier.nomoriginal}} <br>
+                                        Type: {{fichier.type}} <br>
+                                        <a target="blank" href="{{asset(fichier.chemin)}} ">
+                                            {{fichier.nomoriginal}}
+                                        </a>
+                                        {%if aPoste(medp,app.user) %}
+                                            <a href="#" class="supp-fichier text-danger">
+                                                <i class="fa-trash-o fa"></i>
+                                                
+                                            </a>
+                                        {%endif%}
+                                    {%endif%}
+                                </div>  
+                            </div>
+                            
+                        </div>
+
+                    {%endfor%}
+                {%else%}
+                    <div class="alert-info alert text-center">
+                        <h2>Aucun Post</h2>
+                    </div>
+                {%endif%}
+            
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{%endblock main%}

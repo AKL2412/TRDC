@@ -24,7 +24,7 @@ class PDDC
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datedebut", type="datetime")
+     * @ORM\Column(name="datedebut", type="datetime",nullable=true)
      */
     private $datedebut;
 
@@ -41,20 +41,22 @@ class PDDC
     */
     private $phase;
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\DDC")
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\DDC",cascade={"remove", "persist"})
     * @ORM\JoinColumn(nullable=false)
     */
     private $ddc;
 
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Acteur")
-    * @ORM\JoinColumn(nullable=true)
-    */
-    private $acteur;
+     * @var bool
+     *
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active;
 
     public function __construct(){
-        $this->datedebut = new \DateTime();
+        $this->datedebut = null;
         $this->datefin = null;
+        $this->active = false;
     }
 
     /**
@@ -185,5 +187,29 @@ class PDDC
     public function getActeur()
     {
         return $this->acteur;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     *
+     * @return PDDC
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 }

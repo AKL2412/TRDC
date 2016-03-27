@@ -29,6 +29,7 @@
     <link type="text/css" rel="stylesheet" href="{{asset('css/app.css')}}">
     <script type="text/javascript">
         var rechercheClientLien = "{{url('trc_client_recherche')}}"
+        var loader = "{{asset('images/loader.gif')}}"
         
         var lesLiens = {
             'ddc' : "{{url('trcddc_homepage')}}",
@@ -69,12 +70,12 @@
                         }}
                     {%endif%}
                     
-                    <li id="topbar-chat" class="hidden-xs">
+                    <!-- <li id="topbar-chat" class="hidden-xs">
                         <a href="javascript:void(0)" data-step="4" data-intro="&lt;b&gt;Form chat&lt;/b&gt; keep you connecting with other coworker" data-position="left" class="btn-chat">
                             <i class="fa fa-comments"></i>
                             <span class="badge badge-info">3</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
@@ -89,16 +90,7 @@
                                 Modal title</h4>
                         </div>
                         <div class="modal-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend et nisl eget
-                                porta. Curabitur elementum sem molestie nisl varius, eget tempus odio molestie.
-                                Nunc vehicula sem arcu, eu pulvinar neque cursus ac. Aliquam ultricies lobortis
-                                magna et aliquam. Vestibulum egestas eu urna sed ultricies. Nullam pulvinar dolor
-                                vitae quam dictum condimentum. Integer a sodales elit, eu pulvinar leo. Nunc nec
-                                aliquam nisi, a mollis neque. Ut vel felis quis tellus hendrerit placerat. Vivamus
-                                vel nisl non magna feugiat dignissim sed ut nibh. Nulla elementum, est a pretium
-                                hendrerit, arcu risus luctus augue, mattis aliquet orci ligula eget massa. Sed ut
-                                ultricies felis.</p>
+                            <p></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" data-dismiss="modal" class="btn btn-default">
@@ -114,9 +106,9 @@
         <!--END TOPBAR-->
         <div id="wrapper">
             <!--BEGIN SIDEBAR MENU-->
-            {{
+            {#{
                 render(controller('TRCCoreBundle:Affichage:menu',{}))
-            }}
+            }#}
             <!--END SIDEBAR MENU-->
             <!--BEGIN CHAT FORM-->
             {{
@@ -170,7 +162,7 @@
                         </div>
                         <div class="col-md-5">
                             <form class="recherche-client" action="{{url('trc_client_recherche')}}">
-                                <input name="radical" type="text" class="form-control recherche-client" placeholder="Rechercher un client" />
+                                <input autocomplete="off" name="radical" type="text" class="form-control recherche-client" placeholder="Rechercher un client" />
                             </form>
                         </div>
                         
@@ -180,11 +172,28 @@
                 <!--END FOOTER-->
             </div>
             <!--END PAGE WRAPPER-->
+<div id="gl-modal" class="modal fade modal-general" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title text-center" id="myModalLabel"></h4>
         </div>
+        <div class="modal-body">
+            
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
     </div>
     <script src="{{asset('script/jquery-1.10.2.min.js')}}"></script>
     <script src="{{asset('js/own/image.js')}}"></script>
     <script src="{{asset('js/own/client.js')}}"></script>
+    <script src="{{asset('js/own/upload.js')}}"></script>
     <script src="{{asset('script/jquery-migrate-1.2.1.min.js')}}"></script>
     <script src="{{asset('script/jquery-ui.js')}}"></script>
     <script src="{{asset('script/bootstrap.min.js')}}"></script>

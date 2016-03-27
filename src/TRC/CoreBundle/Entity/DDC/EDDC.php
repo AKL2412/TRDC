@@ -24,7 +24,7 @@ class EDDC
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateajout", type="datetime")
+     * @ORM\Column(name="dateajout", type="datetime",nullable=true)
      */
     private $dateajout;
 
@@ -34,19 +34,48 @@ class EDDC
     */
     private $etat;
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Acteur")
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\Fonction")
     * @ORM\JoinColumn(nullable=true)
     */
-    private $acteur;
+    private $fonction;
 
     /**
-    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\PDDC")
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\PDDC",cascade={"remove", "persist"})
     * @ORM\JoinColumn(nullable=false)
     */
     private $pddc;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="verdict", type="boolean")
+     */
+    private $verdict;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\Decision",cascade={"remove", "persist"})
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $decision;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="text",nullable=true)
+     */
+    private $commentaire;
+
     public function __construct(){
-        $this->dateajout = new \DateTime();
+        $this->dateajout = null;
+        $this->active = false;
+        $this->fonction = null;
     }
     /**
      * Get id
@@ -152,5 +181,125 @@ class EDDC
     public function getActeur()
     {
         return $this->acteur;
+    }
+
+    /**
+     * Set fonction
+     *
+     * @param \TRC\CoreBundle\Entity\Fonction $fonction
+     *
+     * @return EDDC
+     */
+    public function setFonction(\TRC\CoreBundle\Entity\Fonction $fonction = null)
+    {
+        $this->fonction = $fonction;
+
+        return $this;
+    }
+
+    /**
+     * Get fonction
+     *
+     * @return \TRC\CoreBundle\Entity\Fonction
+     */
+    public function getFonction()
+    {
+        return $this->fonction;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     *
+     * @return EDDC
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set verdict
+     *
+     * @param boolean $verdict
+     *
+     * @return EDDC
+     */
+    public function setVerdict($verdict)
+    {
+        $this->verdict = $verdict;
+
+        return $this;
+    }
+
+    /**
+     * Get verdict
+     *
+     * @return boolean
+     */
+    public function getVerdict()
+    {
+        return $this->verdict;
+    }
+
+    /**
+     * Set decision
+     *
+     * @param \TRC\CoreBundle\Entity\DDC\Decision $decision
+     *
+     * @return EDDC
+     */
+    public function setDecision(\TRC\CoreBundle\Entity\DDC\Decision $decision = null)
+    {
+        $this->decision = $decision;
+
+        return $this;
+    }
+
+    /**
+     * Get decision
+     *
+     * @return \TRC\CoreBundle\Entity\DDC\Decision
+     */
+    public function getDecision()
+    {
+        return $this->decision;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     *
+     * @return EDDC
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
     }
 }
