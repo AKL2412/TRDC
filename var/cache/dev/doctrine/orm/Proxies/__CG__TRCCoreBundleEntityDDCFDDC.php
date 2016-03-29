@@ -64,10 +64,10 @@ class FDDC extends \TRC\CoreBundle\Entity\DDC\FDDC implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'ddc', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'docddc', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'fichier'];
+            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'ddc', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'docddc', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'fichier', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'fonction'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'ddc', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'docddc', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'fichier'];
+        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'dateajout', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'ddc', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'docddc', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'fichier', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\FDDC' . "\0" . 'fonction'];
     }
 
     /**
@@ -274,6 +274,28 @@ class FDDC extends \TRC\CoreBundle\Entity\DDC\FDDC implements \Doctrine\ORM\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDocddc', []);
 
         return parent::getDocddc();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setFonction(\TRC\CoreBundle\Entity\Fonction $fonction)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFonction', [$fonction]);
+
+        return parent::setFonction($fonction);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFonction()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFonction', []);
+
+        return parent::getFonction();
     }
 
 }

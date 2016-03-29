@@ -3,11 +3,39 @@
 	
 	{%for doc in fichiers%}
 		{%set fichier = doc.fichier %}
-		<div class="col-md-4">
-				{{fichier.type}}
-			{{fichier.nom}}
+		<div class="col-md-6">
+			<div class="unFichierDoc">
+				<div class="affiche">
+					{%if 'image' in fichier.type %}
+						<img src="{{asset(fichier.chemin)}} "/>
+					{%elseif 'pdf' in fichier.type %}
+						<iframe src="{{asset(fichier.chemin)}}" type="application/pdf" >
+							
+						</iframe>
+					{%elseif  'officedocument' in fichier.type %}
+						officedocument :: {{fichier.type}}
+					{%else%}
+
+						un fichier X: {{fichier.type}}
+						{{fichier.rs}}
+					{%endif%}
+				</div>
+				<div class="nom">
+					
+					<a target="blank" href="{{asset(fichier.chemin)}} ">
+                        {{fichier.nom}}
+                    </a>
+				</div>
+			</div>
+				
+				
 		</div>	
 	{%endfor%}
+	<div class="">
+		{{ 
+			render(controller('TRCCoreBundle:Affichage:pagination',{pagination:pagination,ajax:true,containerId:'voirFichierDDC'})) 
+		}}
+	</div>
 
 </div>
 
@@ -18,3 +46,13 @@
 		</h1>
 	</div>
 {%endif%}
+<script src="{{asset('script/jquery-1.10.2.min.js')}}"></script>
+<script type="text/javascript">
+	$('document').ready(function($){
+		$.each($('.pagination a.pagination-ajax'),function(index,val){
+
+			var link = $(val);
+			link.click({containerId:'voirFichierDDC'},nextPage)
+		})
+	})
+</script>

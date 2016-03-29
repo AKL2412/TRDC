@@ -23,12 +23,19 @@ trcddc_consulter:
     path:     /consulter/{rc}
     defaults: { _controller: TRCDDCBundle:Default:ddcvoir }
 
+trcddc_decision_commentaire_ddc:
+    path:     /{rc}/decision-commentaire/{phase}/{etat}
+    defaults: { _controller: TRCDDCBundle:Default:decisionCommentaire }
 trcddc_ajout_docs:
     path:     /{rs}/documents-joints-au-dossier
     defaults: { _controller: TRCDDCBundle:Docs:ajout }
 trcddc_voir_docs:
     path:     /{rs}/voir-documents
     defaults: { _controller: TRCDDCBundle:Docs:voir }
+
+trcddc_terminer_phase_etat_ddc:
+    path:     /{rc}/terminer/{etape}/{codeEtape}
+    defaults: { _controller: TRCDDCBundle:Docs:terminerEtape }
 
 trcddc_get_client_ajax:
     path:     /client/ajax

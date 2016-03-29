@@ -17,6 +17,22 @@
         
     {%endblock position%}
 {%block main%}
+{%set etatCOLDOC = getDDCEtat(ddc,"COLDOC")%}
+<div class="row">
+    <div class="col-md-3">
+            
+            {%if getClassEtatDDC(etatCOLDOC) == 'encours'%}
+                <a class="terminer-phase-etat btn-md btn btn-primary" href="#" url="{{url('trcddc_terminer_phase_etat_ddc',{rc:ddc.rc,etape:'etat',codeEtape:'COLDOC'})}} ">
+                    Terminer la collecte de documents
+                </a>
+            {%endif%}
+    </div>
+    <div class="col-md-9 text-success" id="box-terminer-phase-etat">
+        
+    </div>
+    
+</div>
+<br>
 <div class="row">
     <div class="col-md-8">
         <div id="voirFichierDDC">
@@ -29,6 +45,7 @@
         <div class="panel-default panel">
             <div class="panel-heading">
                 Uploader un fichier
+                
             </div>
             <form voir="{{url('trcddc_voir_docs',{rs:ddc.rs})}} "  url="{{url('trcddc_ddc_upload_file',{rc:ddc.rc,type:'doc'})}} " id="data-form-docs-ddc" method="post" enctype="multipart/form-data">
                 <div class="panel-body">

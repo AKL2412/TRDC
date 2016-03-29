@@ -26,13 +26,16 @@ class SGF
 		$code = 1;
 		$chemin = $ddc->getDossier();
 		$no = $fichier['name'];
+		$ext="";
+		if(strlen($this->extension($no)) > 0)
+			$ext = ".".$this->extension($no);
 		$f = new Fichier();
 		$f->setType($fichier['type']);
 		$f->setNom($nameuser);
 		if(is_null($nameuser)){
 			$f->setNom($this->nomSansExtension($no));
 		}
-		$f->setRs($type.date('dmYHis').".".$this->extension($no));
+		$f->setRs($type.date('dmYHis').".".$ext);
 		
 		$f->setNomoriginal($no);
 		if($type == "edp"){
@@ -68,9 +71,9 @@ class SGF
 
 	private function extension($nom){
 		$tab = explode(".", $nom);
-		if(count($tab)>0)
+		if(count($tab)>1)
 			return $tab[count($tab)-1];
-		return "error";
+		return "";
 	}
 	private function nomSansExtension($nom){
 		$tab = explode(".", $nom);

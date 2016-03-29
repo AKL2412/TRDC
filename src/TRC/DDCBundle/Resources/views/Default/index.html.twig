@@ -33,6 +33,10 @@
    								<a href="{{url('trcddc_consulter',{rc:ddc.rc})}} ">
 	   								{{ddc.rc}} 
 	   							</a>
+	   							{%else%}
+	   								<a href="{{url('trcddc_def_client',{rs:ddc.rs})}} ">
+	   									Definir le client
+	   								</a>
 	   							{%endif%}
    							</td>
    							<td>{{ddc.tdc.nom}} </td>

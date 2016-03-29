@@ -19,7 +19,10 @@ $("form#data-form-edp").submit(function(){
             		alert(data.alerteMessage)
             	else{
             		var poste = $(data.poste);
-            		$('#edp .edp-body').prepend(poste);
+            		if(parseInt($('#edp .edp-body').attr('medp')) > 0 )
+            			$('#edp .edp-body').prepend(poste);
+            		else
+            			$('#edp .edp-body').html(poste);
             		
             	}
 
@@ -125,7 +128,7 @@ $("form#data-form-docs-ddc").submit(function(){
 	            	}
 	            	$("form#data-form-docs-ddc #message").html(data.message);
 	            	$("form#data-form-docs-ddc #nom-fichier").val('')
-	            	$("form#data-form-docs-ddc select:first").val('');
+	            	$("form#data-form-docs-ddc select:first").val('vide');
 	            	cover($('#voirFichierDDC'))
 	            	$.get($voirLien,function(d){
 	            		$('#voirFichierDDC').html(d);
@@ -153,5 +156,20 @@ $("form#data-form-docs-ddc").submit(function(){
 		$("form#data-form-docs-ddc #message").html(texte);
 	}
     return false;
+});
+
+
+$('a.terminer-phase-etat').click(function(event){
+	var that = $(this);
+	var url = that.attr('url');
+	if($('#box-terminer-phase-etat').length > 0 )
+			cover($('#box-terminer-phase-etat'));
+	$.post(url,{},function(data){
+		
+		if($('#box-terminer-phase-etat').length > 0 )
+			$('#box-terminer-phase-etat').html(data.message);
+		else
+			alert(data.message);
+	})
 });
 })();

@@ -5,7 +5,7 @@
 {%block titre%}
 	{{ddc.rc}} 
     <a href="{{url('trcddc_ddc_edp',{rc:ddc.rc})}} " title="Espace De Partage">
-        #EDP
+        #EDP 
     </a>
 {%endblock titre%}
 {%block position %}
@@ -21,9 +21,49 @@
     {%endblock position%}
    
 {%block content %}
-    
+
+    <div class="etatPhaseDDC">
+        {%set lesPhases = getAllPhaseDDC(ddc) %}
+        {%set phaseActuelle = null %}
+        {%set etatActuel = null %}
+        <ul>
+            {%for phase in lesPhases %}
+                {%set cssClass = getClassPhaseDDC(phase) %}
+            <li class="phase {{cssClass}}">
+                <span title="{{phase.phase.nom}} ">
+                    {{phase.phase.code}}
+
+                </span>
+                {%if cssClass == 'encours' %}
+                    {%set etats = getAllEtatPhase(phase) %}
+                    {%set phaseActuelle = phase %}
+                    <ul>
+                        {%for etat in etats %}
+                                {%set cc = getClassEtatDDC(etat) %}
+                            <li class="{{cc}} " title="{{etat.etat.nom}} ">{{etat.etat.code}}</li>
+                            {%if cc == 'encours' %}
+                                {%set etatActuel = etat %}
+                            {%endif%}
+                        {%endfor%}
+                    </ul>
+
+                {%endif%}
+                
+                
+            </li>
+            
+            {%endfor%}
+        </ul>
+
+        {%if phaseActuelle is not null and etatActuel is not null and estMonEtatDDC(etatActuel,app.user) and etatActuel.verdict %}
+            <a class="btn btn-xs btn-default" href="{{url('trcddc_decision_commentaire_ddc',{rc:ddc.rc,phase:phaseActuelle.phase.code,etat:etatActuel.etat.code})}} ">
+               Donner votre décision et commenter
+            </a>
+        {%endif%}
+    </div>
         
     {%block main%}
+    <div class="row">
         {%if form is not null %}
            
             <div class="panel panel-default">
@@ -59,12 +99,21 @@
             </div>
         
         {%else%}
+        <div class="col-md-7">
+             <div id="voirFichierDDC">
+                {{
+                    render(controller('TRCDDCBundle:Docs:voir',{rs:ddc.rs}))
+                }}
+            </div>
+        </div>
+        <div class="col-md-5">
                     <div class="panel-default panel">
                         {% set documents = 0 %}
                         <div class="panel-heading">
-                            Les documents joints au dossier
-                            <a class="pull-right" href="{{url('trcddc_ajout_docs',{rs:ddc.rs})}} ">
-                                <i class="fa-plus-square fa"></i>
+                            Documents à joindre au dossier
+                            <a class="btn-xs btn-default pull-right" href="{{url('trcddc_ajout_docs',{rs:ddc.rs})}} ">
+
+                                <i class="fa-plus-square fa"></i> Ajouter un document
                             </a>
                         </div>
                         <div class="panel-body">
@@ -96,8 +145,9 @@
                             Documents chargés : {{documents}}
                         </div>
                     </div>
-               
+        </div>
         {%endif%}
+    </div>
     {%endblock main%}
     
     

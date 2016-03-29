@@ -212,6 +212,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_consulter')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::ddcvoirAction',));
             }
 
+            // trcddc_decision_commentaire_ddc
+            if (preg_match('#^/ddc/(?P<rc>[^/]++)/decision\\-commentaire/(?P<phase>[^/]++)/(?P<etat>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_decision_commentaire_ddc')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DefaultController::decisionCommentaireAction',));
+            }
+
             // trcddc_ajout_docs
             if (preg_match('#^/ddc/(?P<rs>[^/]++)/documents\\-joints\\-au\\-dossier$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_ajout_docs')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DocsController::ajoutAction',));
@@ -220,6 +225,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // trcddc_voir_docs
             if (preg_match('#^/ddc/(?P<rs>[^/]++)/voir\\-documents$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_voir_docs')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DocsController::voirAction',));
+            }
+
+            // trcddc_terminer_phase_etat_ddc
+            if (preg_match('#^/ddc/(?P<rc>[^/]++)/terminer/(?P<etape>[^/]++)/(?P<codeEtape>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'trcddc_terminer_phase_etat_ddc')), array (  '_controller' => 'TRC\\DDCBundle\\Controller\\DocsController::terminerEtapeAction',));
             }
 
             // trcddc_get_client_ajax

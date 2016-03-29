@@ -65,9 +65,9 @@ class AffichageController extends Controller
         return $this->render('TRCCoreBundle:Affichage:connecte.html.twig',
             array('notifications'=>$notifications));
     }
-    public function paginationAction($pagination)
+    public function paginationAction($pagination,$ajax = false,$containerId = null)
     {
-        return $this->render('TRCCoreBundle:Affichage:pagination.html.twig', array('pagination' => $pagination));
+        return $this->render('TRCCoreBundle:Affichage:pagination.html.twig', array('pagination' => $pagination,'ajax'=>$ajax,"containerId"=>$containerId));
     }
 
     public function ddpAction($poste)

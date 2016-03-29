@@ -16,10 +16,32 @@ class GU
 	   $this->cheminPrincipal = 'Utilisateurs/';
 	}
 
+	public function aPoste(\TRC\CoreBundle\Entity\DDC\MEDP $medp,\TRC\UserBundle\Entity\User $user){
+		$utilisateur = $this->getParentActeur($medp->getFonction()->getActeur());
+		if($utilisateur->getCompte()->getId() == $user->getId())
+			return true;
+		return false;
+	}
+	
 	public function getEntite(\TRC\CoreBundle\ENtity\Entite $entite){
 		
 		return  $this->em->getRepository('TRCCoreBundle:'.$entite->getClasse())
 				->findOneByEntite($entite);
+	}
+	public function aUnResponsable(\TRC\CoreBundle\ENtity\Entite $entite){
+		if(!is_null($this->getResponsableEntite($entite)))
+			return true;
+		return false;
+	}
+	public function getResponsableEntite(\TRC\CoreBundle\ENtity\Entite $entite){
+		
+		$fonctions = $this->em->getRepository('TRCCoreBundle:Fonction')
+		  				->findByEntite($entite);
+		foreach ($fonctions as $key => $fonc) {
+			if(!is_null($fonc->getProfil()) && $fonc->getProfil()->getResponsable() )
+				return $this->getParentActeur($fonc->getActeur());
+		}
+		return null;
 	}
 	
 	public function fonction(\TRC\CoreBundle\Entity\Utilisateur $utilisateur){

@@ -34,10 +34,12 @@ class UtilisateursController extends Controller
     	$sysmatricule = $this->get('trc_core.matricule');
     	$sysjournal = $this->get('trc_core.journal');
     	$em = $this->getDoctrine()->getManager();
-
+        $user = $this->getUser();
+        $moi = $em->getRepository('TRCCoreBundle:Utilisateur')
+                ->findOneBycompte($user);
         $p = 1;
         $nbre = 3;
-        $criteres = array();
+        $criteres = array("moi"=>$moi);
         if( 
             $request->query->get('p')!== null 
             && 
@@ -48,6 +50,14 @@ class UtilisateursController extends Controller
         $id = ($p-1)*$nbre;
         if($id < 0)
             $id = 0;
+        $sql = 'SELECT u FROM TRCCoreBundle:Utilisateur u WHERE u != :moi';
+        $query = $em->createQuery($sql);
+        $query->setParameters(array(
+            "moi"=>$moi));
+        $query->setFirstResult($id)->setMaxResults($nbre);
+
+        $utilisateurs = $query->getResult();
+        /*
         $utilisateurs = $em->getRepository('TRCCoreBundle:Utilisateur')
                     ->findBy(
                         $criteres,
@@ -55,13 +65,15 @@ class UtilisateursController extends Controller
                         $nbre,
                         $id
                         );
+        //*/
         $servicePagination = $this->get('trc_core.pagination');
 
         $sup = "groupe=rien";
         $objet = 'Utilisateur';
         $url = $this->generateUrl('trc_admin_utilisateurs');
         $urlRoute = 'trc_admin_utilisateurs';
-        $pagination = $servicePagination->pagination($objet,$p,$url,$urlRoute,$criteres,$nbre);
+        $pagination = $servicePagination->pagination2($p,$url,$urlRoute,$criteres,$nbre,$sql);
+        //$pagination = $servicePagination->pagination2($objet,$p,$url,$urlRoute,$criteres,$nbre);
         return $this->render('TRCAdminBundle:Utilisateurs:utilisateurs.html.twig',
             array(
                 'utilisateurs'=>$utilisateurs,
@@ -98,7 +110,7 @@ class UtilisateursController extends Controller
                 $sysnoti->notifier(array(
                 "acteur"=>$utilisateur->getActeur(),
                 "titre"=>"Ajout de Délégation de Pouvoir",
-                "contenu"=>" une Délégation de Pouvoir a été associée à votre profil"
+                "contenu"=>" un niveau de compétence a été associé à votre profil <br>".$ddp->detail()
                 ));
 
             return $this->redirect($this->generateUrl('trc_admin_utilisateurs_voir',array('matricule'=>$matricule)));
@@ -204,6 +216,15 @@ class UtilisateursController extends Controller
                 $matricule = $request->request->get('input-profil');
                 $profil = $em->getRepository('TRCCoreBundle:Profil')
                     ->findOneByMatricule($matricule);
+                $sysgu = $this->get('trc_core.gu');
+
+                if($profil->getResponsable() && 
+                    $sysgu->aUnResponsable($fonction->getEntite())
+                    ){
+                    $responsable = $sysgu->getResponsableEntite($fonction->getEntite());
+                    $rr = $sysgu->getEntite($fonction->getEntite());
+                    throw $this->createNotFoundException($rr->getNom().' possède déjà un responsable : '.$responsable->getPrenom()." ".$responsable->getNom());
+                }
                 $fonction->setProfil($profil);
                 $utilisateur->getCompte()->setRoles(array($profil->getRole()));
                 $em->flush();

@@ -1,12 +1,43 @@
 /*@import "timeline.css";
 @import "timeline2.css";*/
-/* line 5, ../compass/sass/app.scss */
+/* line 7, ../compass/sass/app.scss */
+body .pagination a {
+  cursor: pointer;
+}
+/* line 11, ../compass/sass/app.scss */
+body .unFichierDoc {
+  width: 100%;
+  height: 250px;
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+/* line 18, ../compass/sass/app.scss */
+body .unFichierDoc .affiche {
+  height: 200px;
+  width: 100%;
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+}
+/* line 23, ../compass/sass/app.scss */
+body .unFichierDoc .affiche img {
+  height: 100%;
+}
+/* line 26, ../compass/sass/app.scss */
+body .unFichierDoc .affiche object, body .unFichierDoc .affiche iframe {
+  height: 100%;
+  width: 100%;
+}
+/* line 32, ../compass/sass/app.scss */
 body span#surveiller {
   display: inline-block;
   color: red;
   position: absolute;
 }
-/* line 10, ../compass/sass/app.scss */
+/* line 37, ../compass/sass/app.scss */
 body #edp {
   height: 500px;
   width: 100%;
@@ -15,41 +46,41 @@ body #edp {
   -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 }
-/* line 15, ../compass/sass/app.scss */
+/* line 42, ../compass/sass/app.scss */
 body #edp .bann {
   height: 30px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 19, ../compass/sass/app.scss */
+/* line 46, ../compass/sass/app.scss */
 body #edp .bann .titre .d {
   color: #ccc;
   text-align: center;
 }
-/* line 22, ../compass/sass/app.scss */
+/* line 49, ../compass/sass/app.scss */
 body #edp .bann .titre .d .b {
   color: #fff;
   font-weight: bolder;
   font-size: 1.3em;
 }
-/* line 28, ../compass/sass/app.scss */
+/* line 55, ../compass/sass/app.scss */
 body #edp .bann .titre .description {
   font-family: "consolas";
   font-size: 0.8em;
   color: #fff;
   padding: 10px;
 }
-/* line 36, ../compass/sass/app.scss */
+/* line 63, ../compass/sass/app.scss */
 body #edp .edp-form {
   height: 95px;
   width: 100%;
   background: #fff;
   border-bottom: 3px solid #ccc;
 }
-/* line 42, ../compass/sass/app.scss */
+/* line 69, ../compass/sass/app.scss */
 body #edp .edp-form form input[type="file"] {
   display: none;
 }
-/* line 45, ../compass/sass/app.scss */
+/* line 72, ../compass/sass/app.scss */
 body #edp .edp-form form textarea {
   border: 1px solid rgba(0, 0, 0, 0.3);
   height: 90px;
@@ -60,7 +91,7 @@ body #edp .edp-form form textarea {
   -webkit-box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.2) inset, 1px 1px 4px rgba(0, 0, 0, 0.2) inset;
   box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.2) inset, 1px 1px 4px rgba(0, 0, 0, 0.2) inset;
 }
-/* line 54, ../compass/sass/app.scss */
+/* line 81, ../compass/sass/app.scss */
 body #edp .edp-form form div.vali {
   display: inline-block;
   vertical-align: top;
@@ -68,7 +99,7 @@ body #edp .edp-form form div.vali {
   height: 90px;
   overflow: hidden;
 }
-/* line 60, ../compass/sass/app.scss */
+/* line 87, ../compass/sass/app.scss */
 body #edp .edp-form form div.vali .button {
   text-align: center;
   display: block;
@@ -76,44 +107,45 @@ body #edp .edp-form form div.vali .button {
   line-height: 40px;
   width: 100%;
 }
-/* line 66, ../compass/sass/app.scss */
+/* line 93, ../compass/sass/app.scss */
 body #edp .edp-form form div.vali .button i {
   font-size: 2em;
   margin-top: 0.5em;
 }
-/* line 72, ../compass/sass/app.scss */
+/* line 99, ../compass/sass/app.scss */
 body #edp .edp-form form div.vali label {
   display: block;
   width: 100%;
   height: 30px;
   padding: 3% 2%;
 }
-/* line 77, ../compass/sass/app.scss */
+/* line 104, ../compass/sass/app.scss */
 body #edp .edp-form form div.vali label i {
   margin-right: 6px;
 }
-/* line 85, ../compass/sass/app.scss */
+/* line 112, ../compass/sass/app.scss */
 body #edp .edp-body {
   overflow: auto;
   height: 380px;
   overflow-x: hidden;
+  background-color: #fff;
 }
-/* line 89, ../compass/sass/app.scss */
+/* line 117, ../compass/sass/app.scss */
 body #edp .edp-body .m {
   margin-bottom: 6px;
   border-bottom: 1px solid #ccc;
 }
-/* line 92, ../compass/sass/app.scss */
+/* line 120, ../compass/sass/app.scss */
 body #edp .edp-body .m .i {
   display: inline-block;
   width: 19%;
   text-align: center;
 }
-/* line 96, ../compass/sass/app.scss */
+/* line 124, ../compass/sass/app.scss */
 body #edp .edp-body .m .i img {
   height: 80px;
 }
-/* line 100, ../compass/sass/app.scss */
+/* line 128, ../compass/sass/app.scss */
 body #edp .edp-body .m .i .d {
   display: inline-block;
   float: left;
@@ -122,7 +154,7 @@ body #edp .edp-body .m .i .d {
   font-size: 0.8em;
   font-style: italic;
 }
-/* line 110, ../compass/sass/app.scss */
+/* line 138, ../compass/sass/app.scss */
 body #edp .edp-body .m .t {
   display: inline-block;
   max-width: 78%;
@@ -130,19 +162,19 @@ body #edp .edp-body .m .t {
   vertical-align: middle;
   padding: 10px;
 }
-/* line 116, ../compass/sass/app.scss */
+/* line 144, ../compass/sass/app.scss */
 body #edp .edp-body .m .t a {
   color: #68d9ff;
   font-weight: bolder;
 }
-/* line 126, ../compass/sass/app.scss */
+/* line 154, ../compass/sass/app.scss */
 body .block {
   -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
   background-color: white;
 }
-/* line 130, ../compass/sass/app.scss */
+/* line 158, ../compass/sass/app.scss */
 body .cover {
   position: absolute;
   height: 100%;
@@ -152,15 +184,15 @@ body .cover {
   background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
-/* line 138, ../compass/sass/app.scss */
+/* line 166, ../compass/sass/app.scss */
 body .cover img {
   margin-top: 11%;
 }
-/* line 142, ../compass/sass/app.scss */
+/* line 170, ../compass/sass/app.scss */
 body .panel {
   overflow: hidden;
 }
-/* line 145, ../compass/sass/app.scss */
+/* line 173, ../compass/sass/app.scss */
 body .recherche-client {
   border: 1px solid #eee;
   height: 25px;
@@ -168,11 +200,82 @@ body .recherche-client {
   border-radius: 5px;
   outline: none;
 }
-/* line 153, ../compass/sass/app.scss */
+/* line 181, ../compass/sass/app.scss */
 body .position li {
   display: inline;
 }
-/* line 167, ../compass/sass/app.scss */
+/* line 195, ../compass/sass/app.scss */
 body .supp-fichier {
   color: #f76f6f;
+}
+/* line 199, ../compass/sass/app.scss */
+body .etatPhaseDDC {
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* line 203, ../compass/sass/app.scss */
+body .etatPhaseDDC ul {
+  list-style: none;
+  display: inline-block;
+}
+/* line 206, ../compass/sass/app.scss */
+body .etatPhaseDDC ul li {
+  display: inline-block;
+}
+/* line 209, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase {
+  border: 1px solid #ccc;
+  padding: 6px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 213, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase span {
+  font-weight: bolder;
+}
+/* line 216, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 219, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase ul li {
+  display: inline-block;
+  margin: 0 4px;
+}
+/* line 223, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase ul li.encours {
+  color: green;
+  font-weight: bolder;
+}
+/* line 227, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase ul li.terminer {
+  color: blue;
+}
+/* line 230, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase ul li.avenir {
+  color: orange;
+}
+/* line 237, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase.encours {
+  background-color: rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+/* line 240, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase.encours span {
+  color: green;
+  font-size: 1.2em;
+  font-style: italic;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
+/* line 245, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase.encours span:after {
+  content: ">";
+}
+/* line 250, ../compass/sass/app.scss */
+body .etatPhaseDDC ul .phase.avenir {
+  opacity: 0.5;
 }

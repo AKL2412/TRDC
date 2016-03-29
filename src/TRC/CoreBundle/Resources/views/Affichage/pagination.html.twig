@@ -1,21 +1,43 @@
 <div class="row main">
-		<div class="col-md-9 col-sm-8 col-xs-12">
+		<div class="col-md-11 col-md-offset-1 col-sm-12 col-xs-12">
 			<nav>
 			  <ul class="pagination pagination-md">
 			  	{%if pagination.page > 1 %}
 			  		<li>
-				      <a href="{{pagination.url}}?p={{pagination.page-1}}{{pagination.extension}}" aria-label="Previous">
-				        <span aria-hidden="true">&laquo;</span>
-				      </a>
+			  			{%if ajax %}
+			  				<a url="{{pagination.url}}?p={{pagination.page-1}}{{pagination.extension}}" aria-label="Previous" class="pagination-ajax"
+			  				onclick="nextPage({{containerId}})" 
+			  				>
+						        <span aria-hidden="true">&laquo;</span>
+						     </a>
+			  			{%else%}
+					      <a href="{{pagination.url}}?p={{pagination.page-1}}{{pagination.extension}}" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+				      	{%endif%}
 				    </li>
-				  	{%endif%}
-				  	{%set last = pagination.page %}
-				  	{%for p in pagination.pagination%}
-				  		{%set l ="" %}
+				{%endif%}
+				{%set last = pagination.page %}
+
+				{%for p in pagination.pagination%}
+				  	{%set l ="" %}
 				  		{%if p.libelle == pagination.page %}
 				  			{%set l ="active" %}
 				  		{%endif%}
-				  		<li class="{{l}}"><a href="{{p.url}} ">{{p.libelle}} </a></li>
+				  		<li class="{{l}}">
+
+				  			{%if ajax %}
+			  				<a url="{{p.url}}"  class="pagination-ajax"
+			  				onclick="nextPage({{containerId}})" 
+			  				>
+						       {{p.libelle}}
+						     </a>
+			  			{%else%}
+					      <a href="{{p.url}} ">{{p.libelle}} </a>
+				      	{%endif%}
+				  			
+
+				  		</li>
 				  		{%if p.libelle != '...' and p.libelle != pagination.last%}
 				  		{%set last = p.libelle%}
 				  		{%endif%}
@@ -23,10 +45,19 @@
 				  	
 				  	{%if last < pagination.last and pagination.last != pagination.page %}
 				  		<li>
-				      <a href="{{pagination.url}}?p={{pagination.page+1}}{{pagination.extension}}" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span> 
-				      </a>
-				    </li>
+				  			{%if ajax %}
+				  				<a url="{{pagination.url}}?p={{pagination.page+1}}{{pagination.extension}}" aria-label="Next" class="pagination-ajax"
+				  				onclick="nextPage({{containerId}})" 
+				  				>
+							        <span aria-hidden="true">&raquo;</span>
+							     </a>
+				  			{%else%}
+						      <a href="{{pagination.url}}?p={{pagination.page+1}}{{pagination.extension}}" aria-label="Next">
+							        <span aria-hidden="true">&raquo;</span> 
+							      </a>
+					      	{%endif%}
+						      
+				    	</li>
 				  	{%endif%}
 			  </ul>
 			</nav>

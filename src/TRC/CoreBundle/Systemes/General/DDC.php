@@ -21,6 +21,8 @@ class DDC
 	   $this->cheminPrincipal = 'ddcs/';
 	}
 
+	
+
 	private function matricule($object){
 
 		$temp = explode("\\", get_class($object));
@@ -44,7 +46,84 @@ class DDC
 		return $resume;
 	}
 
-	public function activerEtat(\TRC\CoreBundle\Entity\DDC\DDC $ddc,\TRC\CoreBundle\Entity\Fonction $fonction,$codeEtat){
+	public function estDeCompetence(\TRC\CoreBundle\Entity\DDC\DDC $ddc,\TRC\CoreBundle\Entity\Fonction $fonction){
+
+
+
+		if(!is_null($fonction->getProfil()) && $fonction->getProfil()->getDdp()){
+
+			$tdc = $ddc->getTdc();
+			$Montant = $ddc->getCdcd()->getMontant();
+            
+            $ddps = $this->em->getRepository('TRCCoreBundle:DDP')
+                ->findBy(
+                    array("fonction"=>$fonction),
+                    array("id"=>"desc"),
+                    null,0);
+            foreach ($ddps as $key => $ddp) {
+
+            	if(
+            		$ddp->concerneTdc($tdc) &&
+            		$ddp->couvrirMontant($Montant)
+            		)
+            		return true;
+            }
+
+        }
+        return false;
+	}
+	public function getDDCEtat(\TRC\CoreBundle\Entity\DDC\DDC $ddc,$codeEtat){
+
+    	$pddcs = $this->em->getRepository('TRCCoreBundle:DDC\PDDC')
+    				->findByDdc($ddc);
+    	foreach ($pddcs as $key => $pddc) {
+    		$eddcs = $this->em->getRepository('TRCCoreBundle:DDC\EDDC')
+    				->findByPddc($pddc);
+    		foreach ($eddcs as $cle => $eddc) {
+    			if($eddc->getEtat()->getCode() == $codeEtat){
+    				return $eddc;
+    			}
+    		}
+    	}
+    	return null;
+    }
+    public function getDDCPhase(\TRC\CoreBundle\Entity\DDC\DDC $ddc,$codePhase){
+
+    	$pddcs = $this->em->getRepository('TRCCoreBundle:DDC\PDDC')
+    				->findByDdc($ddc);
+    	foreach ($pddcs as $key => $pddc) {
+    			if($pddc->getPhase()->getCode() == $codePhase)
+    				return $pddc;
+    	}
+    	return null;
+    }
+    public function fichiersCharges($ddc){
+		$docs = $this->em->getRepository('TRCCoreBundle:DDC\DOCDDC')
+    				->findBy(
+    					array("ddc"=>$ddc),
+    					array("id"=>"asc"),null,0);
+    	$noncharges = 0;
+    	$message = "";
+    	
+    	foreach ($docs as $key => $doc) {
+
+    		if(!$doc->getCharge()){
+    			$noncharges = $noncharges + 1;
+    			$message .= '<p class="label label-default">'.$doc->getNom().'</p> ';
+    		}
+    	}
+
+    	if($noncharges == 0)
+    		$message = "Tous les fichiers ont été chargés";
+    	else
+    		$message = "<h6>".$noncharges." document(s) n'ont pas encore été uploadés </h6>".$message;
+    	if (count($docs) == 0) {
+    		$message = "Aucun document n'a été uploadé; ".$ddc->getTdc()->getNom()." ne requiert de documents de toute façon ;)";
+    	}
+    	return array("noncharges"=>$noncharges,
+    				"message"=>$message);
+	}
+    public function desactiverEtat(\TRC\CoreBundle\Entity\DDC\DDC $ddc,$codeEtat){
 
     	$pddcs = $this->em->getRepository('TRCCoreBundle:DDC\PDDC')
     				->findByDdc($ddc);
@@ -53,9 +132,7 @@ class DDC
     				->findByPddc($pddc);
     		foreach ($eddcs as $cle => $eddc) {
     			if($eddc->getActive() && $eddc->getEtat()->getCode() == $codeEtat){
-    				$eddc->setDateajout(new \DateTime());
-    				$eddc->setActive(true);
-    				$eddc->setFonction($fonction);
+    				$eddc->setActive(false);
     				$this->em->flush();
     				return true;
     			}
@@ -63,6 +140,26 @@ class DDC
     	}
     	
     	return false;
+	}
+	public function activerEtat(\TRC\CoreBundle\Entity\DDC\DDC $ddc,\TRC\CoreBundle\Entity\Fonction $fonction,$codeEtat){
+
+    	$pddcs = $this->em->getRepository('TRCCoreBundle:DDC\PDDC')
+    				->findByDdc($ddc);
+    	foreach ($pddcs as $key => $pddc) {
+    		$eddcs = $this->em->getRepository('TRCCoreBundle:DDC\EDDC')
+    				->findByPddc($pddc);
+    		foreach ($eddcs as $cle => $eddc) {
+    			if(!$eddc->getActive() && $eddc->getEtat()->getCode() == $codeEtat){
+    				$eddc->setDateajout(new \DateTime());
+    				$eddc->setActive(true);
+    				$eddc->setFonction($fonction);
+    				$this->em->flush();
+    				return $eddc;
+    			}
+    		}
+    	}
+    	
+    	return null;
 	}
 	public function getEtatPhase(\TRC\CoreBundle\Entity\DDC\PDDC $pddc){
 
@@ -97,7 +194,7 @@ class DDC
     	$pddc->setDatedebut(new \DateTime());
     	$pddc->setActive(true);
     	$this->em->flush();
-    	return true;
+    	return $pddc;
 	}
 	public function desactiverPhase(\TRC\CoreBundle\Entity\DDC\DDC $ddc,$codePhase){
 
@@ -376,5 +473,16 @@ class DDC
 		$this->em->persist($j);
 		$this->em->flush();
 		return true;
+	}
+	public function getClassEtatDDC(\TRC\CoreBundle\Entity\DDC\EDDC $phase){
+
+		if($phase->getActive())
+			return 'encours';
+		else{
+			if(!is_null($phase->getDateajout()))
+				return 'terminer';
+			else
+				return 'avenir';
+		}
 	}
 }

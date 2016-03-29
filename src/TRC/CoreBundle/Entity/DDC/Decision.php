@@ -31,6 +31,12 @@ class Decision
     /**
      * @var string
      *
+     * @ORM\Column(name="etats", type="text",nullable=true)
+     */
+    private $etats;
+    /**
+     * @var string
+     *
      * @ORM\Column(name="details", type="text",nullable=true)
      */
     private $details;
@@ -92,5 +98,29 @@ class Decision
     public function getDetails()
     {
         return $this->details;
+    }
+
+    /**
+     * Set etats
+     *
+     * @param string $etats
+     *
+     * @return Decision
+     */
+    public function setEtats($etats)
+    {
+        $this->etats = $etats;
+
+        return $this;
+    }
+
+    /**
+     * Get etats
+     *
+     * @return string
+     */
+    public function getEtats()
+    {
+        return $this->etats;
     }
 }

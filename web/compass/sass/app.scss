@@ -2,6 +2,33 @@
 /*@import "timeline.css";
 @import "timeline2.css";*/
 body{
+	
+	.pagination{
+		a{
+			cursor: pointer;
+		}
+	}
+	.unFichierDoc{
+		width: 100%;
+		height: 250px;
+		@include box-shadow(0 0 10px rgba(0,0,0,0.2));
+		overflow: hidden;
+		margin-bottom: 10px;
+		background-color: #fff;
+		.affiche{
+			height: 200px;
+			width: 100%;
+			border-bottom: 2px solid #ddd;
+			text-align: center;
+			img{
+				height: 100%;
+			}
+			object,iframe{
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
 	span#surveiller{
 		display: inline-block;
 		color: red;
@@ -86,6 +113,7 @@ body{
 			overflow: auto;
 			height: 380px;
 			overflow-x: hidden;
+			background-color: #fff;
 			.m{
 				margin-bottom: 6px;
 				border-bottom: 1px solid #ccc;
@@ -166,5 +194,62 @@ body{
 	}
 	.supp-fichier{
 		color: #f76f6f;
+	}
+
+	.etatPhaseDDC{
+	
+		margin-bottom: 6px;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+		ul{
+			list-style: none;
+			display: inline-block;
+			li{
+				display: inline-block;
+			}
+			.phase{
+				border: 1px solid #ccc;
+				padding: 6px;
+				@include border-radius(5px);
+				span{
+					font-weight: bolder;
+				}
+				ul{
+					margin: 0;
+					padding: 0;
+					li{
+						display: inline-block;
+						margin: 0 4px;
+					}
+					li.encours{
+						color: green;
+						font-weight: bolder;
+					}
+					li.terminer{
+						color: blue;
+					}
+					li.avenir{
+						color: orange;
+					}
+
+
+				}
+			}
+			.phase.encours{
+				background-color: rgba(255,255,255,0.8);
+				@include box-shadow(0 0 4px rgba(0,0,0,0.2));
+				span{
+					color: green;
+					font-size: 1.2em;
+					font-style: italic;
+					text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+					&:after{
+						content: ">";
+					}
+				}
+			}
+			.phase.avenir{
+				opacity: 0.5;
+			}
+		}
 	}
 }

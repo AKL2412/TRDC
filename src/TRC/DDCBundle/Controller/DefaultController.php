@@ -119,9 +119,7 @@ class DefaultController extends Controller
         $ddc->setFonction($fonction);
 
     	//$ddc->setCdcd(new CDCD());
-        $edp = new EDP();
-        $edp->setMatricule($sysmatricule->matriculeStandard($edp));
-    	$ddc->setEdp($edp);
+       
     	$ddc->setTddc($tddc);
     	$ddc->setTdc($tdc);
     	//Affection reference systeme
@@ -131,17 +129,19 @@ class DefaultController extends Controller
     	$ddc = $sysddc->initDDC($ddc,$user);
     	
     	
-    	
+    	$edp = new EDP();
+        $edp->setMatricule($sysmatricule->matriculeStandard($edp));
+        $ddc->setEdp($edp);
     	$em->persist($ddc);
         $em->flush();
         $sysddc->initPhases($ddc);
     	$sysddc->setDocs($ddc);
 
         //Activer la phase Etude de dossier
-        $sysddc->activerPhase($ddc,"ETDOS");
+        $ddc->setPhaseActuelle($sysddc->activerPhase($ddc,"ETDOS"));
 
         //Activer l'etat INI
-        $sysddc->activerEtat($ddc,$fonction,"INIT");
+        $ddc->setEtatActuel($sysddc->activerEtat($ddc,$fonction,"INIT"));
     	// Documentation du dossier
     	
     	$em->flush();
@@ -230,7 +230,11 @@ class DefaultController extends Controller
 
                 $em->persist($cdcd);
                 $ddc->setCdcd($cdcd);
-                $sysddc->activerEtat($ddc,$fonction,"IDEN");
+                $sysddc->desactiverEtat($ddc,"INIT");
+                $ddc->setEtatActuel($sysddc->activerEtat($ddc,$fonction,"IDEN"));
+                $sysddc->desactiverEtat($ddc,"IDEN");
+                $etatETDOS = $sysddc->getDDCEtat($ddc,"ETDOS");
+                $ddc->setEtatActuel($sysddc->activerEtat($ddc,$fonction,"COLDOC"));
                 $em->flush();
                 return $this->redirect($this->generateUrl('trcddc_consulter',array("rc"=>$rc)));
             }
@@ -240,5 +244,68 @@ class DefaultController extends Controller
     	return $this->render('TRCDDCBundle:Default:consulter.html.twig',
         	array("ddc"=>$ddc,"form"=>$formv,
                 "docs"=>$documents));	
+    }
+    public function decisionCommentaireAction(Request $request,$rc,$phase,$etat){
+
+        $em = $this->getDoctrine()->getManager();
+        $ddc = $em->getRepository('TRCCoreBundle:DDC\DDC')
+                ->findOneByRc($rc);
+        if(is_null($ddc))
+            throw $this->createNotFoundException("Error de code : ".$rc);
+        $sysddc = $this->get('trc_core.ddc');
+        $sysgu = $this->get('trc_core.gu');
+        $user = $this->getUser();
+        $utilisateur = $em->getRepository('TRCCoreBundle:Utilisateur')
+                        ->findOneByCompte($user);
+        $acteur = $utilisateur->getActeur();
+        $fonction = $sysgu->fonction($utilisateur);
+        $pddc = $sysddc->getDDCPhase($ddc,$phase);
+        if(is_null($pddc))
+            throw $this->createNotFoundException("Error de code : ".$phase);
+
+        $eddcEtat = null;
+        $eddcs = $em->getRepository('TRCCoreBundle:DDC\EDDC')
+                    ->findByPddc($pddc);
+            foreach ($eddcs as $cle => $eddc) {
+                if($eddc->getEtat()->getCode() == $etat){
+                    $eddcEtat = $eddc;
+                }
+            }
+        if(is_null($eddcEtat))
+            throw $this->createNotFoundException("Error de code : ".$etat);
+        $decisions = $em->getRepository('TRCCoreBundle:DDC\Decision')
+                        ->findAll();
+        $arr = array();
+        foreach ($decisions as $key => $dec) {
+            if(strpos($dec->getEtats(), $eddcEtat->getEtat()->getCode()) > -1 )
+                $arr[] = $dec;
+        }
+        if($request->isMethod('POST')){
+            $decision = $_POST['decision'];
+            $dd = $em->getRepository('TRCCoreBundle:DDC\Decision')
+                        ->find($decision);
+            $commentaire = $_POST['commentaire'];
+            $eddcEtat->setDecision($dd);
+            $eddcEtat->setCommentaire($commentaire);
+            if($eddcEtat->getEtat()->getCode() == 'ETDOS'){
+                
+            }
+            die($commentaire." :: ".$decision);
+        }
+        
+        $competence = "";
+        if(is_null($eddcEtat->getSystemeText())){
+
+            $competence = "Ce dossier n'est pas de vôtre compétence";
+            if($sysddc->estDeCompetence($ddc,$fonction))
+            $competence = "Ce dossier est  de vôtre compétence";
+
+            $eddcEtat->setSystemeText($competence);
+            $em->flush();
+        }else
+        $competence = $eddcEtat->getSystemeText();
+        
+        return $this->render('TRCDDCBundle:Default:decisionCommentaire.html.twig',
+            array("ddc"=>$ddc,'phase'=>$pddc,'etat'=>$eddcEtat,'decisions'=>$arr,'competence'=>$competence));
     }
 }

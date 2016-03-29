@@ -35,10 +35,12 @@
                                     <th>matricule</th>
                                     <th>Nom</th>
                                     <th>Prenom</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {%for utilisateur in utilisateurs %}
+                                  {%set fonction = getFonction(utilisateur) %}
                                     <tr>
                                       <td>
                                       <a href="{{url('trc_admin_utilisateurs_voir',{matricule:utilisateur.matricule})}}">
@@ -55,6 +57,16 @@
                                         </td>
                                         <td>
                                            {{utilisateur.prenom}}
+                                        </td>
+                                        <td>
+                                          {%if fonction is not null %}
+                                              {%set entite = getEntite(fonction.entite) %}
+                                              {{entite.nom}}
+                                              {%if fonction.profil is not null %}
+                                               :: {{fonction.profil.code}} 
+                                               {%endif%}
+
+                                          {%endif%}
                                         </td>
                                     </tr>
 

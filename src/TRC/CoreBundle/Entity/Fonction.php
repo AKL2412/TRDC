@@ -83,6 +83,7 @@ class Fonction
         $this->dateaffectation = new \DateTime();
         $this->dateretrait = null;
         $this->active = true;
+        $this->archive = false;
     }
     /**
      * Get id

@@ -64,10 +64,10 @@ class Fichier extends \TRC\CoreBundle\Entity\DDC\Fichier implements \Doctrine\OR
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'nomoriginal', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'chemin', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'type'];
+            return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'rs', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'nomoriginal', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'chemin', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'type'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'nomoriginal', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'chemin', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'type'];
+        return ['__isInitialized__', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'id', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'nom', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'rs', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'nomoriginal', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'chemin', '' . "\0" . 'TRC\\CoreBundle\\Entity\\DDC\\Fichier' . "\0" . 'type'];
     }
 
     /**
@@ -285,6 +285,28 @@ class Fichier extends \TRC\CoreBundle\Entity\DDC\Fichier implements \Doctrine\OR
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNomoriginal', []);
 
         return parent::getNomoriginal();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRs($rs)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRs', [$rs]);
+
+        return parent::setRs($rs);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRs()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRs', []);
+
+        return parent::getRs();
     }
 
 }

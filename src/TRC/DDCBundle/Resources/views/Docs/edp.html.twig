@@ -44,7 +44,7 @@
                    </div>
                 </form>
             </div>
-            <div class="edp-body">
+            <div class="edp-body" medp="{{messages|length}}">
                 <a class="noti-modal" data-toggle="modal" data-target=".modal-general" href="#" link="{{url('trc_core_resume_ddc',{id:ddc.id})}}">
                     Voir resume
                 </a>
@@ -74,11 +74,7 @@
                                 {{medp.message|raw}}
                                 <div class="fichier">
                                     {%if medp.fichier is not null %}
-                                        {%set fichier = medp.fichier%}
-                                        Chemin : {{fichier.chemin}}<br>
-                                        Nom : {{fichier.nom}} <br>
-                                        Nom Ori: {{fichier.nomoriginal}} <br>
-                                        Type: {{fichier.type}} <br>
+                                        {%set fichier = medp.fichier%}<br>
                                         <a target="blank" href="{{asset(fichier.chemin)}} ">
                                             {{fichier.nomoriginal}}
                                         </a>

@@ -92,6 +92,18 @@ class DDC
      */
     protected $at;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\PDDC")
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $phaseActuelle;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="TRC\CoreBundle\Entity\DDC\EDDC")
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $etatActuel;
+
     public function resume(){
         $resume = "";
         
@@ -99,6 +111,7 @@ class DDC
         return $resume;
     }
     
+
 
     /**
      * Get id
@@ -159,6 +172,30 @@ class DDC
     }
 
     /**
+     * Set ordre
+     *
+     * @param string $ordre
+     *
+     * @return DDC
+     */
+    public function setOrdre($ordre)
+    {
+        $this->ordre = $ordre;
+
+        return $this;
+    }
+
+    /**
+     * Get ordre
+     *
+     * @return string
+     */
+    public function getOrdre()
+    {
+        return $this->ordre;
+    }
+
+    /**
      * Set dossier
      *
      * @param string $dossier
@@ -180,6 +217,30 @@ class DDC
     public function getDossier()
     {
         return $this->dossier;
+    }
+
+    /**
+     * Set at
+     *
+     * @param \DateTime $at
+     *
+     * @return DDC
+     */
+    public function setAt($at)
+    {
+        $this->at = $at;
+
+        return $this;
+    }
+
+    /**
+     * Get at
+     *
+     * @return \DateTime
+     */
+    public function getAt()
+    {
+        return $this->at;
     }
 
     /**
@@ -309,7 +370,7 @@ class DDC
      *
      * @return DDC
      */
-    public function setFonction(\TRC\CoreBundle\Entity\Fonction $fonction = null)
+    public function setFonction(\TRC\CoreBundle\Entity\Fonction $fonction)
     {
         $this->fonction = $fonction;
 
@@ -327,50 +388,50 @@ class DDC
     }
 
     /**
-     * Set ordre
+     * Set phaseActuelle
      *
-     * @param string $ordre
+     * @param \TRC\CoreBundle\Entity\DDC\PDDC $phaseActuelle
      *
      * @return DDC
      */
-    public function setOrdre($ordre)
+    public function setPhaseActuelle(\TRC\CoreBundle\Entity\DDC\PDDC $phaseActuelle = null)
     {
-        $this->ordre = $ordre;
+        $this->phaseActuelle = $phaseActuelle;
 
         return $this;
     }
 
     /**
-     * Get ordre
+     * Get phaseActuelle
      *
-     * @return string
+     * @return \TRC\CoreBundle\Entity\DDC\PDDC
      */
-    public function getOrdre()
+    public function getPhaseActuelle()
     {
-        return $this->ordre;
+        return $this->phaseActuelle;
     }
 
     /**
-     * Set at
+     * Set etatActuel
      *
-     * @param \DateTime $at
+     * @param \TRC\CoreBundle\Entity\DDC\EDDC $etatActuel
      *
      * @return DDC
      */
-    public function setAt($at)
+    public function setEtatActuel(\TRC\CoreBundle\Entity\DDC\EDDC $etatActuel = null)
     {
-        $this->at = $at;
+        $this->etatActuel = $etatActuel;
 
         return $this;
     }
 
     /**
-     * Get at
+     * Get etatActuel
      *
-     * @return \DateTime
+     * @return \TRC\CoreBundle\Entity\DDC\EDDC
      */
-    public function getAt()
+    public function getEtatActuel()
     {
-        return $this->at;
+        return $this->etatActuel;
     }
 }

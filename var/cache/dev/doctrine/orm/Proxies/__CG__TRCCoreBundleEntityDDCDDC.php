@@ -246,6 +246,28 @@ class DDC extends \TRC\CoreBundle\Entity\DDC\DDC implements \Doctrine\ORM\Proxy\
     /**
      * {@inheritDoc}
      */
+    public function setOrdre($ordre)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOrdre', [$ordre]);
+
+        return parent::setOrdre($ordre);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOrdre()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOrdre', []);
+
+        return parent::getOrdre();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setDossier($dossier)
     {
 
@@ -263,6 +285,28 @@ class DDC extends \TRC\CoreBundle\Entity\DDC\DDC implements \Doctrine\ORM\Proxy\
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDossier', []);
 
         return parent::getDossier();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAt($at)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAt', [$at]);
+
+        return parent::setAt($at);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAt()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAt', []);
+
+        return parent::getAt();
     }
 
     /**
@@ -378,7 +422,7 @@ class DDC extends \TRC\CoreBundle\Entity\DDC\DDC implements \Doctrine\ORM\Proxy\
     /**
      * {@inheritDoc}
      */
-    public function setFonction(\TRC\CoreBundle\Entity\Fonction $fonction = NULL)
+    public function setFonction(\TRC\CoreBundle\Entity\Fonction $fonction)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFonction', [$fonction]);
@@ -395,50 +439,6 @@ class DDC extends \TRC\CoreBundle\Entity\DDC\DDC implements \Doctrine\ORM\Proxy\
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFonction', []);
 
         return parent::getFonction();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setOrdre($ordre)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOrdre', [$ordre]);
-
-        return parent::setOrdre($ordre);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getOrdre()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOrdre', []);
-
-        return parent::getOrdre();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setAt($at)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAt', [$at]);
-
-        return parent::setAt($at);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getAt()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAt', []);
-
-        return parent::getAt();
     }
 
 }

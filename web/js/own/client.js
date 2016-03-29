@@ -63,9 +63,3 @@
 
 })();
 
-function cover($element){
-	var div = $('<div class="cover"></div>');
-	var img = $('<img src="'+loader+'" height="30">');
-	div.html(img);
-	$element.prepend(div);
-}

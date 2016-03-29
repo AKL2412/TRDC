@@ -72,6 +72,13 @@ class EDDC
      */
     private $commentaire;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="systemeText", type="text",nullable=true)
+     */
+    private $systemeText;
+
     public function __construct(){
         $this->dateajout = null;
         $this->active = false;
@@ -301,5 +308,29 @@ class EDDC
     public function getCommentaire()
     {
         return $this->commentaire;
+    }
+
+    /**
+     * Set systemeText
+     *
+     * @param string $systemeText
+     *
+     * @return EDDC
+     */
+    public function setSystemeText($systemeText)
+    {
+        $this->systemeText = $systemeText;
+
+        return $this;
+    }
+
+    /**
+     * Get systemeText
+     *
+     * @return string
+     */
+    public function getSystemeText()
+    {
+        return $this->systemeText;
     }
 }

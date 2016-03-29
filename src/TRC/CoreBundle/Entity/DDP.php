@@ -60,6 +60,34 @@ class DDP
 
     }
 
+    public function detail(){
+
+        $credits = "";
+
+        foreach ($this->tdc as $key => $t) {
+            $credits .= $t->getNom()."<br> "; 
+        }
+        $montant = $this->getMin()." - ".$this->getMax();
+        $sortie = '<p><b>Crédit(s) :</b><p> '.$credits."</p>";
+        $sortie .= '<p><b>Montant(s) :</b><p> '.$montant."</p>";
+        $sortie .= '<hr>'.$this->getDescription();
+        return $sortie;
+    }
+    public function couvrirMontant($montant){
+            if($this->getMin() <=$montant && 
+                $this->getMax() >= $montant
+            )
+                return true;
+        
+        return false;
+    }
+    public function concerneTdc(\TRC\CoreBundle\Entity\DDC\TDC $tdc){
+        foreach ($this->tdc as $key => $t) {
+            if($t->getId() == $tdc->getId())
+                return true;
+        }
+        return false;
+    }
     /**
      * Get id
      *

@@ -46,8 +46,13 @@
     </ul>
 </li>
 <li class="dropdown topbar-user">
+{%set utilisateur = getUtilisateurByCompte(app.user) %}
 <a data-hover="dropdown" href="#" class="dropdown-toggle">
-<img src="{{asset('images/avatar/48.jpg')}}" alt="" class="img-responsive img-circle"/>
+{%if utilisateur is not null %}
+<img src="{{asset(utilisateur.image)}}" alt="" class="img-responsive img-circle"/>
+{%else%}
+<img src="{{asset('img/default.png')}}" alt="" class="img-responsive img-circle"/>
+{%endif%}
  &nbsp;
  <span class="hidden-xs">{{app.user.username}} </span>&nbsp;<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-user pull-right">
